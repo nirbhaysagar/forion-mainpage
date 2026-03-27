@@ -65,20 +65,7 @@ export default function Nav({ onRequestAccess }: { onRequestAccess?: () => void 
           transition: 'background 0.4s, border-color 0.4s, backdrop-filter 0.4s',
         }}
       >
-        {/* Logo */}
-        <Link
-          href="/"
-          style={{
-            fontFamily: 'var(--font-poppins)',
-            fontSize: 34,
-            letterSpacing: '0.15em',
-            color: '#f5f5f5',
-            textDecoration: 'none',
-            textTransform: 'uppercase',
-          }}
-        >
-          Forion
-        </Link>
+
 
         {/* Desktop links */}
         <div className="hidden md:flex" style={{ gap: '3.5rem' }}>

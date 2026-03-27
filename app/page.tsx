@@ -18,8 +18,11 @@ import { useState } from 'react'
 import RequestAccessModal from '@/components/RequestAccessModal'
 import GlobalBackgroundLoader from '@/components/GlobalBackgroundLoader'
 
-// Lazy-load the heavy Three.js / shader hero to avoid blocking initial paint
-const Hero = dynamic(() => import('@/components/hero/Hero'), { ssr: false })
+// Lazy-load the heavy Three.js / shader hero to avoid blocking initial paint, but reserve exactly 100vh height so the layout doesn't collapse and jump to section 2.
+const Hero = dynamic(() => import('@/components/hero/Hero'), { 
+  ssr: false,
+  loading: () => <div style={{ height: '100vh', minHeight: 600, width: '100%', background: 'transparent' }} />
+})
 
 export default function Home() {
   const [modalOpen, setModalOpen] = useState(false)
