@@ -28,11 +28,11 @@ const AboutSection = () => {
           className="relative z-10 flex flex-col gap-2 pointer-events-none"
         >
           <span className="section-label">Our Story</span>
-          <h2 className="text-[clamp(3.5rem,8vw,7rem)] font-bold leading-none tracking-tight">
-            Built for builders
+          <h2 className="text-[clamp(3.5rem,8vw,7rem)] font-bold leading-none tracking-tight" style={{ fontFamily: 'var(--font-poppins)' }}>
+            Built For <span className="italic font-light text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.5)]" style={{ fontFamily: 'var(--font-playfair)', fontSize: '1.2em' }}>Builders</span>
             <br />
-            <span style={{ color: 'rgba(255,255,255,0.2)', fontFamily: 'var(--font-inconsolata)', fontWeight: 400 }}>
-              who move fast.
+            <span style={{ color: 'rgba(255,255,255,0.25)', fontWeight: 400 }}>
+              Who Move Fast.
             </span>
           </h2>
         </motion.div>
