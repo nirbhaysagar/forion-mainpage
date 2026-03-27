@@ -25,9 +25,9 @@ export default function AboutPage() {
             className="text-center z-10"
           >
             <span className="section-label mb-6 block">Our Story</span>
-            <h1 className="text-[clamp(3.5rem,10vw,8rem)] font-bold tracking-tight leading-[0.85] uppercase mb-8" style={{ fontFamily: 'var(--font-bebas-neue)' }}>
-              Built for <span className="opacity-30 italic" style={{ fontFamily: 'var(--font-cormorant)' }}>Builders</span><br />
-              <span className="text-white/20">who move fast.</span>
+            <h1 className="text-[clamp(3.5rem,10vw,8rem)] font-bold tracking-tight leading-[1.1] mb-8" style={{ fontFamily: 'var(--font-poppins)' }}>
+              Built For <span className="italic font-light text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.5)]" style={{ fontFamily: 'var(--font-playfair)', fontSize: '1.2em' }}>Builders</span><br />
+              <span style={{ color: 'rgba(255,255,255,0.25)', fontWeight: 400 }}>Who Move Fast.</span>
             </h1>
           </motion.div>
 
@@ -59,9 +59,9 @@ export default function AboutPage() {
         <section className="py-32 px-6 md:px-20 max-w-7xl mx-auto flex flex-col lg:flex-row gap-24 items-center">
             <div className="flex-[1] flex flex-col gap-8">
                 <span className="text-amber-400 font-mono text-[10px] uppercase tracking-[0.4em] block">The Vision</span>
-                <h2 className="text-4xl md:text-6xl font-bold tracking-tighter leading-[0.95] mb-6">
-                  Software at<br />
-                  <span className="opacity-30 italic font-light" style={{ fontFamily: 'var(--font-cormorant)' }}>Orbital Speed</span>
+                <h2 className="text-4xl md:text-6xl font-bold tracking-tighter leading-[1.1] mb-6" style={{ fontFamily: 'var(--font-poppins)' }}>
+                  Software At<br />
+                  <span className="italic font-light text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.5)]" style={{ fontFamily: 'var(--font-playfair)', fontSize: '1.2em' }}>Orbital Speed</span>
                 </h2>
                 <p className="text-lg text-white/50 leading-relaxed max-w-lg font-light">
                   We believe the future of software isn't written — it's orchestrated. Forion is building the intelligent layer that sits between your ideas and the cloud. 
