@@ -25,11 +25,11 @@ export default function ProductsPage() {
             className="text-center z-10"
           >
             <span className="section-label mb-6 block">Our Ecosystem</span>
-            <h1 className="text-[clamp(3.5rem,10vw,8rem)] font-bold tracking-tight leading-[0.85] uppercase mb-8" style={{ fontFamily: 'var(--font-bebas-neue)' }}>
-              Tools for <span className="opacity-30 italic" style={{ fontFamily: 'var(--font-cormorant)' }}>Builders</span>
+            <h1 className="text-[clamp(3.5rem,8vw,7rem)] font-bold tracking-tight leading-[1.1] mb-8" style={{ fontFamily: 'var(--font-poppins)' }}>
+              The <span className="italic font-light text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.5)]" style={{ fontFamily: 'var(--font-playfair)', fontSize: '1.2em' }}>Forion</span> Ecosystem
             </h1>
-            <p className="max-w-2xl mx-auto text-lg md:text-xl text-white/50 leading-relaxed font-light">
-              We're building the infrastructure layer for the next generation of AI-native software. No bloat. No noise. Just pure deployment power.
+            <p className="max-w-2xl mx-auto text-xl md:text-3xl text-white/80 leading-relaxed font-light" style={{ fontFamily: 'var(--font-inconsolata)' }}>
+              Architect The Impossible.
             </p>
           </motion.div>
 
@@ -136,32 +136,59 @@ export default function ProductsPage() {
           </div>
         </section>
 
-        {/* Pricing Peek */}
-        <section id="pricing" className="py-24 px-6 md:px-20 bg-white/5 border-y border-white/10 mt-24">
-           <div className="max-w-7xl mx-auto text-center">
-              <h2 className="text-4xl font-bold tracking-tight mb-4">Scalable Pricing</h2>
-              <p className="text-white/40 mb-16">Join the early adopter wave at developer-friendly rates.</p>
+        {/* Premium Pricing Section */}
+        <section id="pricing" className="py-32 px-6 md:px-20 relative mt-24 flex flex-col items-center">
+           {/* Ambient background glow */}
+           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[50%] bg-purple-900/10 blur-[120px] rounded-full pointer-events-none -z-10" />
+           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/[0.02] to-transparent pointer-events-none border-y border-white/5 -z-10" />
+
+           <div className="max-w-7xl w-full mx-auto text-center relative z-10">
+              <span className="section-label mb-6 block">Infrastructure Tiers</span>
+              <h2 className="text-[clamp(3rem,6vw,5rem)] font-bold tracking-tight leading-none mb-6">
+                <span className="uppercase" style={{ fontFamily: 'var(--font-poppins)' }}>Scalable</span>{' '}
+                <span className="italic font-light normal-case text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.5)]" style={{ fontFamily: 'var(--font-cormorant)' }}>Pricing</span>
+              </h2>
+              <p className="text-white/40 mb-20 text-lg">Join the early adopter wave at developer-friendly rates.</p>
               
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8 text-left items-center">
                  {[
-                   { name: "Personal", price: "$0", desc: "For individual tinkerers", features: ["1 Project", "Public Agents", "Community Support"] },
-                   { name: "Pro", price: "$29", desc: "For serious builders", features: ["Unlimited Projects", "Private Agents", "High Priority API"] },
-                   { name: "Team", price: "$99", desc: "For small startups", features: ["Team Collaboration", "Shared GPU Memory", "Custom Models"] }
+                   { name: "Personal", price: "$0", desc: "For individual tinkerers", features: ["1 Project", "Public Agents", "Community Support"], highlight: false },
+                   { name: "Pro", price: "$29", desc: "For serious builders", features: ["Unlimited Projects", "Private Agents", "High Priority API"], highlight: true },
+                   { name: "Team", price: "$99", desc: "For scaling startups", features: ["Team Collaboration", "Shared GPU Memory", "Custom Models"], highlight: false }
                  ].map((plan, i) => (
-                   <div key={i} className="glass-card-strong p-8 flex flex-col gap-6">
+                   <div 
+                      key={i} 
+                      className={`relative p-8 flex flex-col gap-8 rounded-2xl backdrop-blur-xl transition-all duration-500 hover:-translate-y-2
+                        ${plan.highlight ? 'bg-white/10 border border-white/30 shadow-[0_0_40px_rgba(255,255,255,0.1)] lg:scale-105 py-12 z-20' : 'bg-black/40 border border-white/10 hover:border-white/20 z-10'}`}
+                   >
+                      {plan.highlight && (
+                        <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 px-4 py-1 bg-white text-black text-[10px] font-bold uppercase tracking-widest rounded-full shadow-lg">
+                          Most Popular
+                        </div>
+                      )}
+                      
                       <div>
-                        <h4 className="text-xl font-bold">{plan.name}</h4>
-                        <div className="text-3xl font-bold mt-2">{plan.price}<span className="text-sm font-normal text-white/30">/mo</span></div>
-                        <p className="text-xs text-white/40 mt-1">{plan.desc}</p>
+                        <h4 className="text-2xl font-bold uppercase tracking-wider" style={{ fontFamily: 'var(--font-bebas-neue)' }}>{plan.name}</h4>
+                        <div className="text-5xl font-light tracking-tighter mt-4 text-white drop-shadow-sm" style={{ fontFamily: 'var(--font-jetbrains)' }}>
+                          {plan.price}<span className="text-lg font-normal text-white/30 font-sans tracking-normal">/mo</span>
+                        </div>
+                        <p className="text-sm text-white/50 mt-3">{plan.desc}</p>
                       </div>
-                      <ul className="flex flex-col gap-3 border-t border-white/5 pt-6">
+
+                      <ul className="flex flex-col gap-4 border-t border-white/10 pt-8 flex-grow">
                         {plan.features.map((f, j) => (
-                          <li key={j} className="text-xs text-white/60 flex items-center gap-2">
-                             <div className="w-1.5 h-1.5 rounded-full bg-white/20" /> {f}
+                          <li key={j} className="text-sm text-white/70 flex items-center gap-3">
+                             <div className={`w-1.5 h-1.5 rounded-full ${plan.highlight ? 'bg-white shadow-[0_0_8px_rgba(255,255,255,0.8)]' : 'bg-white/20'}`} /> {f}
                           </li>
                         ))}
                       </ul>
-                      <button onClick={() => setModalOpen(true)} className="mt-4 w-full py-3 rounded border border-white/20 hover:bg-white/5 transition-colors text-[10px] uppercase font-bold tracking-widest text-center">
+
+                      <button 
+                        onClick={() => setModalOpen(true)} 
+                        className={`mt-4 w-full py-4 rounded-lg transition-colors text-xs uppercase font-bold tracking-widest text-center
+                          ${plan.highlight ? 'bg-white text-black hover:bg-white/90 shadow-xl' : 'border border-white/20 hover:bg-white/10 text-white'}`}
+                        style={{ fontFamily: 'var(--font-inconsolata)' }}
+                      >
                         Request Access
                       </button>
                    </div>

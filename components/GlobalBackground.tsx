@@ -3,81 +3,128 @@
 import { useRef, useMemo } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
-import BlackHole from './BlackHole'
 
-// Refined multi-tonal radial star texture
-function makeCircleTexture() {
-  const size = 64
-  const canvas = document.createElement('canvas')
-  canvas.width = canvas.height = size
-  const ctx = canvas.getContext('2d')!
-  const grad = ctx.createRadialGradient(size/2, size/2, 0, size/2, size/2, size/2)
-  grad.addColorStop(0, 'rgba(255,255,255,1)')
-  grad.addColorStop(0.2, 'rgba(255,250,230,0.8)')
-  grad.addColorStop(0.5, 'rgba(180,210,255,0.4)')
-  grad.addColorStop(1, 'rgba(255,255,255,0)')
-  ctx.fillStyle = grad
-  ctx.fillRect(0, 0, size, size)
-  return new THREE.CanvasTexture(canvas)
+const starFragShader = `
+uniform float uTime;
+uniform vec2 uResolution;
+
+// Hash function for pseudo-random noise
+float hash21(vec2 p) {
+    p = fract(p * vec2(123.34, 456.21));
+    p += dot(p, p + 45.32);
+    return fract(p.x * p.y);
 }
 
-function Starfield({ count = 2000 }: { count?: number }) {
-  const ref = useRef<THREE.Points>(null)
-  const texture = useMemo(() => makeCircleTexture(), [])
+// 2D Rotation matrix
+mat2 rot(float a) {
+    float s = sin(a), c = cos(a);
+    return mat2(c, -s, s, c);
+}
 
-  const [positions, sizes] = useMemo(() => {
-    const pos = new Float32Array(count * 3)
-    const sz = new Float32Array(count)
-    for (let i = 0; i < count; i++) {
-      pos[i * 3]     = (Math.random() - 0.5) * 60
-      pos[i * 3 + 1] = (Math.random() - 0.5) * 60
-      pos[i * 3 + 2] = (Math.random() - 0.5) * 60
-      sz[i] = 0.05 + Math.pow(Math.random(), 2.0) * 0.15 // Variation in size
-    }
-    return [pos, sz]
-  }, [count])
+// Generates a grid of stars with precise gaussian falloff and twinkling
+vec3 starLayer(vec2 uv, float scale, vec3 colorMap, float speed, float starSize) {
+    vec2 pos = uv * scale;
+    vec2 id = floor(pos);
+    pos = fract(pos) - 0.5;
 
-  const geo = useMemo(() => {
-    const g = new THREE.BufferGeometry()
-    g.setAttribute('position', new THREE.BufferAttribute(positions, 3))
-    g.setAttribute('size', new THREE.BufferAttribute(sizes, 1))
-    return g
-  }, [positions, sizes])
+    float r = hash21(id); // deterministic random value per cell
 
-  useFrame((_, delta) => {
-    if (ref.current) {
-      ref.current.rotation.y += delta * 0.003
-      ref.current.rotation.x += delta * 0.001
+    // Star position offset within cell
+    vec2 starPos = vec2(hash21(id + 13.0), hash21(id + 71.0)) - 0.5;
+    
+    // Temporal twinkling effect
+    float twinkle = sin(uTime * speed + r * 100.0) * 0.5 + 0.5;
+    twinkle *= pow(twinkle, 3.0); // Non-linear curve for sharper twinkles
+
+    // Distance to current fragment
+    float d = length(pos - starPos);
+    
+    // Core glow (Gaussian-like)
+    float glow = starSize / (d + 0.0001);
+    glow *= smoothstep(0.5, 0.0, d); // cull outside cell
+
+    // Probability threshold to make stars sparse
+    float probability = step(0.9, r);
+    // Add extra brightness for super rare stars
+    float ultraBright = step(0.99, r) * 2.0;
+
+    float brightness = (probability * 1.5 + ultraBright);
+
+    return colorMap * glow * brightness * twinkle;
+}
+
+void main() {
+    // Normalizing coordinates and fixing aspect ratio
+    vec2 uv = (gl_FragCoord.xy - 0.5 * uResolution.xy) / min(uResolution.y, uResolution.x);
+    
+    // Slow cinematic planetary rotation for the whole sky
+    uv *= rot(uTime * 0.005);
+
+    vec3 text = vec3(0.0);
+
+    // Base: Pure deep space dark void (pitch black)
+    vec2 bgUv = uv;
+    text += vec3(0.0) * (1.0 - length(bgUv) * 0.5);
+
+    // Layer 1: Extremely distant faint stars (dense but very dim)
+    text += starLayer(uv, 120.0, vec3(0.2, 0.25, 0.35), 0.2, 0.0015);
+    
+    // Layer 2: Mid-distance stars (golden/orange, sparser, dim)
+    text += starLayer(uv + vec2(100.0), 60.0, vec3(0.35, 0.3, 0.2), 0.5, 0.0025);
+    
+    // Layer 3: Close hero stars (toned down significantly)
+    text += starLayer(uv + vec2(-50.0), 30.0, vec3(0.4, 0.45, 0.5), 1.0, 0.004);
+
+    gl_FragColor = vec4(text, 1.0);
+}
+`
+
+const starVertShader = `
+void main() {
+    // Full screen quad rendering
+    gl_Position = vec4(position, 1.0);
+}
+`
+
+function SpacePlane() {
+  const materialRef = useRef<THREE.ShaderMaterial>(null)
+
+  useFrame((state) => {
+    if (materialRef.current) {
+      materialRef.current.uniforms.uTime.value = state.clock.elapsedTime
+      materialRef.current.uniforms.uResolution.value.set(state.size.width, state.size.height)
     }
   })
 
+  const uniforms = useMemo(() => ({
+    uTime: { value: 0 },
+    uResolution: { value: new THREE.Vector2() }
+  }), [])
+
   return (
-    <points ref={ref} geometry={geo}>
-      <pointsMaterial
-        size={0.08}
-        map={texture}
-        transparent
-        opacity={0.5}
-        sizeAttenuation
-        alphaTest={0.01}
+    <mesh>
+      <planeGeometry args={[2, 2]} />
+      <shaderMaterial
+        ref={materialRef}
+        fragmentShader={starFragShader}
+        vertexShader={starVertShader}
+        uniforms={uniforms}
         depthWrite={false}
+        depthTest={false}
+        transparent={true}
       />
-    </points>
+    </mesh>
   )
 }
 
 export default function GlobalBackground() {
-  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768
-
   return (
     <Canvas
-      camera={{ position: [0, 0, 6], fov: 55 }}
-      // PERFORMANCE: Lock DPR to 1 to reduce fragment shader workload
-      dpr={1}
-      gl={{ antialias: false, alpha: true, powerPreference: 'high-performance' }}
+      dpr={[1, 1.5]}
+      gl={{ antialias: false, powerPreference: 'high-performance' }}
       style={{ width: '100%', height: '100%', display: 'block' }}
     >
-      <Starfield count={isMobile ? 1200 : 3000} />
+      <SpacePlane />
     </Canvas>
   )
 }

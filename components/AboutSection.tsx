@@ -31,7 +31,7 @@ const AboutSection = () => {
           <h2 className="text-[clamp(3.5rem,8vw,7rem)] font-bold leading-none tracking-tight">
             Built for builders
             <br />
-            <span style={{ color: 'rgba(255,255,255,0.2)', fontStyle: 'italic', fontFamily: 'var(--font-cormorant)', fontWeight: 400 }}>
+            <span style={{ color: 'rgba(255,255,255,0.2)', fontFamily: 'var(--font-inconsolata)', fontWeight: 400 }}>
               who move fast.
             </span>
           </h2>
@@ -58,7 +58,7 @@ const AboutSection = () => {
           transition={{ delay: 0.4, duration: 1 }}
           className="relative z-10 mt-32 md:mt-40 max-w-xl"
         >
-          <p className="text-xl md:text-2xl leading-relaxed" style={{ color: 'rgba(255,255,255,0.6)', fontStyle: 'italic', fontFamily: 'var(--font-cormorant)' }}>
+          <p className="text-xl md:text-2xl leading-relaxed" style={{ color: 'rgba(255,255,255,0.6)', fontFamily: 'var(--font-inconsolata)' }}>
             We build the infrastructure that makes AI <em>work</em> — not just run.
           </p>
           <p className="mt-6 text-base md:text-lg leading-relaxed" style={{ color: 'rgba(255,255,255,0.45)' }}>
@@ -75,9 +75,9 @@ const AboutSection = () => {
           viewport={{ once: true }}
           transition={{ duration: 1 }}
         >
-          <h3 className="section-heading max-w-4xl">
+          <h3 className="section-heading max-w-4xl" style={{ fontFamily: 'var(--font-inconsolata)' }}>
             Our infrastructure runs on the same networks as{' '}
-            <span style={{ fontStyle: 'italic', fontFamily: 'var(--font-cormorant)', fontWeight: 400, color: 'rgba(255,255,255,0.9)' }}>
+            <span style={{ fontFamily: 'var(--font-cormorant)', fontStyle: 'italic', fontWeight: 400, color: 'rgba(255,255,255,0.9)' }}>
               High-Performance
             </span>
             {' '}AI platforms — and it's available to you on day one.
@@ -114,7 +114,7 @@ const AboutSection = () => {
           <h4 className="text-3xl md:text-5xl font-light leading-tight" style={{ color: 'rgba(255,255,255,0.85)' }}>
             Resilience. Observability.
             <br />
-            <span style={{ fontStyle: 'italic', fontFamily: 'var(--font-cormorant)', fontWeight: 300 }}>
+            <span style={{ fontFamily: 'var(--font-inconsolata)', fontWeight: 300 }}>
               Delivered at scale.
             </span>
           </h4>

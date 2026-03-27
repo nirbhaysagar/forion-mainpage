@@ -58,17 +58,17 @@ export default function Hero({ onRequestAccess }: { onRequestAccess?: () => void
         }}
       >
         {/* Dark scrim behind text for legibility */}
-        <div 
-          className="absolute inset-0 bg-gradient-radial from-black/60 via-black/20 to-transparent -z-10 pointer-events-none" 
+        <div
+          className="absolute inset-0 bg-gradient-radial from-black/60 via-black/20 to-transparent -z-10 pointer-events-none"
           style={{ transform: 'scale(1.5)' }}
         />
 
         {/* Cinematic Headline */}
-        <h1 
-          className="text-7xl md:text-[12rem] lg:text-[14rem] font-bold tracking-tighter leading-[0.85] mb-6 relative z-20 italic text-white"
+        <h1
+          className="text-8xl md:text-[14rem] lg:text-[16rem] font-bold tracking-[0.05em] leading-[0.85] mb-6 relative z-20 text-white uppercase"
           style={{
-            fontFamily: 'var(--font-cormorant)',
-            textShadow: '0 0 60px rgba(255,200,80,0.25), 0 2px 8px rgba(0,0,0,0.9), 0 0 2px rgba(0,0,0,1)',
+            fontFamily: 'var(--font-poppins)',
+            textShadow: '0 0 60px rgba(255,200,80,0.2), 0 2px 8px rgba(0,0,0,0.9)',
             margin: '0 0 1.5rem 0'
           }}
         >
@@ -78,9 +78,8 @@ export default function Hero({ onRequestAccess }: { onRequestAccess?: () => void
         {/* Animated subtitle — typewriter */}
         <p
           style={{
-            fontFamily: 'var(--font-cormorant)',
+            fontFamily: 'var(--font-inconsolata)',
             fontSize: 'clamp(14px, 2.2vw, 24px)',
-            fontStyle: 'italic',
             color: 'rgba(255,255,255,0.9)',
             fontWeight: 500,
             marginTop: '0.4rem',

@@ -22,7 +22,7 @@ const Footer = () => {
                   { l: "Pricing", h: "/products#pricing" },
                   { l: "Changelog", h: "/docs#changelog" },
                 ].map(item => (
-                  <Link key={item.l} href={item.h} className="text-sm hover:text-white transition-colors tracking-tight" style={{ color: 'rgba(255,255,255,0.45)', fontFamily: 'var(--font-cormorant)', fontStyle: 'italic' }}>{item.l}</Link>
+                  <Link key={item.l} href={item.h} className="text-sm hover:text-white transition-colors tracking-tight" style={{ color: 'rgba(255,255,255,0.45)', fontFamily: 'var(--font-inconsolata)' }}>{item.l}</Link>
                 ))}
               </div>
             </div>
@@ -37,7 +37,7 @@ const Footer = () => {
                   { l: "GitHub", h: "https://github.com/forgje" },
                   { l: "Status", h: "https://status.forion.dev" },
                 ].map(item => (
-                  <Link key={item.l} href={item.h} className="text-sm hover:text-white transition-colors tracking-tight" style={{ color: 'rgba(255,255,255,0.45)', fontFamily: 'var(--font-cormorant)', fontStyle: 'italic' }}>{item.l}</Link>
+                  <Link key={item.l} href={item.h} className="text-sm hover:text-white transition-colors tracking-tight" style={{ color: 'rgba(255,255,255,0.45)', fontFamily: 'var(--font-inconsolata)' }}>{item.l}</Link>
                 ))}
               </div>
             </div>
@@ -52,7 +52,7 @@ const Footer = () => {
                   { l: "Blog", h: "/blog" },
                   { l: "Contact", h: "mailto:hello@forion.dev" },
                 ].map(item => (
-                  <Link key={item.l} href={item.h} className="text-sm hover:text-white transition-colors tracking-tight" style={{ color: 'rgba(255,255,255,0.45)', fontFamily: 'var(--font-cormorant)', fontStyle: 'italic' }}>{item.l}</Link>
+                  <Link key={item.l} href={item.h} className="text-sm hover:text-white transition-colors tracking-tight" style={{ color: 'rgba(255,255,255,0.45)', fontFamily: 'var(--font-inconsolata)' }}>{item.l}</Link>
                 ))}
               </div>
             </div>
@@ -63,7 +63,7 @@ const Footer = () => {
                 <span style={{ fontFamily: 'var(--font-bebas-neue)', fontSize: '1.4rem', letterSpacing: '0.12em', color: '#f5f5f5' }}>
                   FORION
                 </span>
-                <p className="mt-3 text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.35)', fontFamily: 'var(--font-cormorant)', fontStyle: 'italic' }}>
+                <p className="mt-3 text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.35)', fontFamily: 'var(--font-inconsolata)' }}>
                   The orchestration layer for AI teams.
                 </p>
               </div>
@@ -97,8 +97,8 @@ const Footer = () => {
         {/* Bottom bar */}
         <div className="mt-6 flex flex-col sm:flex-row justify-between items-center gap-4">
           <div className="flex gap-8 order-2 sm:order-1">
-             <Link href="/privacy" className="text-[9px] uppercase tracking-[0.4em] hover:text-white transition-colors" style={{ color: 'rgba(255,255,255,0.18)', fontFamily: 'var(--font-jetbrains)' }}>Privacy</Link>
-             <Link href="/terms" className="text-[9px] uppercase tracking-[0.4em] hover:text-white transition-colors" style={{ color: 'rgba(255,255,255,0.18)', fontFamily: 'var(--font-jetbrains)' }}>Terms</Link>
+            <Link href="/privacy" className="text-[9px] uppercase tracking-[0.4em] hover:text-white transition-colors" style={{ color: 'rgba(255,255,255,0.18)', fontFamily: 'var(--font-jetbrains)' }}>Privacy</Link>
+            <Link href="/terms" className="text-[9px] uppercase tracking-[0.4em] hover:text-white transition-colors" style={{ color: 'rgba(255,255,255,0.18)', fontFamily: 'var(--font-jetbrains)' }}>Terms</Link>
           </div>
           <span className="text-[9px] uppercase tracking-[0.3em] order-1 sm:order-2" style={{ color: 'rgba(255,255,255,0.18)', fontFamily: 'var(--font-jetbrains)' }}>© 2026 Forion Systems</span>
         </div>

@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Bebas_Neue, Cormorant_Garamond, JetBrains_Mono } from 'next/font/google'
+import { Bebas_Neue, Cormorant_Garamond, JetBrains_Mono, Poppins, Inconsolata, Playfair_Display } from 'next/font/google'
 import './globals.css'
 import Cursor from '@/components/shared/Cursor'
 import GlobalBackgroundLoader from '../components/GlobalBackgroundLoader'
@@ -23,6 +23,23 @@ const jetbrains = JetBrains_Mono({
   weight: ['400', '500'],
 })
 
+const poppins = Poppins({
+  variable: '--font-poppins',
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
+})
+
+const inconsolata = Inconsolata({
+  variable: '--font-inconsolata',
+  subsets: ['latin'],
+})
+
+const playfair = Playfair_Display({
+  variable: '--font-playfair',
+  subsets: ['latin'],
+  style: ['italic'],
+})
+
 export const metadata: Metadata = {
   title: 'Forion — AI-Native Infrastructure',
   description: 'Build and deploy AI-native apps in minutes, not months.',
@@ -42,10 +59,19 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${bebasNeue.variable} ${cormorant.variable} ${jetbrains.variable}`}
+      suppressHydrationWarning
+      className={`${bebasNeue.variable} ${cormorant.variable} ${jetbrains.variable} ${poppins.variable} ${inconsolata.variable} ${playfair.variable}`}
       style={{ background: '#000', overflowX: 'hidden', maxWidth: '100vw' }}
     >
-      <body className="antialiased" style={{ background: 'transparent', margin: 0, overflowX: 'hidden', maxWidth: '100vw' }}>
+      <head>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700;900&display=swap" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@8..144,100..1000&display=swap" />
+      </head>
+      <body 
+        className="antialiased" 
+        style={{ background: 'transparent', margin: 0, overflowX: 'hidden', maxWidth: '100vw' }}
+        suppressHydrationWarning
+      >
 
         {/* Global path-aware background (Stars everywhere, Blackhole on Home) */}
         <div style={{ position: 'fixed', inset: 0, zIndex: 0, background: '#000', pointerEvents: 'none' }}>
