@@ -37,7 +37,7 @@ export default function ProductsPage() {
         {/* Product Cards Section */}
         <section className="py-24 px-6 md:px-20 max-w-7xl mx-auto flex flex-col gap-32">
           {/* Orbit Card */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div id="orbit" className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -68,7 +68,7 @@ export default function ProductsPage() {
                 ))}
               </ul>
 
-              <a href="https://orbit.forion.dev/" target="_blank" rel="noopener noreferrer" className="w-fit px-8 py-4 bg-white text-black font-bold rounded-lg uppercase text-[11px] tracking-widest hover:opacity-90 transition-opacity">
+              <a href="https://orbit-night-sky-main.vercel.app/" target="_blank" rel="noopener noreferrer" className="w-fit px-8 py-4 bg-white text-black font-bold rounded-lg uppercase text-[11px] tracking-widest hover:opacity-90 transition-opacity">
                 Explore Orbit
               </a>
             </motion.div>
@@ -85,7 +85,7 @@ export default function ProductsPage() {
           </div>
 
           {/* Spark Card */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div id="spark" className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -129,6 +129,54 @@ export default function ProductsPage() {
               <a href="https://spark.forgje.com/" target="_blank" rel="noopener noreferrer" className="w-fit px-8 py-4 bg-white text-black font-bold rounded-lg uppercase text-[11px] tracking-widest hover:opacity-90 transition-opacity">
                 Launch Spark
               </a>
+            </motion.div>
+          </div>
+
+          {/* AgentTrace Card */}
+          <div id="agenttrace" className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="flex flex-col gap-8"
+            >
+              <div>
+                <span className="text-blue-400 font-mono text-[10px] uppercase tracking-[0.4em] mb-4 block">Compliance & Audit</span>
+                <h2 className="text-5xl font-bold tracking-tighter mb-6">AgentTrace</h2>
+                <p className="text-lg text-white/50 leading-relaxed">
+                  AgentTrace is a deterministic replay engine for AI agents. It records every decision, state transition, and model call with cryptographic integrity, providing absolute proof of agent behavior for enterprise governance.
+                </p>
+              </div>
+
+              <ul className="flex flex-col gap-4">
+                {[
+                  "Deterministic Replay Engine",
+                  "HMAC-SHA256 Signed Traces",
+                  "Hermetic Sandboxing",
+                  "Cryptographic Proof Generation"
+                ].map((feature, i) => (
+                  <li key={i} className="flex items-center gap-3 text-sm text-white/70">
+                    <div className="w-5 h-5 rounded-full bg-blue-500/10 border border-blue-500/20 flex items-center justify-center flex-shrink-0">
+                      <Check size={12} className="text-blue-400" />
+                    </div>
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+
+              <button onClick={() => setModalOpen(true)} className="w-fit px-8 py-4 bg-white text-black font-bold rounded-lg uppercase text-[11px] tracking-widest hover:opacity-90 transition-opacity">
+                Record Every Decision
+              </button>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              className="relative group rounded-3xl overflow-hidden border border-blue-500/20 shadow-2xl shadow-blue-500/5 aspect-video"
+            >
+              <img src="/about_workstation.png" alt="AgentTrace UI" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
             </motion.div>
           </div>
         </section>

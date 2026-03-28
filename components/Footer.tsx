@@ -17,7 +17,7 @@ const Footer = () => {
               <span className="text-[11px] font-bold uppercase tracking-[0.5em]" style={{ color: 'rgba(255,255,255,0.4)', fontFamily: 'var(--font-jetbrains)' }}>Platform</span>
               <div className="flex flex-col gap-4">
                 {[
-                  { l: "Orbit Builder", h: "https://orbit.forion.dev/" },
+                  { l: "Orbit Builder", h: "https://orbit-night-sky-main.vercel.app/" },
                   { l: "Spark Agents", h: "https://spark.forgje.com/" },
                   { l: "AgentTrace", h: "/products#agenttrace" },
                   { l: "Pricing", h: "/products#pricing" },
