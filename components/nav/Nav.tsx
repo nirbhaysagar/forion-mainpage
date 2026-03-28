@@ -95,19 +95,18 @@ export default function Nav() {
         </div>
 
         <button
-          className="hidden lg:block uppercase"
+          className="hidden lg:block"
           onClick={() => setModalOpen(true)}
           style={{
-            fontFamily: 'var(--font-inconsolata)',
-            fontSize: 13,
-            letterSpacing: '0.15em',
-            textTransform: 'uppercase',
+            fontFamily: 'var(--font-poppins)',
+            fontSize: 14,
+            letterSpacing: '0.08em',
             color: '#000',
             background: '#f5f5f5',
-            padding: '12px 28px',
+            padding: '10px 24px',
             borderRadius: 6,
             textDecoration: 'none',
-            fontWeight: 800,
+            fontWeight: 700,
             border: 'none',
             cursor: 'pointer',
             transition: 'opacity 0.2s',
@@ -115,7 +114,7 @@ export default function Nav() {
           onMouseEnter={(e) => ((e.target as HTMLElement).style.opacity = '0.8')}
           onMouseLeave={(e) => ((e.target as HTMLElement).style.opacity = '1')}
         >
-          Start Building with Orbit
+          Start building with Orbit
         </button>
 
         {/* Mobile hamburger */}

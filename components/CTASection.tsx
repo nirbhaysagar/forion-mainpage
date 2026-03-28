@@ -31,12 +31,13 @@ const CTASection = ({ onRequestAccess }: { onRequestAccess?: () => void }) => {
           <div className="flex gap-4 justify-center flex-wrap">
             <button
               onClick={onRequestAccess}
-              className="px-10 py-5 bg-white text-black font-bold rounded-sm uppercase text-[12px] tracking-widest hover:opacity-90 transition-all hover:scale-[1.02] active:scale-[0.98]"
+              className="px-10 py-5 bg-white text-black font-bold rounded-lg text-[16px] tracking-widest hover:opacity-90 transition-all hover:scale-[1.02] active:scale-[0.98]"
+              style={{ fontFamily: 'var(--font-poppins)' }}
             >
-              Start Building with Orbit
+              Start building with Orbit
             </button>
-            <a href="#products" className="px-10 py-4 border border-white/20 text-white font-bold rounded-lg uppercase text-[11px] tracking-widest hover:bg-white/5 transition-colors">
-              Explore the Stack
+            <a href="#products" className="px-10 py-5 border border-white/20 text-white font-bold rounded-lg text-[15px] tracking-widest hover:bg-white/5 transition-colors" style={{ fontFamily: 'var(--font-poppins)' }}>
+              Explore the stack
             </a>
           </div>
         </motion.div>

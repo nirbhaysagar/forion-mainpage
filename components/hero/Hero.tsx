@@ -191,23 +191,22 @@ export default function Hero({ onRequestAccess }: { onRequestAccess?: () => void
             whileHover={{ scale: 1.02, boxShadow: '0 0 40px rgba(255,255,255,0.15)' }}
             whileTap={{ scale: 0.98 }}
             style={{
-              fontFamily: 'var(--font-jetbrains)',
-              fontSize: 13,
-              letterSpacing: '0.15em',
-              textTransform: 'uppercase',
+              fontFamily: 'var(--font-poppins)',
+              fontSize: 16,
+              letterSpacing: '0.1em',
               color: '#000',
               background: '#fff',
-              padding: '20px 48px',
+              padding: '22px 52px',
               textDecoration: 'none',
-              borderRadius: 4,
+              borderRadius: 8,
               display: 'inline-block',
-              fontWeight: 800,
+              fontWeight: 700,
               cursor: 'pointer',
               border: 'none',
               transition: 'box-shadow 0.3s ease'
             }}
           >
-            Start Building with Orbit
+            Start building with Orbit
           </motion.button>
         </motion.div>
       </div>

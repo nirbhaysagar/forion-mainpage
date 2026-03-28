@@ -93,9 +93,10 @@ export default function MobileMenu() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.4 }}
-            className="mt-8 px-10 py-5 bg-white text-black font-bold rounded-lg uppercase text-xs tracking-[0.3em]"
+            className="mt-8 px-10 py-5 bg-white text-black font-bold rounded-lg text-sm tracking-[0.1em]"
+            style={{ fontFamily: 'var(--font-poppins)' }}
           >
-            Start Building with Orbit
+            Start building with Orbit
           </motion.button>
 
           {/* Starfield background dots */}
