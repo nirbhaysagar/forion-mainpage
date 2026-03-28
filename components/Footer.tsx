@@ -8,10 +8,7 @@ const Footer = () => {
     <footer className="text-white pt-24 pb-8 px-6 md:px-12 overflow-hidden" style={{ background: '#000' }}>
       <div className="mx-auto max-w-7xl">
         {/* Top row: brand + nav cols */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16 mb-16 pb-16" style={{ borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
-
-          {/* Brand + newsletter */}
-          <div className="md:col-span-12 grid grid-cols-2 md:grid-cols-4 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-16 mb-16 pb-16" style={{ borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
             {/* Products */}
             <div className="flex flex-col gap-5">
               <span className="text-[9px] font-bold uppercase tracking-[0.4em]" style={{ color: 'rgba(255,255,255,0.3)', fontFamily: 'var(--font-jetbrains)' }}>Platform</span>
@@ -57,11 +54,11 @@ const Footer = () => {
               </div>
             </div>
 
-            {/* Brand + Newsletter */}
-            <div className="flex flex-col gap-8">
+            {/* Brand + Newsletter - Move to first or last col depending on layout */}
+            <div className="flex flex-col gap-8 order-first">
               <div>
                 <img src="/main-logo.svg" alt="Forion Logo" style={{ height: '32px', width: 'auto', marginBottom: '12px' }} />
-                <p className="mt-3 text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.35)', fontFamily: 'var(--font-inconsolata)' }}>
+                <p className="mt-3 text-xs leading-relaxed max-w-[240px]" style={{ color: 'rgba(255,255,255,0.35)', fontFamily: 'var(--font-inconsolata)' }}>
                   Forion is the operating system for building AI-native applications.
                 </p>
               </div>
@@ -84,7 +81,6 @@ const Footer = () => {
                 ))}
               </div>
             </div>
-          </div>
         </div>
 
         {/* Typographic signature */}

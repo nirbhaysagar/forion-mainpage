@@ -74,7 +74,6 @@ export default function Hero({ onRequestAccess }: { onRequestAccess?: () => void
             left: '2rem',
             top: '50%',
             transform: 'translateY(-50%)',
-            display: 'flex',
             flexDirection: 'column',
             gap: '2.5rem',
             textAlign: 'left',
@@ -113,11 +112,11 @@ export default function Hero({ onRequestAccess }: { onRequestAccess?: () => void
 
         {/* Cinematic Headline */}
         <h1
-          className="text-8xl md:text-[14rem] lg:text-[16rem] font-bold tracking-[0.05em] leading-[0.85] mb-6 relative z-20 text-white uppercase"
+          className="text-[clamp(4.5rem,15vw,16rem)] font-bold tracking-[0.05em] leading-[0.85] mb-6 relative z-20 text-white uppercase"
           style={{
             fontFamily: 'var(--font-poppins)',
             textShadow: '0 0 60px rgba(255,200,80,0.2), 0 2px 8px rgba(0,0,0,0.9)',
-            margin: '2rem 0 1.5rem 0'
+            margin: 'clamp(1rem, 4vw, 2rem) 0 1.5rem 0'
           }}
         >
           Forion

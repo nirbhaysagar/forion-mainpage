@@ -90,7 +90,13 @@ export default function RootLayout({
           <Cursor />
 
           {/* Content sits on top */}
-          <div style={{ position: 'relative', zIndex: 1 }}>
+          <div 
+            className="relative z-10 transition-all duration-700"
+            style={{ 
+              maxWidth: '100vw', 
+              overflowX: 'hidden'
+            }}
+          >
             {children}
           </div>
         </UIProvider>

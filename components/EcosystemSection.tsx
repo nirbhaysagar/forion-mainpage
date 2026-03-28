@@ -155,9 +155,9 @@ const EcosystemSection = () => {
     const handleResize = () => {
       const width = window.innerWidth;
       if (width < 768) {
-        setScale(Math.min(width / 1100, 0.45)); // Heavy scaling for mobile
+        setScale(Math.min(width / 1200, 0.4)); // Even more aggressive scaling for small phones
       } else if (width < 1024) {
-        setScale(width / 1300);
+        setScale(width / 1400);
       } else {
         setScale(1);
       }
@@ -200,7 +200,7 @@ const EcosystemSection = () => {
                   {/* Internal Light Source */}
                   <div className="absolute inset-0 bg-gradient-to-tr from-white/[0.03] via-transparent to-white/[0.08] pointer-events-none" />
 
-                  <h2 className="text-[5rem] md:text-[7rem] font-black text-white tracking-[0.05em] uppercase leading-none glow-text-strong">
+                  <h2 className="text-[4rem] sm:text-[5rem] md:text-[7rem] font-black text-white tracking-[0.05em] uppercase leading-none glow-text-strong">
                     Forion
                   </h2>
                 </div>

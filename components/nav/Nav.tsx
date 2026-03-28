@@ -35,8 +35,9 @@ export default function Nav() {
           zIndex: 200,
           display: 'flex',
           alignItems: 'center',
-          height: '96px', // Doubled size based on user request
+          height: 'clamp(48px, 8vw, 96px)', // Responsive height
         }}
+        className="left-6 md:left-12"
       >
         <img
           src="/main-logo.svg"
@@ -56,15 +57,15 @@ export default function Nav() {
           zIndex: 200,
           display: 'flex',
           alignItems: 'center',
-          gap: '5.5rem',
-          padding: '16px 48px',
+          gap: 'clamp(1rem, 5vw, 5.5rem)', // Responsive gap
+          padding: 'clamp(12px, 2vw, 16px) clamp(24px, 4vw, 48px)', // Responsive padding
           borderRadius: 999,
           transition: 'all 0.4s ease',
         }}
         className={`
           ${scrolled
             ? 'bg-black/70 backdrop-blur-xl border border-white/10'
-            : 'md:bg-black/40 md:backdrop-blur-md md:border md:border-white/10 bg-transparent backdrop-blur-none border-transparent'
+            : 'md:bg-black/40 md:backdrop-blur-md md:border md:border-white/10 bg-black/20 backdrop-blur-sm border border-white/5'
           }
         `}
       >
