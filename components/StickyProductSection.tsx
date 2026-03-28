@@ -1,6 +1,7 @@
 'use client'
 
 import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import ProductPanel from "./ProductPanel";
 
 const products = [
@@ -9,11 +10,11 @@ const products = [
     isFlagship: true,
     description: "Orbit builds real React applications from your description — runs them live in a WebContainer inside your browser, and generates production-grade code you can take anywhere. No scaffold. No boilerplate. No wasted momentum.",
     cta: "Start Building with Orbit",
-    href: "https://orbit-night-sky-main.vercel.app/",
+    href: "https://orbit.forion.dev/",
     mainImage: "/WhatsApp Image 2026-03-20 at 22.45.00.jpeg",
     features: [
-      "Planner-first Architecture", 
-      "Auto-healing Engine", 
+      "Planner-first Architecture",
+      "Auto-healing Engine",
       "Surgical File Patching",
       "Deterministic Batching",
       "WebContainer Runtime"
@@ -26,8 +27,8 @@ const products = [
     href: "https://spark.forgje.com/",
     mainImage: "/WhatsApp Image 2026-03-20 at 22.47.49.jpeg",
     features: [
-      "Full Repository Context", 
-      "Automated PRs & Branches", 
+      "Full Repository Context",
+      "Automated PRs & Branches",
       "Actionable Intelligence",
       "Scoped Engineering Execution",
       "Real-world Codebase Access"
@@ -40,8 +41,8 @@ const products = [
     href: "#",
     mainImage: "/about_workstation.png",
     features: [
-      "Deterministic Replay", 
-      "HMAC-SHA256 Signed Traces", 
+      "Deterministic Replay",
+      "HMAC-SHA256 Signed Traces",
       "Hermetic Sandboxing",
       "Cryptographic Proof",
       "Enterprise Compliance"

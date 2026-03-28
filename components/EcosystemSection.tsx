@@ -1,66 +1,144 @@
 'use client'
 
 import { useRef, useState, useEffect } from "react";
-import { motion, useScroll, useTransform } from "framer-motion"
+import { motion, useScroll, useTransform } from "framer-motion";
 
-const nodes = [
-  { name: "PostgreSQL", x: -250, y: -120, category: "Database" },
-  { name: "Redis", x: -300, y: 50, category: "Cache" },
-  { name: "OpenAI", x: -180, y: 150, category: "Model" },
-  { name: "Anthropic", x: 180, y: 150, category: "Model" },
-  { name: "stripe", x: 300, y: 50, category: "Payments" },
-  { name: "GitHub", x: 250, y: -120, category: "Source" },
-  { name: "Vercel", x: 0, y: -200, category: "Edge" },
-  { name: "LangChain", x: 0, y: 220, category: "Orchestration" },
+const features = [
+  // Primary Products
+  { name: "Orbit", x: -400, y: -220, label: "Frontend", color: "#FFFFFF" },
+  { name: "Spark", x: 400, y: -220, label: "Execution", color: "#FF9900" },
+  { name: "AgentTrace", x: 0, y: -380, label: "Governance", color: "#4285F4" },
+
+  // Core Capabilities
+  { name: "Auto-Heal", x: -480, y: 100, label: "Reliability", color: "#26D07C" },
+  { name: "Surgical Patch", x: 480, y: 100, label: "Efficiency", color: "#FFD21E" },
+  { name: "Planner", x: 0, y: 380, label: "Reasoning", color: "#FFFFFF" },
+
+  // Infrastructure
+  { name: "IDE", x: -250, y: 280, label: "Environment", color: "#4078c0" },
+  { name: "OS Core", x: 250, y: 280, label: "Infrastructure", color: "#D97757" },
 ];
 
-const IntegrationNode = ({ x, y, name, category, i, scrollYProgress }: any) => {
-  const [hovered, setHovered] = useState(false);
-  
-  // Parallax effect
-  const op = useTransform(scrollYProgress, [0.35, 0.5, 0.65], [0, 1, 0]);
-  const scale = useTransform(scrollYProgress, [0.4, 0.5, 0.6], [0.8, 1, 0.8]);
+const getLogo = (name: string, color: string) => {
+  switch (name) {
+    case "Orbit":
+      return <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5"><circle cx="12" cy="12" r="10" stroke={color} strokeWidth="2" /><circle cx="12" cy="12" r="4" fill={color} /></svg>;
+    case "Spark":
+      return <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" fill={color} /></svg>;
+    case "AgentTrace":
+      return <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5"><path d="M12 2L2 7v10l10 5 10-5V7L12 2zM12 22v-5M12 17l8-4M12 17l-8-4" stroke={color} strokeWidth="2" /></svg>;
+    case "Auto-Heal":
+      return <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill={color} /></svg>;
+    case "Surgical Patch":
+      return <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5"><rect x="3" y="3" width="18" height="18" rx="2" stroke={color} strokeWidth="2" /><path d="M9 12h6M12 9v6" stroke={color} strokeWidth="2" /></svg>;
+    case "Planner":
+      return <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5"><path d="M3 3h18v18H3V3zM9 3v18M15 3v18M3 9h18M3 15h18" stroke={color} strokeWidth="1" /></svg>;
+    case "IDE":
+      return <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>;
+    case "OS Core":
+      return <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5"><rect x="4" y="4" width="16" height="16" rx="2" stroke={color} strokeWidth="2" /><circle cx="12" cy="12" r="3" fill={color} /></svg>;
+    default:
+      return <div className="w-4 h-4 rounded-sm bg-white/20 group-hover:bg-white transition-colors" />;
+  }
+};
+
+const IntegrationNode = ({ node, index, scrollYProgress }: { node: any, index: number, scrollYProgress: any }) => {
+  // Synchronized Reveal: All nodes finish appearing by 0.45 scroll progress
+  const revealStart = 0.1 + (index * 0.03);
+  const opacity = useTransform(scrollYProgress, [revealStart, revealStart + 0.1], [0, 1]);
+  const scale = useTransform(scrollYProgress, [revealStart, revealStart + 0.1], [0.8, 1]);
+  const yOffset = useTransform(scrollYProgress, [revealStart, revealStart + 0.1], [20, 0]);
 
   return (
     <motion.div
       style={{
-        position: 'absolute',
-        left: `calc(50% + ${x}px)`,
-        top: `calc(50% + ${y}px)`,
-        x: '-50%',
-        y: '-50%',
-        opacity: op,
-        scale: scale,
+        x: node.x,
+        y: node.y,
+        opacity,
+        scale,
+        translateY: yOffset
       }}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-      className="z-20 cursor-crosshair"
+      className="absolute z-20"
     >
-      <div className={`
-        relative px-6 py-3 rounded-full border transition-all duration-500
-        ${hovered 
-          ? 'bg-white text-black border-white shadow-[0_0_30px_rgba(255,255,255,0.4)] scale-110' 
-          : 'bg-black/40 text-white/40 border-white/5 backdrop-blur-md'
-        }
-      `}>
-        <span className="text-[10px] uppercase tracking-[0.2em] font-mono block leading-none mb-1 opacity-50">
-          {category}
-        </span>
-        <span className="text-sm font-bold tracking-tight whitespace-nowrap">
-          {name}
-        </span>
-
-        {/* Connection line to center */}
-        <div className={`
-          absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10
-          w-[1px] bg-gradient-to-t from-white/10 to-transparent transition-opacity duration-500
-          ${hovered ? 'opacity-40' : 'opacity-10'}
-        `} style={{ 
-          height: Math.sqrt(x*x + y*y), 
-          transform: `translate(-50%, -50%) rotate(${Math.atan2(-x, y) * 180 / Math.PI}deg) translateY(${Math.sqrt(x*x + y*y)/2}px)`
-        }} />
-      </div>
+      <motion.div
+        animate={{
+          boxShadow: [
+            `0 0 20px ${node.color}00`,
+            `0 0 25px ${node.color}22`,
+            `0 0 20px ${node.color}00`
+          ]
+        }}
+        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: index * 0.2 }}
+        className={`glass-card-strong px-6 py-4 flex items-center gap-3 group backdrop-blur-2xl border-white/10 hover:border-white/40 transition-all duration-500`}
+        style={{ '--hover-color': node.color } as any}
+      >
+        <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center transition-colors group-hover:border-[var(--hover-color)]/50">
+          {getLogo(node.name, node.color)}
+        </div>
+        <div>
+          <span className="block text-[10px] text-white/40 uppercase tracking-[0.5em] font-mono mb-1 group-hover:text-[var(--hover-color)]/60 transition-colors">
+            {node.label}
+          </span>
+          <h4 className="text-sm font-bold text-white tracking-tight group-hover:text-white transition-colors">
+            {node.name}
+          </h4>
+        </div>
+      </motion.div>
     </motion.div>
+  );
+};
+
+const Vine = ({ endX, endY, index, scrollYProgress, color }: { endX: number, endY: number, index: number, scrollYProgress: any, color: string }) => {
+  const cp1x = endX * 0.2;
+  const cp1y = endY * 0.8;
+  const cp2x = endX * 0.6;
+  const cp2y = endY * 0.2;
+
+  const path = `M 0 0 C ${cp1x} ${cp1y}, ${cp2x} ${cp2y}, ${endX} ${endY}`;
+
+  // Synchronized Connection: All vines finish drawing by 0.4 scroll progress
+  const pathLength = useTransform(scrollYProgress, [0.05, 0.2 + (index * 0.02)], [0, 1]);
+  const opacity = useTransform(scrollYProgress, [0.05, 0.15], [0, 0.2]);
+
+  return (
+    <g>
+      {/* Base Path */}
+      <motion.path
+        d={path}
+        fill="transparent"
+        stroke="white"
+        strokeWidth="1"
+        strokeLinecap="round"
+        style={{ pathLength, opacity }}
+      />
+      {/* Glow Path */}
+      <motion.path
+        d={path}
+        fill="transparent"
+        stroke={color}
+        strokeWidth="3"
+        strokeLinecap="round"
+        style={{ pathLength, opacity: useTransform(opacity, (o: number) => o * 0.2) }}
+        className="blur-[2px]"
+      />
+      {/* Travel Pulse */}
+      <motion.path
+        d={path}
+        fill="transparent"
+        stroke={color}
+        strokeWidth="2"
+        strokeLinecap="round"
+        initial={{ pathLength: 0.1, pathOffset: 0 }}
+        animate={{ pathOffset: 1 }}
+        transition={{
+          duration: 3 + Math.random() * 2,
+          repeat: Infinity,
+          ease: "linear",
+          delay: index * 0.5
+        }}
+        style={{ opacity: useTransform(opacity, (o: number) => o * 0.8) }}
+      />
+    </g>
   );
 };
 
@@ -71,53 +149,110 @@ const EcosystemSection = () => {
     offset: ["start end", "end start"],
   });
 
-  const hubScale = useTransform(scrollYProgress, [0.4, 0.5, 0.6], [0.9, 1.1, 0.9]);
-  const hubOpacity = useTransform(scrollYProgress, [0.35, 0.45, 0.55, 0.65], [0, 1, 1, 0]);
+  // Calculate scale factor for mobile responsiveness
+  const [scale, setScale] = useState(1);
+  useEffect(() => {
+    const handleResize = () => {
+      const width = window.innerWidth;
+      if (width < 768) {
+        setScale(Math.min(width / 1100, 0.45)); // Heavy scaling for mobile
+      } else if (width < 1024) {
+        setScale(width / 1300);
+      } else {
+        setScale(1);
+      }
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   return (
-    <section ref={containerRef} className="relative h-[200vh] bg-black overflow-hidden px-6">
-      <div className="sticky top-0 h-screen w-full flex items-center justify-center pointer-events-none">
-        {/* Background Grid Accent */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.03)_0,transparent_70%)] z-0" />
-        
-        {/* Centered Hub */}
-        <motion.div 
-          style={{ scale: hubScale, opacity: hubOpacity }}
-          className="relative z-10 flex flex-col items-center justify-center p-20 pointer-events-auto"
-        >
-          <div className="absolute inset-0 bg-white/5 blur-[120px] rounded-full -z-10" />
-          <div className="w-32 h-32 md:w-48 md:h-48 rounded-full border border-white/20 flex items-center justify-center backdrop-blur-3xl bg-black/40 shadow-[0_0_80px_rgba(255,255,255,0.05)]">
-            <img src="/main-logo.svg" alt="Forion" className="w-16 md:w-24 h-auto brightness-200" />
-          </div>
-          
-          <div className="mt-12 text-center max-w-md">
-            <h3 className="text-3xl font-bold tracking-tighter mb-4 uppercase">Unified Core</h3>
-            <p className="text-sm text-white/40 leading-relaxed font-light font-mono">
-              The central nervous system for your AI stack. Seamlessly integrated, cryptographically secure.
-            </p>
-          </div>
-        </motion.div>
+    <section ref={containerRef} className="relative pt-12 pb-20 px-6 overflow-hidden bg-transparent">
+      {/* Texture Layer */}
+      <div className="absolute inset-0 bg-dot-grid opacity-[0.1] pointer-events-none" />
+      <div className="absolute inset-0 bg-radial-at-c from-white/[0.03] via-transparent to-transparent pointer-events-none" />
 
-        {/* Integration Nodes */}
-        <div className="absolute inset-0 pointer-events-auto">
-          {nodes.map((node, i) => (
-            <IntegrationNode 
-              key={node.name}
-              x={node.x}
-              y={node.y}
-              name={node.name}
-              category={node.category}
-              i={i}
-              scrollYProgress={scrollYProgress}
-            />
-          ))}
+      <div className="mx-auto max-w-7xl relative flex flex-col items-center">
+        {/* Section Context Labels - Now in normal flow to sit above the network */}
+        <div className="flex flex-col items-center text-center z-40 mb-16 md:mb-24 pointer-events-none">
+          <span className="section-label">02 // THE ENGINE</span>
+          <h2 className="section-heading max-w-4xl px-6">
+            One universal engine for <span className="font-serif-editorial italic font-medium opacity-50">AI-native software</span>.
+          </h2>
         </div>
 
-        {/* Heading behind hub */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 pointer-events-none select-none">
-          <h2 className="text-[clamp(4rem,15vw,20rem)] font-bold text-white/[0.02] tracking-tighter leading-none uppercase">
-            Ecosystem
-          </h2>
+        <div className="relative w-full min-h-[400px] md:min-h-[700px] flex items-center justify-center">
+
+          {/* Central Hub Area */}
+          <div className="relative z-30 w-full h-full flex items-center justify-center pointer-events-none">
+            <div className="flex flex-col items-center text-center">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                className="flex items-center justify-center group pointer-events-auto"
+              >
+                {/* Volumetric Glow Hub */}
+                <div className="relative glass-card-strong px-16 py-12 flex flex-col items-center justify-center border-white/40 bg-black/95 backdrop-blur-3xl 
+                            shadow-[0_0_100px_rgba(255,255,255,0.1),_0_0_200px_rgba(255,255,255,0.05),_inset_0_0_50px_rgba(255,255,255,0.03)]
+                            transition-all duration-1000 group-hover:border-white/60">
+                  {/* Internal Light Source */}
+                  <div className="absolute inset-0 bg-gradient-to-tr from-white/[0.03] via-transparent to-white/[0.08] pointer-events-none" />
+
+                  <h2 className="text-[5rem] md:text-[7rem] font-black text-white tracking-[0.05em] uppercase leading-none glow-text-strong">
+                    Forion
+                  </h2>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+
+          {/* The Web Layer (Behind Hub) */}
+          <motion.div
+            style={{ scale }}
+            className="absolute inset-0 pointer-events-none flex items-center justify-center z-10"
+          >
+            <svg
+              viewBox="0 0 1200 800"
+              className="w-full h-full max-w-[1200px] max-h-[800px] overflow-visible"
+            >
+              <g transform="translate(600, 400)">
+                {features.map((node, i) => (
+                  <Vine
+                    key={`vine-${node.name}`}
+                    endX={node.x}
+                    endY={node.y}
+                    index={i}
+                    scrollYProgress={scrollYProgress}
+                    color={node.color}
+                  />
+                ))}
+              </g>
+            </svg>
+
+            <div className="absolute inset-0 pointer-events-auto">
+              <div className="relative w-full h-full flex items-center justify-center">
+                {features.map((node, i) => (
+                  <IntegrationNode
+                    key={node.name}
+                    node={node}
+                    index={i}
+                    scrollYProgress={scrollYProgress}
+                  />
+                ))}
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Global Network Label - Positioned absolutely to avoid shifting center */}
+          <p className="absolute bottom-20 left-1/2 -translate-x-1/2 text-[10px] text-white/40 font-mono tracking-[0.5em] uppercase whitespace-nowrap z-40 pointer-events-none">
+            UNIVERSAL ENGINE ARCHITECTURE
+          </p>
+
+          {/* Centered Spotlight Lighting */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-white/[0.03] rounded-full blur-[200px] pointer-events-none z-0" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-white/[0.015] rounded-full blur-[100px] pointer-events-none z-0" />
         </div>
       </div>
     </section>

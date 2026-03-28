@@ -13,67 +13,55 @@ const Footer = () => {
           {/* Brand + newsletter */}
           <div className="md:col-span-12 grid grid-cols-2 md:grid-cols-4 gap-10">
             {/* Products */}
-            <div className="flex flex-col gap-6">
-              <span className="text-[11px] font-bold uppercase tracking-[0.5em]" style={{ color: 'rgba(255,255,255,0.4)', fontFamily: 'var(--font-jetbrains)' }}>Platform</span>
-              <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-5">
+              <span className="text-[9px] font-bold uppercase tracking-[0.4em]" style={{ color: 'rgba(255,255,255,0.3)', fontFamily: 'var(--font-jetbrains)' }}>Platform</span>
+              <div className="flex flex-col gap-3">
                 {[
-                  { l: "Orbit Builder", h: "https://orbit-night-sky-main.vercel.app/", external: true },
-                  { l: "Spark Agents", h: "https://spark.forgje.com/", external: true },
-                  { l: "AgentTrace", h: "/products#agenttrace", external: false },
-                  { l: "Pricing", h: "/products#pricing", external: false },
+                  { l: "Orbit Builder", h: "https://orbit.forion.dev/" },
+                  { l: "Spark Agents", h: "https://spark.forgje.com/" },
+                  { l: "AgentTrace", h: "/products#agenttrace" },
+                  { l: "Pricing", h: "/products#pricing" },
                 ].map(item => (
-                  item.external ? (
-                    <a key={item.l} href={item.h} target="_blank" rel="noopener noreferrer" className="text-[17px] hover:text-white transition-colors tracking-tight no-underline" style={{ color: 'rgba(255,255,255,0.5)', fontFamily: 'var(--font-inconsolata)' }}>{item.l}</a>
-                  ) : (
-                    <Link key={item.l} href={item.h} className="text-[17px] hover:text-white transition-colors tracking-tight" style={{ color: 'rgba(255,255,255,0.5)', fontFamily: 'var(--font-inconsolata)' }}>{item.l}</Link>
-                  )
+                  <Link key={item.l} href={item.h} className="text-sm hover:text-white transition-colors tracking-tight" style={{ color: 'rgba(255,255,255,0.45)', fontFamily: 'var(--font-inconsolata)' }}>{item.l}</Link>
                 ))}
               </div>
             </div>
 
             {/* Developers */}
-            <div className="flex flex-col gap-6">
-              <span className="text-[11px] font-bold uppercase tracking-[0.5em]" style={{ color: 'rgba(255,255,255,0.4)', fontFamily: 'var(--font-jetbrains)' }}>Developers</span>
-              <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-5">
+              <span className="text-[9px] font-bold uppercase tracking-[0.4em]" style={{ color: 'rgba(255,255,255,0.3)', fontFamily: 'var(--font-jetbrains)' }}>Developers</span>
+              <div className="flex flex-col gap-3">
                 {[
-                  { l: "Documentation", h: "/docs", external: false },
-                  { l: "API Reference", h: "/docs#api", external: false },
-                  { l: "GitHub", h: "https://github.com/forgje", external: true },
-                  { l: "Status", h: "https://status.forion.dev", external: true },
+                  { l: "Documentation", h: "/docs" },
+                  { l: "API Reference", h: "/docs#api" },
+                  { l: "GitHub", h: "https://github.com/forgje" },
+                  { l: "Status", h: "https://status.forion.dev" },
                 ].map(item => (
-                  item.external ? (
-                    <a key={item.l} href={item.h} target="_blank" rel="noopener noreferrer" className="text-[17px] hover:text-white transition-colors tracking-tight no-underline" style={{ color: 'rgba(255,255,255,0.5)', fontFamily: 'var(--font-inconsolata)' }}>{item.l}</a>
-                  ) : (
-                    <Link key={item.l} href={item.h} className="text-[17px] hover:text-white transition-colors tracking-tight" style={{ color: 'rgba(255,255,255,0.5)', fontFamily: 'var(--font-inconsolata)' }}>{item.l}</Link>
-                  )
+                  <Link key={item.l} href={item.h} className="text-sm hover:text-white transition-colors tracking-tight" style={{ color: 'rgba(255,255,255,0.45)', fontFamily: 'var(--font-inconsolata)' }}>{item.l}</Link>
                 ))}
               </div>
             </div>
 
             {/* Company */}
-            <div className="flex flex-col gap-6">
-              <span className="text-[11px] font-bold uppercase tracking-[0.5em]" style={{ color: 'rgba(255,255,255,0.4)', fontFamily: 'var(--font-jetbrains)' }}>Company</span>
-              <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-5">
+              <span className="text-[9px] font-bold uppercase tracking-[0.4em]" style={{ color: 'rgba(255,255,255,0.3)', fontFamily: 'var(--font-jetbrains)' }}>Company</span>
+              <div className="flex flex-col gap-3">
                 {[
-                  { l: "About", h: "/about", external: false },
-                  { l: "Careers", h: "/about#careers", external: false },
-                  { l: "Blog", h: "/blog", external: false },
-                  { l: "Contact", h: "mailto:hello@forion.dev", external: true },
+                  { l: "About", h: "/about" },
+                  { l: "Careers", h: "/about#careers" },
+                  { l: "Blog", h: "/blog" },
+                  { l: "Contact", h: "mailto:hello@forion.dev" },
                 ].map(item => (
-                  item.external ? (
-                    <a key={item.l} href={item.h} target="_blank" rel="noopener noreferrer" className="text-[17px] hover:text-white transition-colors tracking-tight no-underline" style={{ color: 'rgba(255,255,255,0.5)', fontFamily: 'var(--font-inconsolata)' }}>{item.l}</a>
-                  ) : (
-                    <Link key={item.l} href={item.h} className="text-[17px] hover:text-white transition-colors tracking-tight" style={{ color: 'rgba(255,255,255,0.5)', fontFamily: 'var(--font-inconsolata)' }}>{item.l}</Link>
-                  )
+                  <Link key={item.l} href={item.h} className="text-sm hover:text-white transition-colors tracking-tight" style={{ color: 'rgba(255,255,255,0.45)', fontFamily: 'var(--font-inconsolata)' }}>{item.l}</Link>
                 ))}
               </div>
             </div>
 
             {/* Brand + Newsletter */}
-            <div className="flex flex-col gap-6">
-              <div className="flex flex-col gap-6">
-                <img src="/main-logo.svg" alt="Forion Logo" style={{ height: '42px', width: 'auto', marginBottom: '8px' }} />
-                <p className="text-[15px] leading-relaxed max-w-[280px]" style={{ color: 'rgba(255,255,255,0.4)', fontFamily: 'var(--font-inconsolata)' }}>
+            <div className="flex flex-col gap-8">
+              <div>
+                <img src="/main-logo.svg" alt="Forion Logo" style={{ height: '32px', width: 'auto', marginBottom: '12px' }} />
+                <p className="mt-3 text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.35)', fontFamily: 'var(--font-inconsolata)' }}>
                   Forion is the operating system for building AI-native applications.
                 </p>
               </div>
@@ -88,10 +76,10 @@ const Footer = () => {
                     href={social.h}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-11 h-11 rounded-full flex items-center justify-center transition-all duration-300 hover:bg-white hover:text-black"
-                    style={{ border: '1px solid rgba(255,255,255,0.15)', color: 'rgba(255,255,255,0.5)' }}
+                    className="w-9 h-9 rounded-full flex items-center justify-center transition-all duration-300 hover:bg-white hover:text-black"
+                    style={{ border: '1px solid rgba(255,255,255,0.15)', color: 'rgba(255,255,255,0.4)' }}
                   >
-                    <social.i className="w-4 h-4" />
+                    <social.i className="w-3.5 h-3.5" />
                   </a>
                 ))}
               </div>
@@ -105,12 +93,12 @@ const Footer = () => {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-12 flex flex-col sm:flex-row justify-between items-center gap-6">
-          <div className="flex gap-12 order-2 sm:order-1">
-            <Link href="/privacy" className="text-[11px] uppercase tracking-[0.5em] hover:text-white transition-colors" style={{ color: 'rgba(255,255,255,0.2)', fontFamily: 'var(--font-jetbrains)' }}>Privacy</Link>
-            <Link href="/terms" className="text-[11px] uppercase tracking-[0.5em] hover:text-white transition-colors" style={{ color: 'rgba(255,255,255,0.2)', fontFamily: 'var(--font-jetbrains)' }}>Terms</Link>
+        <div className="mt-6 flex flex-col sm:flex-row justify-between items-center gap-4">
+          <div className="flex gap-8 order-2 sm:order-1">
+            <Link href="/privacy" className="text-[9px] uppercase tracking-[0.4em] hover:text-white transition-colors" style={{ color: 'rgba(255,255,255,0.18)', fontFamily: 'var(--font-jetbrains)' }}>Privacy</Link>
+            <Link href="/terms" className="text-[9px] uppercase tracking-[0.4em] hover:text-white transition-colors" style={{ color: 'rgba(255,255,255,0.18)', fontFamily: 'var(--font-jetbrains)' }}>Terms</Link>
           </div>
-          <span className="text-[11px] uppercase tracking-[0.4em] order-1 sm:order-2" style={{ color: 'rgba(255,255,255,0.2)', fontFamily: 'var(--font-jetbrains)' }}>© 2026 Forion Systems</span>
+          <span className="text-[9px] uppercase tracking-[0.3em] order-1 sm:order-2" style={{ color: 'rgba(255,255,255,0.18)', fontFamily: 'var(--font-jetbrains)' }}>© 2026 Forion Systems</span>
         </div>
       </div>
     </footer>

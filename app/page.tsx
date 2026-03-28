@@ -1,6 +1,7 @@
 'use client'
 
 import dynamic from 'next/dynamic'
+import Nav from '@/components/nav/Nav'
 import VoidDivider from '@/components/shared/VoidDivider'
 import AboutSection from '@/components/AboutSection'
 import StickyProductSection from '@/components/StickyProductSection'
@@ -15,7 +16,7 @@ import SmoothScroll from '@/components/SmoothScroll'
 
 import { useUI } from '@/components/providers/UIProvider'
 
-// Lazy-load the heavy Three.js / shader hero
+// Lazy-load the heavy Three.js / shader hero to avoid blocking initial paint, but reserve exactly 100vh height so the layout doesn't collapse and jump to section 2.
 const Hero = dynamic(() => import('@/components/hero/Hero'), {
   ssr: false,
   loading: () => <div style={{ height: '100vh', minHeight: 600, width: '100%', background: 'transparent' }} />
@@ -53,3 +54,4 @@ export default function Home() {
     </SmoothScroll>
   )
 }
+

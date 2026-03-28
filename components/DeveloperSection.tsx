@@ -3,86 +3,144 @@
 import { motion } from "framer-motion";
 
 const codeLines = [
-  { text: "// forion: deploy orbit agent to build dashboard", color: "text-white/40" },
-  { text: "import { Orbit } from '@forion/sdk'", color: "text-purple-400" },
-  { text: " ", color: "" },
-  { text: "const app = new Orbit({", color: "text-white" },
-  { text: "  prompt: 'Build a dark-themed analytics dashboard',", color: "text-amber-200/80" },
-  { text: "  integration: ['postgresql', 'stripe', 'openai'],", color: "text-amber-200/80" },
-  { text: "  deploy: 'vercel'", color: "text-amber-200/80" },
-  { text: "});", color: "text-white" },
-  { text: " ", color: "" },
-  { text: "await app.deploy();", color: "text-purple-400" },
-  { text: "// Deployment successful: analytics-dash-7x2.vercel.app", color: "text-green-400/60" },
+    { text: "// forion: deploy orbit agent to build dashboard", color: "text-muted-foreground", highlight: false },
+    { text: "import { Orbit } from '@forion/core';", color: "text-foreground/60", highlight: false },
+    { text: "", color: "", highlight: false },
+    { text: "const app = await Orbit.plan({", color: "text-foreground/60", highlight: false },
+    { text: "  intent: 'analytics dashboard with real-time telemetry',", color: "text-foreground/50", highlight: false },
+    { text: "  architecture: 'clean-architecture-v2',", color: "text-primary/90", highlight: true },
+    { text: "  autoHeal: true,", color: "text-primary/90", highlight: true },
+    { text: "});", color: "text-foreground/60", highlight: false },
+    { text: "", color: "", highlight: false },
+    { text: "// Surgical patch for theme update", color: "text-muted-foreground", highlight: false },
+    { text: "await app.patch({", color: "text-foreground/50", highlight: false },
+    { text: "  target: 'components/ThemeConfig.ts',", color: "text-primary/80", highlight: true },
+    { text: "  change: 'update primary color to hsl(var(--orbit-glow))'", color: "text-primary/80", highlight: true },
+    { text: "});", color: "text-foreground/50", highlight: false },
+    { text: "", color: "", highlight: false },
+    { text: "return app.run();", color: "text-foreground/60", highlight: false },
 ];
+
+const ease = [0.16, 1, 0.3, 1] as const;
 
 const DeveloperSection = () => {
     return (
-        <section className="py-24 px-6 md:px-20 bg-black">
-            <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-                <div className="lg:col-span-12 mb-16 lg:mb-0 lg:col-span-5">
-                    <span className="section-label mb-4 block">Built for builders</span>
-                    <h2 className="text-5xl font-bold tracking-tighter mb-8 text-white">
-                        Code at the <br />
-                        <span className="text-white/40">speed of thought.</span>
-                    </h2>
-                    <p className="text-lg text-white/50 leading-relaxed font-light mb-8" style={{ fontFamily: 'var(--font-inconsolata)' }}>
-                        Our SDK gives you programmatic control over the entire Forion stack. Deploy agents, provision infrastructure, and orchestrate models with a few lines of TypeScript.
-                    </p>
-                    <div className="flex flex-col gap-4">
-                        {[
-                            "Type-safe SDK",
-                            "Universal Integration",
-                            "Zero-config Deployments"
-                        ].map((item, i) => (
-                            <div key={i} className="flex items-center gap-3">
-                                <div className="w-1.5 h-1.5 rounded-full bg-white/20" />
-                                <span className="text-sm font-bold uppercase tracking-widest text-white/60">{item}</span>
+        <section id="developer" className="relative pt-36 pb-12 px-6">
+            <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-foreground/[0.06] to-transparent" />
+
+            <div className="mx-auto max-w-7xl">
+                <div className="grid gap-12 lg:gap-32 lg:grid-cols-12 items-center">
+                    {/* Left - Copy */}
+                    <motion.div
+                        initial={{ opacity: 0, x: -40 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.9, ease }}
+                        className="lg:col-span-5 flex flex-col justify-center"
+                    >
+                        <span className="section-label">Real code. No lock-in. No magic.</span>
+                        <h2 className="section-heading">
+                            Built at <br />
+                            <span className="section-heading-muted">Orbital speed.</span>
+                        </h2>
+                        <div className="space-y-4 text-base md:text-lg text-muted-foreground leading-relaxed">
+                            <p>
+                                Everything Orbit generates is standard React + Vite. You can open it in VS Code, push it to GitHub, or deploy it to Vercel. No proprietary format. No runtime dependency.
+                            </p>
+                            <p>
+                                The code Orbit writes is code you'd write. Just faster. No "upgrade to export," no magic — just production-grade architecture delivered in seconds.
+                            </p>
+                        </div>
+
+                        <div className="mt-10 flex gap-10">
+                            <div>
+                                <span className="text-2xl font-semibold text-white tracking-tighter block underline underline-offset-8 decoration-white/10">42ms</span>
+                                <span className="text-[10px] text-white/40 tracking-[0.5em] uppercase font-mono mt-4 block">avg. latency</span>
                             </div>
-                        ))}
-                    </div>
+                            <div>
+                                <span className="text-2xl font-semibold text-white tracking-tighter block underline underline-offset-8 decoration-white/10">128k</span>
+                                <span className="text-[10px] text-white/40 tracking-[0.5em] uppercase font-mono mt-4 block">context window</span>
+                            </div>
+                            <div>
+                                <span className="text-2xl font-semibold text-white tracking-tighter block underline underline-offset-8 decoration-white/10">99.9%</span>
+                                <span className="text-[10px] text-white/40 tracking-[0.5em] uppercase font-mono mt-4 block">accuracy</span>
+                            </div>
+                        </div>
+                    </motion.div>
+
+                    {/* Right - IDE Mockup */}
+                    <motion.div
+                        initial={{ opacity: 0, x: 40 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.9, ease }}
+                        className="lg:col-span-7"
+                    >
+                        <div className="rounded-xl border border-foreground/[0.06] bg-[hsl(240_25%_3%)] shadow-2xl overflow-hidden">
+                            {/* Window chrome */}
+                            <div className="flex items-center gap-2 px-4 py-3 border-b border-foreground/[0.04] bg-surface/30">
+                                <div className="flex gap-1.5">
+                                    <div className="h-2.5 w-2.5 rounded-full bg-foreground/10" />
+                                    <div className="h-2.5 w-2.5 rounded-full bg-foreground/10" />
+                                    <div className="h-2.5 w-2.5 rounded-full bg-foreground/10" />
+                                </div>
+                                <div className="flex-1 flex justify-center">
+                                    <div className="flex items-center gap-4 text-[10px] font-mono text-muted-foreground/60">
+                                        <span className="text-foreground/40 border-b border-primary/40 pb-1 px-2">middleware.ts</span>
+                                        <span className="px-2">auth.ts</span>
+                                        <span className="px-2">config.ts</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Code editor */}
+                            <div className="p-5 font-mono text-[12px] leading-[1.8] overflow-x-auto min-h-[320px]">
+                                {codeLines.map((line, i) => (
+                                    <motion.div
+                                        key={i}
+                                        initial={{ opacity: 0, x: 8 }}
+                                        whileInView={{ opacity: 1, x: 0 }}
+                                        viewport={{ once: true }}
+                                        transition={{ delay: i * 0.04, duration: 0.5 }}
+                                        className={`flex ${line.highlight ? 'bg-primary/[0.04] -mx-5 px-5 border-l-2 border-primary/20' : ''}`}
+                                    >
+                                        <span className="w-8 text-right text-foreground/10 select-none mr-5 flex-shrink-0">
+                                            {i + 1}
+                                        </span>
+                                        <span className={line.color}>{line.text}</span>
+                                    </motion.div>
+                                ))}
+                            </div>
+
+                            {/* Terminal panel */}
+                            <div className="border-t border-foreground/[0.04]">
+                                <div className="flex items-center gap-3 px-5 py-2 bg-surface/20">
+                                    <span className="text-[10px] font-mono text-muted-foreground/50 uppercase tracking-wider">Terminal</span>
+                                    <span className="text-[10px] font-mono text-muted-foreground/30 uppercase tracking-wider">Problems</span>
+                                    <span className="text-[10px] font-mono text-muted-foreground/30 uppercase tracking-wider">Output</span>
+                                </div>
+                                <div className="px-5 py-3 font-mono text-[11px] text-muted-foreground/60 flex items-center gap-2">
+                                    <span className="text-primary/70">❯</span>
+                                    <span>orbit plan --intent "analytics dashboard"</span>
+                                    <span className="h-3.5 w-px bg-primary/60 animate-pulse-glow" />
+                                </div>
+                            </div>
+
+                            {/* AI Status bar */}
+                            <div className="px-5 py-2 border-t border-foreground/[0.04] flex items-center justify-between bg-surface/10">
+                                <div className="flex items-center gap-2">
+                                    <div className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse-glow" />
+                                    <span className="text-[10px] font-mono text-muted-foreground/50">
+                                        Forion AI · context-aware · deterministic
+                                    </span>
+                                </div>
+                                <span className="text-[10px] font-mono text-muted-foreground/30">
+                                    Ln 6, Col 42
+                                </span>
+                            </div>
+                        </div>
+                    </motion.div>
                 </div>
-
-                <motion.div
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    className="lg:col-span-7 relative"
-                >
-                    <div className="absolute inset-0 bg-purple-500/10 blur-[100px] rounded-full pointer-events-none" />
-                    <div className="relative rounded-2xl border border-white/10 bg-black/60 backdrop-blur-xl overflow-hidden shadow-2xl">
-                        {/* Fake terminal header */}
-                        <div className="px-5 py-3 border-b border-white/5 bg-white/5 flex items-center justify-between">
-                            <div className="flex gap-2">
-                                <div className="w-2.5 h-2.5 rounded-full bg-white/10" />
-                                <div className="w-2.5 h-2.5 rounded-full bg-white/10" />
-                                <div className="w-2.5 h-2.5 rounded-full bg-white/10" />
-                            </div>
-                            <span className="text-[10px] uppercase tracking-widest text-white/20 font-mono">deploy_agent.ts</span>
-                        </div>
-                        
-                        <div className="p-8 md:p-12 font-mono text-sm md:text-base leading-relaxed overflow-x-auto">
-                            {codeLines.map((line, i) => (
-                                <motion.div
-                                    key={i}
-                                    initial={{ opacity: 0, x: -10 }}
-                                    whileInView={{ opacity: 1, x: 0 }}
-                                    transition={{ delay: i * 0.05 }}
-                                    className="flex gap-6"
-                                >
-                                    <span className="text-white/10 w-4 text-right select-none">{i + 1}</span>
-                                    <span className={line.color}>{line.text}</span>
-                                </motion.div>
-                            ))}
-                        </div>
-
-                        {/* Status bar */}
-                        <div className="px-5 py-2 border-t border-white/5 bg-white/5 flex items-center justify-between text-[10px] text-white/20 font-mono">
-                            <span>UTF-8</span>
-                            <span>Ln 11, Col 42</span>
-                        </div>
-                    </div>
-                </motion.div>
             </div>
         </section>
     );

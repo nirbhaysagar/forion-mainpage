@@ -3,84 +3,121 @@
 import { motion } from "framer-motion";
 
 const comparisons = [
-  {
-    feature: "Generation Scope",
-    forion: "Full Project Structure",
-    legacy_ui: "Single File / UI Only",
-    legacy_agents: "Isolated Scripts",
-  },
-  {
-    feature: "Infrastructure",
-    forion: "Self-Healing Edge",
-    legacy_ui: "Manual Deployment",
-    legacy_agents: "Local Execution",
-  },
-  {
-    feature: "Verification",
-    forion: "Deterministic Replay",
-    legacy_ui: "Visual Review",
-    legacy_agents: "Manual Logging",
-  },
-  {
-    feature: "Integration",
-    forion: "Direct GitHub Write",
-    legacy_ui: "Copy-Paste",
-    legacy_agents: "Read-Only Access",
-  },
+    {
+        feature: "Generation Scope",
+        forion: "Full Project Structure",
+        legacy_ui: "Single File / UI Only",
+        legacy_agents: "Snippet / File Only",
+    },
+    {
+        feature: "Build Strategy",
+        forion: "Architectural Planning",
+        legacy_ui: "No Plan Before Build",
+        legacy_agents: "Deep Autocomplete",
+    },
+    {
+        feature: "Iteration Logic",
+        forion: "Surgical File Patching",
+        legacy_ui: "Regenerate Everything",
+        legacy_agents: "Manual Refactoring",
+    },
+    {
+        feature: "Error Handling",
+        forion: "Auto-Healing Engine",
+        legacy_ui: "Manual Fix Required",
+        legacy_agents: "Fatal Exit on Error",
+    },
+    {
+        feature: "Resulting Output",
+        forion: "Deterministic Architecture",
+        legacy_ui: "Interface Prototype",
+        legacy_agents: "Mockup / Fragment",
+    },
 ];
 
 const CheckIcon = () => (
-    <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+    <svg viewBox="0 0 24 24" fill="none" className="w-10 h-10 flex-shrink-0" style={{ color: '#fff' }}>
+        <path d="M20 6L9 17L4 12" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
 );
 
 const ComparisonSection = () => {
     return (
-        <section className="py-24 px-6 md:px-20 bg-black relative">
-            <div className="max-w-7xl mx-auto">
-                <div className="text-center mb-20">
-                    <span className="section-label mb-4 block">The Forion Advantage</span>
-                    <h2 className="text-5xl font-bold text-white tracking-tighter">
-                        Engineered differently.
-                    </h2>
+        <section className="relative pt-12 pb-16 px-6 overflow-hidden">
+            <div className="mx-auto max-w-6xl relative z-10">
+                <div className="text-center mb-12">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="flex flex-col items-center gap-3"
+                    >
+                        <span className="section-label">Why teams switch</span>
+                        <h2 className="section-heading max-w-3xl">
+                            The infrastructure gap{' '}
+                            <span style={{ fontStyle: 'italic', fontFamily: 'var(--font-cormorant)', fontWeight: 400, color: 'rgba(255,255,255,0.9)' }}>
+                                is real.
+                            </span>
+                        </h2>
+                        <p style={{ color: 'rgba(255,255,255,0.35)', fontFamily: 'var(--font-jetbrains)', fontSize: '0.75rem', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
+                            Here's how Forion compares to other tools.
+                        </p>
+                    </motion.div>
                 </div>
 
-                <div className="glass-card-strong overflow-hidden rounded-[2rem] border border-white/10" style={{ zoom: 0.8 }}>
-                    <table className="w-full text-left border-collapse">
-                        <thead>
-                            <tr className="border-b border-white/10 bg-white/5">
-                                <th className="p-10 text-xs uppercase tracking-[0.2em] text-white/40 font-mono">Feature</th>
-                                <th className="p-10 text-xs uppercase tracking-[0.2em] text-white font-bold font-mono">Forion OS</th>
-                                <th className="p-10 text-xs uppercase tracking-[0.2em] text-white/40 font-mono">Legacy UI Builders</th>
-                                <th className="p-10 text-xs uppercase tracking-[0.2em] text-white/40 font-mono">Isolated Coding Agents</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {comparisons.map((row, idx) => (
-                                <motion.tr 
-                                    key={row.feature}
-                                    initial={{ opacity: 0, x: -10 }}
-                                    whileInView={{ opacity: 1, x: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ delay: idx * 0.07 }}
-                                    className="border-b border-white/5 hover:bg-white/[0.02] transition-colors"
-                                >
-                                    <td className="p-10 font-bold text-white uppercase tracking-tight font-mono text-sm">{row.feature}</td>
-                                    <td className="p-10">
-                                        <div className="flex items-center gap-4">
-                                            <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center flex-shrink-0 shadow-[0_0_20px_rgba(255,255,255,0.3)]">
-                                                <CheckIcon />
+                <div className="glass-card-strong overflow-hidden" style={{ borderRadius: '2rem' }}>
+                    <div className="overflow-x-auto">
+                        <table className="w-full text-left border-collapse min-w-[640px]">
+                            <thead>
+                                <tr style={{ borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
+                                    <th className="p-12 text-[20px] font-mono uppercase tracking-[0.3em]" style={{ color: 'rgba(255,255,255,0.3)' }}>Feature</th>
+                                    <th className="p-12" style={{ background: 'rgba(255,255,255,0.02)' }}>
+                                        <div className="flex items-center gap-6">
+                                            <div className="w-16 h-16 rounded-xl flex items-center justify-center" style={{ background: '#fff' }}>
+                                                <span className="text-black font-black text-2xl">F</span>
                                             </div>
-                                            <span className="text-white font-medium text-lg">{row.forion}</span>
+                                            <span className="text-2xl font-bold text-white uppercase tracking-wider">Forion</span>
                                         </div>
-                                    </td>
-                                    <td className="p-10 text-white/30 text-lg font-light">{row.legacy_ui}</td>
-                                    <td className="p-10 text-white/30 text-lg font-light">{row.legacy_agents}</td>
-                                </motion.tr>
-                            ))}
-                        </tbody>
-                    </table>
+                                    </th>
+                                    <th className="p-12">
+                                        <span className="font-medium uppercase tracking-widest" style={{ color: 'rgba(255,255,255,0.25)', fontSize: '24px' }}>Interface Builders</span>
+                                    </th>
+                                    <th className="p-12">
+                                        <span className="font-medium uppercase tracking-widest" style={{ color: 'rgba(255,255,255,0.25)', fontSize: '24px' }}>Legacy Agents</span>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody className="text-lg">
+                                {comparisons.map((row, idx) => (
+                                    <motion.tr
+                                        key={row.feature}
+                                        initial={{ opacity: 0, x: -10 }}
+                                        whileInView={{ opacity: 1, x: 0 }}
+                                        viewport={{ once: true }}
+                                        transition={{ delay: idx * 0.07 }}
+                                        style={{ borderBottom: '1px solid rgba(255,255,255,0.04)' }}
+                                        className="transition-colors hover:bg-white/[0.015]"
+                                    >
+                                        <td className="p-12 font-medium" style={{ color: 'rgba(255,255,255,0.45)', fontFamily: 'var(--font-jetbrains)', fontSize: '1.8rem' }}>
+                                            {row.feature}
+                                        </td>
+                                        <td className="p-12" style={{ background: 'rgba(255,255,255,0.015)' }}>
+                                            <div className="flex items-center gap-4">
+                                                <CheckIcon />
+                                                <span className="font-semibold text-white text-3xl">{row.forion}</span>
+                                            </div>
+                                        </td>
+                                        <td className="p-12" style={{ color: 'rgba(255,255,255,0.3)', fontSize: '28px', lineHeight: '1.2' }}>
+                                            {row.legacy_ui}
+                                        </td>
+                                        <td className="p-12" style={{ color: 'rgba(255,255,255,0.3)', fontSize: '28px', lineHeight: '1.2' }}>
+                                            {row.legacy_agents}
+                                        </td>
+                                    </motion.tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </section>

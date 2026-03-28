@@ -14,7 +14,7 @@ const links = [
 ]
 
 export default function Nav() {
-  const { setModalOpen } = useUI()
+  const { setMenuOpen, setModalOpen } = useUI()
   const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
@@ -35,7 +35,7 @@ export default function Nav() {
           zIndex: 200,
           display: 'flex',
           alignItems: 'center',
-          height: '126px', 
+          height: '96px', // Doubled size based on user request
         }}
       >
         <img
@@ -56,14 +56,14 @@ export default function Nav() {
           zIndex: 200,
           display: 'flex',
           alignItems: 'center',
-          gap: '2.5rem',
-          padding: '10px 32px',
+          gap: '5.5rem',
+          padding: '16px 48px',
           borderRadius: 999,
           transition: 'all 0.4s ease',
         }}
         className={`
-          ${scrolled 
-            ? 'bg-black/70 backdrop-blur-xl border border-white/10' 
+          ${scrolled
+            ? 'bg-black/70 backdrop-blur-xl border border-white/10'
             : 'md:bg-black/40 md:backdrop-blur-md md:border md:border-white/10 bg-transparent backdrop-blur-none border-transparent'
           }
         `}
@@ -71,14 +71,14 @@ export default function Nav() {
 
 
         {/* Desktop links */}
-        <div className="hidden lg:flex" style={{ gap: '2rem' }}>
+        <div className="hidden lg:flex" style={{ gap: '3.5rem' }}>
           {links.map((link) => (
             <Link
               key={link.label}
               href={link.href}
               style={{
                 fontFamily: 'var(--font-inconsolata)',
-                fontSize: 13,
+                fontSize: 16,
                 letterSpacing: '0.08em',
                 textTransform: 'uppercase',
                 fontWeight: 500,
@@ -94,19 +94,17 @@ export default function Nav() {
           ))}
         </div>
 
-        <motion.a
-          href="https://orbit-night-sky-main.vercel.app/"
-          target="_blank"
-          rel="noopener noreferrer"
+        <button
           className="hidden lg:block uppercase"
+          onClick={() => setModalOpen(true)}
           style={{
             fontFamily: 'var(--font-inconsolata)',
-            fontSize: 11,
+            fontSize: 13,
             letterSpacing: '0.15em',
             textTransform: 'uppercase',
             color: '#000',
             background: '#f5f5f5',
-            padding: '10px 22px',
+            padding: '12px 28px',
             borderRadius: 6,
             textDecoration: 'none',
             fontWeight: 800,
@@ -118,8 +116,24 @@ export default function Nav() {
           onMouseLeave={(e) => ((e.target as HTMLElement).style.opacity = '1')}
         >
           Start Building with Orbit
-        </motion.a>
+        </button>
 
+        {/* Mobile hamburger */}
+        <button
+          className="lg:hidden flex"
+          onClick={() => setMenuOpen(true)}
+          style={{
+            background: 'transparent',
+            border: 'none',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: 4,
+            padding: 4,
+          }}
+        >
+          <span style={{ display: 'block', width: 18, height: 1, background: '#888' }} />
+          <span style={{ display: 'block', width: 18, height: 1, background: '#888' }} />
+        </button>
       </motion.nav>
 
       <MobileMenu />
