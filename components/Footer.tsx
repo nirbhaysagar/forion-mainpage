@@ -17,12 +17,16 @@ const Footer = () => {
               <span className="text-[11px] font-bold uppercase tracking-[0.5em]" style={{ color: 'rgba(255,255,255,0.4)', fontFamily: 'var(--font-jetbrains)' }}>Platform</span>
               <div className="flex flex-col gap-4">
                 {[
-                  { l: "Orbit Builder", h: "https://orbit-night-sky-main.vercel.app/" },
-                  { l: "Spark Agents", h: "https://spark.forgje.com/" },
-                  { l: "AgentTrace", h: "/products#agenttrace" },
-                  { l: "Pricing", h: "/products#pricing" },
+                  { l: "Orbit Builder", h: "https://orbit-night-sky-main.vercel.app/", external: true },
+                  { l: "Spark Agents", h: "https://spark.forgje.com/", external: true },
+                  { l: "AgentTrace", h: "/products#agenttrace", external: false },
+                  { l: "Pricing", h: "/products#pricing", external: false },
                 ].map(item => (
-                  <Link key={item.l} href={item.h} className="text-[17px] hover:text-white transition-colors tracking-tight" style={{ color: 'rgba(255,255,255,0.5)', fontFamily: 'var(--font-inconsolata)' }}>{item.l}</Link>
+                  item.external ? (
+                    <a key={item.l} href={item.h} target="_blank" rel="noopener noreferrer" className="text-[17px] hover:text-white transition-colors tracking-tight no-underline" style={{ color: 'rgba(255,255,255,0.5)', fontFamily: 'var(--font-inconsolata)' }}>{item.l}</a>
+                  ) : (
+                    <Link key={item.l} href={item.h} className="text-[17px] hover:text-white transition-colors tracking-tight" style={{ color: 'rgba(255,255,255,0.5)', fontFamily: 'var(--font-inconsolata)' }}>{item.l}</Link>
+                  )
                 ))}
               </div>
             </div>
@@ -32,12 +36,16 @@ const Footer = () => {
               <span className="text-[11px] font-bold uppercase tracking-[0.5em]" style={{ color: 'rgba(255,255,255,0.4)', fontFamily: 'var(--font-jetbrains)' }}>Developers</span>
               <div className="flex flex-col gap-4">
                 {[
-                  { l: "Documentation", h: "/docs" },
-                  { l: "API Reference", h: "/docs#api" },
-                  { l: "GitHub", h: "https://github.com/forgje" },
-                  { l: "Status", h: "https://status.forion.dev" },
+                  { l: "Documentation", h: "/docs", external: false },
+                  { l: "API Reference", h: "/docs#api", external: false },
+                  { l: "GitHub", h: "https://github.com/forgje", external: true },
+                  { l: "Status", h: "https://status.forion.dev", external: true },
                 ].map(item => (
-                  <Link key={item.l} href={item.h} className="text-[17px] hover:text-white transition-colors tracking-tight" style={{ color: 'rgba(255,255,255,0.5)', fontFamily: 'var(--font-inconsolata)' }}>{item.l}</Link>
+                  item.external ? (
+                    <a key={item.l} href={item.h} target="_blank" rel="noopener noreferrer" className="text-[17px] hover:text-white transition-colors tracking-tight no-underline" style={{ color: 'rgba(255,255,255,0.5)', fontFamily: 'var(--font-inconsolata)' }}>{item.l}</a>
+                  ) : (
+                    <Link key={item.l} href={item.h} className="text-[17px] hover:text-white transition-colors tracking-tight" style={{ color: 'rgba(255,255,255,0.5)', fontFamily: 'var(--font-inconsolata)' }}>{item.l}</Link>
+                  )
                 ))}
               </div>
             </div>
@@ -47,12 +55,16 @@ const Footer = () => {
               <span className="text-[11px] font-bold uppercase tracking-[0.5em]" style={{ color: 'rgba(255,255,255,0.4)', fontFamily: 'var(--font-jetbrains)' }}>Company</span>
               <div className="flex flex-col gap-4">
                 {[
-                  { l: "About", h: "/about" },
-                  { l: "Careers", h: "/about#careers" },
-                  { l: "Blog", h: "/blog" },
-                  { l: "Contact", h: "mailto:hello@forion.dev" },
+                  { l: "About", h: "/about", external: false },
+                  { l: "Careers", h: "/about#careers", external: false },
+                  { l: "Blog", h: "/blog", external: false },
+                  { l: "Contact", h: "mailto:hello@forion.dev", external: true },
                 ].map(item => (
-                  <Link key={item.l} href={item.h} className="text-[17px] hover:text-white transition-colors tracking-tight" style={{ color: 'rgba(255,255,255,0.5)', fontFamily: 'var(--font-inconsolata)' }}>{item.l}</Link>
+                  item.external ? (
+                    <a key={item.l} href={item.h} target="_blank" rel="noopener noreferrer" className="text-[17px] hover:text-white transition-colors tracking-tight no-underline" style={{ color: 'rgba(255,255,255,0.5)', fontFamily: 'var(--font-inconsolata)' }}>{item.l}</a>
+                  ) : (
+                    <Link key={item.l} href={item.h} className="text-[17px] hover:text-white transition-colors tracking-tight" style={{ color: 'rgba(255,255,255,0.5)', fontFamily: 'var(--font-inconsolata)' }}>{item.l}</Link>
+                  )
                 ))}
               </div>
             </div>

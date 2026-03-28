@@ -94,9 +94,11 @@ export default function Nav() {
           ))}
         </div>
 
-        <button
+        <a
+          href="https://orbit-night-sky-main.vercel.app/"
+          target="_blank"
+          rel="noopener noreferrer"
           className="hidden lg:block uppercase"
-          onClick={() => setModalOpen(true)}
           style={{
             fontFamily: 'var(--font-inconsolata)',
             fontSize: 11,
@@ -116,7 +118,7 @@ export default function Nav() {
           onMouseLeave={(e) => ((e.target as HTMLElement).style.opacity = '1')}
         >
           Start Building with Orbit
-        </button>
+        </motion.a>
 
       </motion.nav>
 
