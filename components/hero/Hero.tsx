@@ -2,269 +2,78 @@
 
 import dynamic from 'next/dynamic'
 import { useState } from 'react'
-import { motion, type Variants } from 'framer-motion'
+import { motion } from 'framer-motion'
 import StarfieldParallax from './StarfieldParallax'
 
 const InterstellarBlackHole = dynamic(() => import('./InterstellarBlackHole'), { ssr: false })
 
-const SUBTITLE = 'Operating system for AI-native development.'
-
-const subtitleVariant: Variants = {
-  hidden: { opacity: 0 },
-  visible: (i: number) => ({
-    opacity: 1,
-    transition: {
-      delay: i * 0.02 + 0.8,
-      duration: 0.05,
-    },
-  }),
-}
-
-export default function Hero({ onRequestAccess }: { onRequestAccess?: () => void }) {
-  const [bhReady, setBhReady] = useState(false)
-  const subChars = SUBTITLE.split('')
-
+export default function Hero({ onRequestAccess }: { onRequestAccess: () => void }) {
   return (
-    <section
-      id="hero"
-      style={{
-        position: 'relative',
-        width: '100%',
-        height: '100vh',
-        minHeight: 600,
-        background: '#000',
-        overflow: 'hidden',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        flexDirection: 'column',
-      }}
-    >
-      {/* Optimized Starfield + Black Hole */}
+    <section className="relative min-h-screen w-full flex flex-col items-center justify-center overflow-hidden bg-black">
+      {/* Background Layer 1: Parallax Stars */}
       <StarfieldParallax />
-      <InterstellarBlackHole onReady={() => setBhReady(true)} />
 
-      {/* Wordmark + CTA */}
-      {/* Wordmark + CTA */}
-      <div
-        style={{
-          position: 'relative',
-          zIndex: 10,
-          textAlign: 'center',
-          pointerEvents: bhReady ? 'auto' : 'none',
-          width: '100%',
-          maxWidth: '1400px',
-          margin: '0 auto',
-          padding: '0 2rem'
-        }}
-      >
-        {/* Dark scrim behind text for legibility */}
-        <div
-          className="absolute inset-0 bg-gradient-radial from-black/60 via-black/20 to-transparent -z-10 pointer-events-none"
-          style={{ transform: 'scale(1.5)' }}
-        />
+      {/* Background Layer 2: The Core / Black Hole */}
+      <div className="absolute inset-0 z-0 opacity-60">
+        <InterstellarBlackHole />
+      </div>
 
-        {/* Technical Sidebar - Filling the left-hand space */}
+      {/* Content Container */}
+      <div className="relative z-10 flex flex-col items-center text-center px-6 max-w-7xl mx-auto pt-20">
         <motion.div
-           initial={{ opacity: 0, x: -20 }}
-           animate={bhReady ? { opacity: 1, x: 0 } : {}}
-           transition={{ delay: 1.8, duration: 1 }}
-           style={{
-             position: 'absolute',
-             left: '2rem',
-             top: '50%',
-             transform: 'translateY(-50%)',
-             display: 'flex',
-             flexDirection: 'column',
-             gap: '2.5rem',
-             textAlign: 'left',
-             zIndex: 20,
-             pointerEvents: 'none',
-           }}
-           className="hidden lg:flex"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+          className="flex flex-col items-center"
         >
-          <div className="flex flex-col gap-1">
-            <span style={{ fontFamily: 'var(--font-jetbrains)', fontSize: 9, color: 'rgba(255,180,80,0.4)', letterSpacing: '0.2em' }}>SYSTEM // VER</span>
-            <span style={{ fontFamily: 'var(--font-jetbrains)', fontSize: 11, color: 'rgba(255,255,255,0.3)', letterSpacing: '0.1em' }}>FORION_OS_2.4.0</span>
-          </div>
-          <div className="flex flex-col gap-1">
-            <span style={{ fontFamily: 'var(--font-jetbrains)', fontSize: 9, color: 'rgba(255,180,80,0.4)', letterSpacing: '0.2em' }}>STATUS // NET</span>
-            <span style={{ fontFamily: 'var(--font-jetbrains)', fontSize: 11, color: 'rgba(255,255,255,0.3)', letterSpacing: '0.1em' }}>DEEP_SPACE_NOMINAL</span>
-          </div>
-          <div className="flex flex-col gap-1">
-            <span style={{ fontFamily: 'var(--font-jetbrains)', fontSize: 9, color: 'rgba(255,180,80,0.4)', letterSpacing: '0.2em' }}>LATENCY // MS</span>
-            <div className="flex items-center gap-3">
-               <span style={{ fontFamily: 'var(--font-jetbrains)', fontSize: 11, color: 'rgba(255,255,255,0.3)', letterSpacing: '0.1em' }}>42ms</span>
-               <div className="flex gap-1">
-                  {[1,2,3,4].map(i => <div key={i} className={`w-1 h-3 ${i < 4 ? 'bg-orange-500/20' : 'bg-orange-500/40 animate-pulse'}`} />)}
-               </div>
-            </div>
-          </div>
-        </motion.div>
+          {/* Headline with premium serif accent */}
+          <h1 className="text-[clamp(3.5rem,10vw,10rem)] font-bold tracking-tight leading-[0.9] text-white uppercase drop-shadow-[0_0_30px_rgba(255,255,255,0.2)] mb-8">
+            The <span className="italic font-light normal-case text-white/90" style={{ fontFamily: 'var(--font-playfair)' }}>Operating System</span> <br />
+            For AI-Native Software.
+          </h1>
 
-        <div className="mb-0 flex justify-center">
-          <div className="px-4 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-md flex items-center gap-3">
-             <div className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
-             <span style={{ fontFamily: 'var(--font-jetbrains)', fontSize: 10, color: 'rgba(255,255,255,0.6)', letterSpacing: '0.2em', textTransform: 'uppercase' }}>
-               Orbit // Product_01_Launch
-             </span>
-          </div>
-        </div>
+          {/* Subtext with code/mono feel */}
+          <p className="max-w-2xl text-lg md:text-2xl text-white/50 leading-relaxed font-light mb-12" style={{ fontFamily: 'var(--font-inconsolata)' }}>
+            One system to design, build, and run intelligent applications. <br className="hidden md:block" />
+            From zero to logic in seconds.
+          </p>
 
-        {/* Cinematic Headline */}
-        <h1
-          className="text-8xl md:text-[14rem] lg:text-[16rem] font-bold tracking-[0.05em] leading-[0.85] mb-6 relative z-20 text-white uppercase"
-          style={{
-            fontFamily: 'var(--font-poppins)',
-            textShadow: '0 0 60px rgba(255,200,80,0.2), 0 2px 8px rgba(0,0,0,0.9)',
-            margin: '2rem 0 1.5rem 0'
-          }}
-        >
-          Forion
-        </h1>
-
-        {/* Animated subtitle — typewriter */}
-        <p
-          style={{
-            fontFamily: 'var(--font-inconsolata)',
-            fontSize: 'clamp(14px, 2.2vw, 24px)',
-            color: 'rgba(255,255,255,0.9)',
-            fontWeight: 500,
-            marginTop: '0.4rem',
-            letterSpacing: '0.04em',
-            minHeight: '1.6em',
-            textShadow: '0 2px 10px rgba(0,0,0,0.8)'
-          }}
-          aria-label="Orbit — Build real React apps. Just describe what you want."
-        >
-          {"Orbit — Build real React apps. Just describe what you want.".split('').map((char, i) => (
-            <motion.span
-              key={i}
-              custom={i}
-              variants={subtitleVariant}
-              initial="hidden"
-              animate={bhReady ? 'visible' : 'hidden'}
-              style={{ display: 'inline' }}
+          {/* Action Row */}
+          <div className="flex flex-wrap items-center justify-center gap-6">
+            <a
+              href="https://orbit-night-sky-main.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative px-12 py-5 bg-white text-black rounded-lg transition-all duration-300 hover:scale-[1.02]"
+              style={{
+                fontFamily: 'var(--font-poppins)',
+                fontSize: 18,
+                fontWeight: 900,
+                letterSpacing: '0.02em',
+                textTransform: 'uppercase',
+                textDecoration: 'none'
+              }}
             >
-              {char}
-            </motion.span>
-          ))}
-          <motion.span
-            initial={{ opacity: 0 }}
-            animate={bhReady ? { opacity: [0, 1, 0] } : {}}
-            transition={{ delay: 1.6, duration: 0.8, repeat: Infinity, repeatDelay: 0.4 }}
-            style={{ color: '#555', marginLeft: 2 }}
-          >
-            |
-          </motion.span>
-        </p>
+              <div className="absolute inset-0 bg-white blur-xl opacity-0 group-hover:opacity-30 transition-opacity" />
+              <span className="relative">Start Building</span>
+            </a>
 
-        {/* Horizontal rule accent */}
-        <motion.div
-          initial={{ scaleX: 0, opacity: 0 }}
-          animate={bhReady ? { scaleX: 1, opacity: 1 } : {}}
-          transition={{ delay: 1.2, duration: 0.8, ease: 'easeInOut' }}
-          style={{
-            width: 80,
-            height: 1,
-            background: 'linear-gradient(90deg, transparent, rgba(255,140,40,0.5), transparent)',
-            margin: '1.5rem auto 0',
-            transformOrigin: 'center',
-          }}
-        />
-
-        {/* CTAs */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={bhReady ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 1.7, duration: 0.6, ease: 'easeOut' }}
-          style={{
-            marginTop: '3.5rem',
-            display: 'flex',
-            gap: '1.2rem',
-            justifyContent: 'center',
-            flexWrap: 'wrap',
-          }}
-        >
-          <motion.a
-            href="https://orbit-night-sky-main.vercel.app/"
-            target="_blank"
-            rel="noopener noreferrer"
-            whileHover={{ 
-              scale: 1.05, 
-              backgroundColor: '#fff',
-              boxShadow: '0 0 50px rgba(255,255,255,0.2)'
-            }}
-            whileTap={{ scale: 0.98 }}
-            style={{
-              fontFamily: 'var(--font-poppins)',
-              fontSize: 18,
-              letterSpacing: '0.1em',
-              textTransform: 'uppercase',
-              color: '#000',
-              background: 'rgba(255,255,255,0.95)',
-              padding: '20px 52px',
-              textDecoration: 'none',
-              borderRadius: 2,
-              display: 'inline-block',
-              fontWeight: 700,
-              cursor: 'pointer',
-              border: 'none',
-              transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)'
-            }}
-          >
-            Start Building with Orbit
-          </motion.a>
+            <button
+              onClick={onRequestAccess}
+              className="px-10 py-5 bg-transparent border border-white/20 text-white rounded-lg hover:bg-white/5 transition-all text-xs font-bold uppercase tracking-[0.2em]"
+              style={{ fontFamily: 'var(--font-jetbrains)' }}
+            >
+              Request Early Access
+            </button>
+          </div>
         </motion.div>
       </div>
 
-      {/* Scroll indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={bhReady ? { opacity: 1 } : {}}
-        transition={{ delay: 2.2, duration: 0.6 }}
-        style={{
-          position: 'absolute',
-          bottom: 40,
-          left: '50%',
-          transform: 'translateX(-50%)',
-          fontFamily: 'var(--font-jetbrains)',
-          fontSize: 9,
-          letterSpacing: '0.15em',
-          textTransform: 'uppercase',
-          color: 'rgba(255,255,255,0.3)',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          gap: 12,
-          zIndex: 10,
-        }}
-      >
-        <span>scroll to descend</span>
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-          style={{
-            width: 1,
-            height: 48,
-            background: 'linear-gradient(to bottom, rgba(255,255,255,0.3), transparent)',
-          }}
-        />
-      </motion.div>
-
-      {/* Bottom fade */}
-      <div
-        style={{
-          position: 'absolute',
-          bottom: 0,
-          left: 0,
-          right: 0,
-          height: '40%',
-          background: 'linear-gradient(to top, #000, transparent)',
-          pointerEvents: 'none',
-          zIndex: 5,
-        }}
-      />
+      {/* Bottom ambient lighting */}
+      <div className="absolute bottom-0 left-0 right-0 h-96 bg-gradient-to-t from-black via-black/80 to-transparent pointer-events-none" />
+      
+      {/* Vertical divider accent */}
+      <div className="absolute bottom-12 left-1/2 -translate-x-1/2 w-[1px] h-24 bg-gradient-to-b from-white/40 to-transparent animate-pulse" />
     </section>
   )
 }

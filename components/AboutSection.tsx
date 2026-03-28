@@ -3,145 +3,64 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 
-const VISION_IMAGE = "/about_workstation.png";
-const HERO_IMAGE = "/about_hero.png";
-
-const AboutSection = () => {
+export default function AboutSection() {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start end", "end start"],
   });
 
-  const y1 = useTransform(scrollYProgress, [0, 1], [0, -80]);
-  const opacity = useTransform(scrollYProgress, [0, 0.15, 0.85, 1], [0, 1, 1, 0]);
+  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
 
   return (
-    <section ref={containerRef} id="about" className="relative min-h-[80vh] text-white px-6 md:px-20 py-12 md:py-16 overflow-hidden">
-
-      {/* Top editorial heading */}
-      <div className="relative mb-12 max-w-[1400px] mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-          className="relative z-10 flex flex-col gap-2 pointer-events-none"
-        >
-          <span className="section-label">01 // THE UNIVERSAL ENGINE</span>
-          <h2 className="text-[clamp(3.5rem,8vw,7rem)] font-bold leading-none tracking-tight" style={{ fontFamily: 'var(--font-poppins)' }}>
-            Software building <span className="italic font-light text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.5)]" style={{ fontFamily: 'var(--font-playfair)', fontSize: '1.2em' }}>software</span>.
-            <br />
-            <span style={{ color: 'rgba(255,255,255,0.25)', fontWeight: 400 }}>
-              The Universal Agent Ecosystem.
-            </span>
-          </h2>
-        </motion.div>
-
-        {/* Parallax image block */}
-        <motion.div
-          style={{ y: y1 }}
-          className="relative md:absolute md:-right-12 md:top-48 w-full md:w-[48%] aspect-[16/9] z-0 opacity-60 pointer-events-none mt-8 md:mt-0"
-        >
-          <div className="relative w-full h-full rounded-2xl overflow-hidden glass-panel">
-            <img
-              src={HERO_IMAGE}
-              alt="Forion Infrastructure"
-              className="w-full h-full object-cover grayscale"
-            />
-            <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, transparent, rgba(0,0,0,0.6))' }} />
-          </div>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, x: -30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.4, duration: 1 }}
-          className="relative z-10 mt-32 md:mt-40 max-w-xl"
-        >
-          <p className="text-xl md:text-2xl leading-relaxed" style={{ color: 'rgba(255,255,255,0.85)', fontFamily: 'var(--font-inconsolata)' }}>
-            Forion is the operating system for AI-native development.
-          </p>
-          <p className="mt-6 text-base md:text-lg leading-relaxed" style={{ color: 'rgba(255,255,255,0.45)' }}>
-            AI development today is fragmented — prompts, APIs, and glue code scattered across tools that don’t work together.
-            <br /><br />
-            You don’t build systems. You assemble pieces and hope they hold. Forion replaces that with a unified system.
-          </p>
-
-          <ul className="mt-10 flex flex-col gap-4">
-            {[
-              "Build AI applications visually with Orbit",
-              "Run intelligent agents directly inside your GitHub repositories with Spark",
-              "Turn ideas into working systems — not throwaway outputs"
-            ].map((item, i) => (
-              <li key={i} className="flex items-start gap-3 text-sm md:text-base" style={{ color: 'rgba(255,255,255,0.6)' }}>
-                <span className="text-white/30">•</span>
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
-        </motion.div>
-      </div>
-
-      {/* Middle statement */}
-      <div className="max-w-[1400px] mx-auto mb-16">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1 }}
-        >
-          <h3 className="section-heading max-w-4xl" style={{ fontFamily: 'var(--font-inconsolata)' }}>
-            From idea to real system —{' '}
-            <span style={{ fontFamily: 'var(--font-cormorant)', fontStyle: 'italic', fontWeight: 400, color: 'rgba(255,255,255,0.9)' }}>
-              without rebuilding
-            </span>
-            {' '}everything.
-          </h3>
-        </motion.div>
-
-        <div className="mt-16 flex flex-col gap-16">
-          <p className="text-base md:text-lg leading-relaxed max-w-xl" style={{ color: 'rgba(255,255,255,0.45)' }}>
-            Instead of stitching tools together, you design, run, and evolve AI software in one place.
-          </p>
-
-          <div className="relative w-full aspect-video rounded-2xl overflow-hidden border group" style={{ borderColor: 'rgba(255,255,255,0.06)' }}>
-            <video
-              src="/about_promo.mp4"
-              autoPlay
-              muted
-              loop
-              playsInline
-              className="w-full h-full object-cover brightness-75 transition-all duration-1000 group-hover:brightness-90"
-            />
-            <div className="absolute inset-0 transition-colors duration-700" style={{ background: 'rgba(0,0,0,0.35)' }} />
-          </div>
-        </div>
-      </div>
-
-      {/* Signature sign-off */}
-      <div className="max-w-[1400px] mx-auto text-center py-8">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1 }}
-        >
-          <h4 className="text-3xl md:text-5xl font-light leading-tight" style={{ color: 'rgba(255,255,255,0.85)' }}>
-            Infrastructure. Not interface.
-            <br />
-            <span style={{ fontFamily: 'var(--font-inconsolata)', fontWeight: 300 }}>
-              The OS for AI-native development.
-            </span>
-          </h4>
-        </motion.div>
-      </div>
-
+    <section ref={containerRef} id="about" className="relative py-32 px-6 overflow-hidden bg-black">
       {/* Ambient glows */}
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full -z-10" style={{ background: 'rgba(255,255,255,0.02)', filter: 'blur(120px)' }} />
-      <div className="absolute bottom-1/3 left-0 w-[500px] h-[500px] rounded-full -z-10" style={{ background: 'rgba(255,255,255,0.015)', filter: 'blur(100px)' }} />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-white/[0.02] rounded-full blur-[120px] pointer-events-none" />
+      
+      <div className="max-w-7xl mx-auto relative z-10">
+        <motion.div style={{ opacity }} className="flex flex-col items-center text-center">
+          <span className="section-label mb-8">01 // THE MANIFESTO</span>
+          
+          <h2 className="text-[clamp(2.5rem,6vw,5rem)] font-bold tracking-tight leading-[1.1] mb-12 max-w-5xl text-white">
+            Forion is the <span className="italic font-light text-white/90" style={{ fontFamily: 'var(--font-playfair)' }}>operating system</span> for <br className="hidden md:block" />
+            AI-native development.
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start text-left mt-12">
+            <div className="flex flex-col gap-6">
+              <p className="text-xl md:text-2xl text-white/80 leading-relaxed font-light" style={{ fontFamily: 'var(--font-inconsolata)' }}>
+                AI development today is fragmented — prompts, APIs, and glue code scattered across tools that don’t work together.
+              </p>
+              <p className="text-xl md:text-2xl text-white/40 leading-relaxed font-light italic" style={{ fontFamily: 'var(--font-inconsolata)' }}>
+                You don’t build systems. <br />
+                You assemble pieces and hope they hold.
+              </p>
+            </div>
+
+            <div className="flex flex-col gap-8 text-white">
+              <p className="text-lg text-white/50 leading-relaxed">
+                Forion replaces that with a unified system. Instead of stitching tools together, you design, run, and evolve AI software in one place. From idea to real system — without rebuilding everything.
+              </p>
+
+              <div className="flex flex-col gap-6 pt-4">
+                {[
+                  { title: "Build Visually", desc: "Craft AI applications with Orbit's visual engine." },
+                  { title: "Run Anywhere", desc: "Deploy intelligent agents directly into your GitHub repos with Spark." },
+                  { title: "Evolve Systems", desc: "Turn ideas into working software, not throwaway outputs." }
+                ].map((item, i) => (
+                  <div key={i} className="flex gap-4">
+                    <div className="w-1 h-full bg-gradient-to-b from-white/20 to-transparent flex-shrink-0" />
+                    <div>
+                      <h4 className="text-sm font-bold uppercase tracking-widest mb-1">{item.title}</h4>
+                      <p className="text-sm text-white/40">{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </motion.div>
+      </div>
     </section>
   );
-};
-
-export default AboutSection;
-
+}
