@@ -41,7 +41,7 @@ const ProductPanel = ({
       className="relative w-full flex items-center justify-center p-0"
     >
       {/* Product Card / Panel */}
-      <div className="relative w-full glass-card-strong border-white/10 rounded-[1.5rem] md:rounded-[2rem] overflow-hidden flex flex-col-reverse md:flex-row items-center gap-10 p-6 md:p-16 shadow-[0_0_100px_rgba(0,0,0,0.4)]">
+      <div className="relative w-full glass-card-strong border-white/10 rounded-xl md:rounded-2xl overflow-hidden flex flex-col-reverse md:flex-row items-center gap-8 p-5 md:p-12 shadow-[0_0_100px_rgba(0,0,0,0.4)]">
 
         {/* Cinematic Grid Backdrop */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:100px_100px] pointer-events-none" />
@@ -58,13 +58,13 @@ const ProductPanel = ({
                 </span>
               </div>
             )}
-            <span className="text-[16px] md:text-[24px] uppercase tracking-[0.2em] text-white/30 font-mono">Module // 0{index + 1}</span>
-            <h2 className="text-4xl md:text-7xl font-bold text-white tracking-tighter leading-[0.9] uppercase">
+            <span className="text-[14px] md:text-[20px] uppercase tracking-[0.2em] text-white/30 font-mono">Module // 0{index + 1}</span>
+            <h2 className="text-3xl md:text-6xl font-bold text-white tracking-tighter leading-[0.9] uppercase">
               {title}
             </h2>
           </div>
 
-          <p className="text-base md:text-[18px] text-white/40 max-w-md leading-relaxed">
+          <p className="text-sm md:text-base text-white/40 max-w-md leading-relaxed">
             {description}
           </p>
 
@@ -93,7 +93,7 @@ const ProductPanel = ({
         </div>
 
         {/* Visual / Demo Area */}
-        <div className={`flex-[1.2] w-full relative group h-[320px] md:h-auto md:aspect-video
+        <div className={`flex-[1.2] w-full relative group h-[270px] md:h-auto md:aspect-video
                         ${title === "Forion IDE" ? "md:scale-110" : ""}`}>
           <div className={`w-full h-full rounded-[2rem] border overflow-hidden shadow-2xl transition-all duration-700 
                           ${title === "Orbit"

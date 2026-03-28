@@ -5,18 +5,18 @@ import { motion, useScroll, useTransform } from "framer-motion";
 
 const features = [
   // Primary Products
-  { name: "Orbit", x: -400, y: -220, label: "Frontend", color: "#FFFFFF" },
-  { name: "Spark", x: 400, y: -220, label: "Execution", color: "#FF9900" },
-  { name: "AgentTrace", x: 0, y: -380, label: "Governance", color: "#4285F4" },
+  { name: "Orbit", x: -320, y: -176, label: "Frontend", color: "#FFFFFF" },
+  { name: "Spark", x: 320, y: -176, label: "Execution", color: "#FF9900" },
+  { name: "AgentTrace", x: 0, y: -304, label: "Governance", color: "#4285F4" },
 
   // Core Capabilities
-  { name: "Auto-Heal", x: -480, y: 100, label: "Reliability", color: "#26D07C" },
-  { name: "Surgical Patch", x: 480, y: 100, label: "Efficiency", color: "#FFD21E" },
-  { name: "Planner", x: 0, y: 380, label: "Reasoning", color: "#FFFFFF" },
+  { name: "Auto-Heal", x: -384, y: 80, label: "Reliability", color: "#26D07C" },
+  { name: "Surgical Patch", x: 384, y: 80, label: "Efficiency", color: "#FFD21E" },
+  { name: "Planner", x: 0, y: 304, label: "Reasoning", color: "#FFFFFF" },
 
   // Infrastructure
-  { name: "IDE", x: -250, y: 280, label: "Environment", color: "#4078c0" },
-  { name: "OS Core", x: 250, y: 280, label: "Infrastructure", color: "#D97757" },
+  { name: "IDE", x: -200, y: 224, label: "Environment", color: "#4078c0" },
+  { name: "OS Core", x: 200, y: 224, label: "Infrastructure", color: "#D97757" },
 ];
 
 const getLogo = (name: string, color: string) => {
@@ -69,17 +69,17 @@ const IntegrationNode = ({ node, index, scrollYProgress }: { node: any, index: n
           ]
         }}
         transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: index * 0.2 }}
-        className={`glass-card-strong px-6 py-4 flex items-center gap-3 group backdrop-blur-2xl border-white/10 hover:border-white/40 transition-all duration-500`}
+        className={`glass-card-strong px-5 py-3 flex items-center gap-2 group backdrop-blur-2xl border-white/10 hover:border-white/40 transition-all duration-500`}
         style={{ '--hover-color': node.color } as any}
       >
-        <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center transition-colors group-hover:border-[var(--hover-color)]/50">
+        <div className="w-6 h-6 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center transition-colors group-hover:border-[var(--hover-color)]/50">
           {getLogo(node.name, node.color)}
         </div>
         <div>
-          <span className="block text-[10px] text-white/40 uppercase tracking-[0.5em] font-mono mb-1 group-hover:text-[var(--hover-color)]/60 transition-colors">
+          <span className="block text-[8px] text-white/40 uppercase tracking-[0.5em] font-mono mb-0.5 group-hover:text-[var(--hover-color)]/60 transition-colors">
             {node.label}
           </span>
-          <h4 className="text-sm font-bold text-white tracking-tight group-hover:text-white transition-colors">
+          <h4 className="text-[12px] font-bold text-white tracking-tight group-hover:text-white transition-colors">
             {node.name}
           </h4>
         </div>
@@ -194,13 +194,13 @@ const EcosystemSection = () => {
                 className="flex items-center justify-center group pointer-events-auto"
               >
                 {/* Volumetric Glow Hub */}
-                <div className="relative glass-card-strong px-16 py-12 flex flex-col items-center justify-center border-white/40 bg-black/95 backdrop-blur-3xl 
+                <div className="relative glass-card-strong px-12 py-10 flex flex-col items-center justify-center border-white/40 bg-black/95 backdrop-blur-3xl 
                             shadow-[0_0_100px_rgba(255,255,255,0.1),_0_0_200px_rgba(255,255,255,0.05),_inset_0_0_50px_rgba(255,255,255,0.03)]
                             transition-all duration-1000 group-hover:border-white/60">
                   {/* Internal Light Source */}
                   <div className="absolute inset-0 bg-gradient-to-tr from-white/[0.03] via-transparent to-white/[0.08] pointer-events-none" />
 
-                  <h2 className="text-[4rem] sm:text-[5rem] md:text-[7rem] font-black text-white tracking-[0.05em] uppercase leading-none glow-text-strong">
+                  <h2 className="text-[3.2rem] sm:text-[4rem] md:text-[5.5rem] font-black text-white tracking-[0.05em] uppercase leading-none glow-text-strong">
                     Forion
                   </h2>
                 </div>
@@ -215,7 +215,7 @@ const EcosystemSection = () => {
           >
             <svg
               viewBox="0 0 1200 800"
-              className="w-full h-full max-w-[1200px] max-h-[800px] overflow-visible"
+              className="w-full h-full max-w-[960px] max-h-[640px] overflow-visible"
             >
               <g transform="translate(600, 400)">
                 {features.map((node, i) => (

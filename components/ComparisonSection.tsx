@@ -36,7 +36,7 @@ const comparisons = [
 ];
 
 const CheckIcon = () => (
-    <svg viewBox="0 0 24 24" fill="none" className="w-10 h-10 flex-shrink-0" style={{ color: '#fff' }}>
+    <svg viewBox="0 0 24 24" fill="none" className="w-8 h-8 flex-shrink-0" style={{ color: '#fff' }}>
         <path d="M20 6L9 17L4 12" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
 );
@@ -44,7 +44,7 @@ const CheckIcon = () => (
 const ComparisonSection = () => {
     return (
         <section className="relative pt-12 pb-16 px-6 overflow-hidden">
-            <div className="mx-auto max-w-6xl relative z-10">
+            <div className="mx-auto max-w-5xl relative z-10">
                 <div className="text-center mb-12">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -70,20 +70,20 @@ const ComparisonSection = () => {
                         <table className="w-full text-left border-collapse min-w-[640px]">
                             <thead>
                                 <tr style={{ borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
-                                    <th className="p-12 text-[20px] font-mono uppercase tracking-[0.3em]" style={{ color: 'rgba(255,255,255,0.3)' }}>Feature</th>
-                                    <th className="p-12" style={{ background: 'rgba(255,255,255,0.02)' }}>
-                                        <div className="flex items-center gap-6">
-                                            <div className="w-16 h-16 rounded-xl flex items-center justify-center" style={{ background: '#fff' }}>
-                                                <span className="text-black font-black text-2xl">F</span>
+                                    <th className="p-8 text-[16px] font-mono uppercase tracking-[0.3em]" style={{ color: 'rgba(255,255,255,0.3)' }}>Feature</th>
+                                    <th className="p-8" style={{ background: 'rgba(255,255,255,0.02)' }}>
+                                        <div className="flex items-center gap-4">
+                                            <div className="w-12 h-12 rounded-xl flex items-center justify-center" style={{ background: '#fff' }}>
+                                                <span className="text-black font-black text-xl">F</span>
                                             </div>
-                                            <span className="text-2xl font-bold text-white uppercase tracking-wider">Forion</span>
+                                            <span className="text-xl font-bold text-white uppercase tracking-wider">Forion</span>
                                         </div>
                                     </th>
-                                    <th className="p-12">
-                                        <span className="font-medium uppercase tracking-widest" style={{ color: 'rgba(255,255,255,0.25)', fontSize: '24px' }}>Interface Builders</span>
+                                    <th className="p-8">
+                                        <span className="font-medium uppercase tracking-widest" style={{ color: 'rgba(255,255,255,0.25)', fontSize: '18px' }}>Interface Builders</span>
                                     </th>
-                                    <th className="p-12">
-                                        <span className="font-medium uppercase tracking-widest" style={{ color: 'rgba(255,255,255,0.25)', fontSize: '24px' }}>Legacy Agents</span>
+                                    <th className="p-8">
+                                        <span className="font-medium uppercase tracking-widest" style={{ color: 'rgba(255,255,255,0.25)', fontSize: '18px' }}>Legacy Agents</span>
                                     </th>
                                 </tr>
                             </thead>
@@ -98,19 +98,19 @@ const ComparisonSection = () => {
                                         style={{ borderBottom: '1px solid rgba(255,255,255,0.04)' }}
                                         className="transition-colors hover:bg-white/[0.015]"
                                     >
-                                        <td className="p-12 font-medium" style={{ color: 'rgba(255,255,255,0.45)', fontFamily: 'var(--font-jetbrains)', fontSize: '1.8rem' }}>
+                                        <td className="p-8 font-medium" style={{ color: 'rgba(255,255,255,0.45)', fontFamily: 'var(--font-jetbrains)', fontSize: '1.4rem' }}>
                                             {row.feature}
                                         </td>
-                                        <td className="p-12" style={{ background: 'rgba(255,255,255,0.015)' }}>
+                                        <td className="p-8" style={{ background: 'rgba(255,255,255,0.015)' }}>
                                             <div className="flex items-center gap-4">
                                                 <CheckIcon />
-                                                <span className="font-semibold text-white text-3xl">{row.forion}</span>
+                                                <span className="font-semibold text-white text-2xl">{row.forion}</span>
                                             </div>
                                         </td>
-                                        <td className="p-12" style={{ color: 'rgba(255,255,255,0.3)', fontSize: '28px', lineHeight: '1.2' }}>
+                                        <td className="p-8" style={{ color: 'rgba(255,255,255,0.3)', fontSize: '22px', lineHeight: '1.2' }}>
                                             {row.legacy_ui}
                                         </td>
-                                        <td className="p-12" style={{ color: 'rgba(255,255,255,0.3)', fontSize: '28px', lineHeight: '1.2' }}>
+                                        <td className="p-8" style={{ color: 'rgba(255,255,255,0.3)', fontSize: '22px', lineHeight: '1.2' }}>
                                             {row.legacy_agents}
                                         </td>
                                     </motion.tr>
