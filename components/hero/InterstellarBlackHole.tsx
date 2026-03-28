@@ -264,18 +264,18 @@ interface InterstellarBlackHoleProps {
   onReady?: () => void
 }
 
-export default function InterstellarBlackHole({ onReady = () => {} }: InterstellarBlackHoleProps) {
+export default function InterstellarBlackHole({ onReady = () => { } }: InterstellarBlackHoleProps) {
   // PERFORMANCE FIX: Lock DPR to 1 to halve fragment shader workload on high-res displays
   return (
     <Canvas
       camera={{ position: [0, 0, 1], fov: 90 }}
       style={{ position: 'absolute', inset: 0 }}
-      gl={{ 
-        antialias: false, 
+      gl={{
+        antialias: false,
         alpha: false,
         powerPreference: 'high-performance'
       }}
-      dpr={1} 
+      dpr={1}
     >
       <BlackHoleMesh onReady={onReady} />
     </Canvas>

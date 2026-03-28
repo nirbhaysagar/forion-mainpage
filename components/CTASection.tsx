@@ -18,22 +18,32 @@ const CTASection = ({ onRequestAccess }: { onRequestAccess?: () => void }) => {
         >
           <span className="section-label mb-8 block">Get Started</span>
 
-          <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-[-0.04em] leading-[0.95] mb-6 text-white">
-            Start shipping.
+          <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-[-0.04em] leading-[0.95] mb-6 text-white text-center">
+            Ship in <span className="font-serif-editorial italic font-medium opacity-50">hours</span>,
             <br />
-            <span style={{ color: 'rgba(255,255,255,0.2)' }}>Stop configuring.</span>
+            not weeks.
           </h2>
 
-          <p className="text-lg mb-12 max-w-lg mx-auto leading-relaxed" style={{ color: 'rgba(255,255,255,0.4)' }}>
-            Join 10,000+ builders who deploy AI-native apps in minutes, not months. No DevOps degree required.
+          <p className="text-lg mb-12 max-w-lg mx-auto leading-relaxed text-center" style={{ color: 'rgba(255,255,255,0.4)' }}>
+            Join AI-native teams building real software on the Forion stack. From idea to working app in seconds. No scaffold. No boilerplate. No wasted momentum.
           </p>
 
-          <div className="flex gap-4 justify-center flex-wrap">
-            <button onClick={onRequestAccess} className="px-10 py-4 bg-white text-black font-bold rounded-lg uppercase text-[11px] tracking-widest hover:opacity-90 transition-opacity">
-              Start Building Free
-            </button>
-            <a href="#products" className="px-10 py-4 border border-white/20 text-white font-bold rounded-lg uppercase text-[11px] tracking-widest hover:bg-white/5 transition-colors">
-              See a Demo
+          <div className="flex gap-6 justify-center flex-wrap items-center mt-8">
+            <a
+              href="https://orbit-night-sky-main.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-12 py-5 bg-white text-black font-bold rounded-sm uppercase text-[15px] tracking-widest hover:opacity-90 transition-all hover:scale-[1.05] active:scale-[0.98]"
+              style={{ fontFamily: 'var(--font-poppins)' }}
+            >
+              Start Building with Orbit
+            </a>
+            <a 
+              href="#products" 
+              className="px-12 py-5 border border-white/20 text-white font-bold rounded-sm uppercase text-[15px] tracking-widest hover:bg-white/5 transition-all hover:scale-[1.05]"
+              style={{ fontFamily: 'var(--font-poppins)' }}
+            >
+              Explore the Stack
             </a>
           </div>
         </motion.div>

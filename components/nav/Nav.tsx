@@ -2,8 +2,8 @@
 
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
+import { useUI } from '../providers/UIProvider'
 import MobileMenu from './MobileMenu'
-
 import Link from 'next/link'
 
 const links = [
@@ -13,8 +13,8 @@ const links = [
   { label: 'Blog', href: '/blog' },
 ]
 
-export default function Nav({ onRequestAccess }: { onRequestAccess?: () => void }) {
-  const [menuOpen, setMenuOpen] = useState(false)
+export default function Nav() {
+  const { setMenuOpen, setModalOpen } = useUI()
   const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
@@ -35,13 +35,13 @@ export default function Nav({ onRequestAccess }: { onRequestAccess?: () => void 
           zIndex: 200,
           display: 'flex',
           alignItems: 'center',
-          height: '96px', // Doubled size based on user request
+          height: '126px', // Increased to 3x of 42px based on user request
         }}
       >
-        <img 
-          src="/ADARSH%20LOGO-01.png" 
-          alt="Adarsh Logo" 
-          style={{ height: '100%', width: 'auto', display: 'block' }} 
+        <img
+          src="/main-logo.svg"
+          alt="Forion Logo"
+          style={{ height: '100%', width: 'auto', display: 'block' }}
         />
       </Link>
       <motion.nav
@@ -56,26 +56,29 @@ export default function Nav({ onRequestAccess }: { onRequestAccess?: () => void 
           zIndex: 200,
           display: 'flex',
           alignItems: 'center',
-          gap: '5.5rem',
-          padding: '16px 48px',
+          gap: '2.5rem',
+          padding: '10px 32px',
           borderRadius: 999,
-          background: scrolled ? 'rgba(0,0,0,0.7)' : 'transparent',
-          backdropFilter: scrolled ? 'blur(16px)' : 'none',
-          border: scrolled ? '1px solid #1a1a1a' : '1px solid transparent',
-          transition: 'background 0.4s, border-color 0.4s, backdrop-filter 0.4s',
+          transition: 'all 0.4s ease',
         }}
+        className={`
+          ${scrolled 
+            ? 'bg-black/70 backdrop-blur-xl border border-white/10' 
+            : 'md:bg-black/40 md:backdrop-blur-md md:border md:border-white/10 bg-transparent backdrop-blur-none border-transparent'
+          }
+        `}
       >
 
 
         {/* Desktop links */}
-        <div className="hidden md:flex" style={{ gap: '3.5rem' }}>
+        <div className="hidden lg:flex" style={{ gap: '2rem' }}>
           {links.map((link) => (
             <Link
               key={link.label}
               href={link.href}
               style={{
                 fontFamily: 'var(--font-inconsolata)',
-                fontSize: 16,
+                fontSize: 13,
                 letterSpacing: '0.08em',
                 textTransform: 'uppercase',
                 fontWeight: 500,
@@ -92,19 +95,19 @@ export default function Nav({ onRequestAccess }: { onRequestAccess?: () => void 
         </div>
 
         <button
-          className="hidden md:block"
-          onClick={onRequestAccess}
+          className="hidden lg:block uppercase"
+          onClick={() => setModalOpen(true)}
           style={{
             fontFamily: 'var(--font-inconsolata)',
-            fontSize: 15,
-            letterSpacing: '0.1em',
+            fontSize: 11,
+            letterSpacing: '0.15em',
             textTransform: 'uppercase',
             color: '#000',
             background: '#f5f5f5',
-            padding: '12px 28px',
-            borderRadius: 8,
+            padding: '10px 22px',
+            borderRadius: 6,
             textDecoration: 'none',
-            fontWeight: 600,
+            fontWeight: 800,
             border: 'none',
             cursor: 'pointer',
             transition: 'opacity 0.2s',
@@ -112,28 +115,13 @@ export default function Nav({ onRequestAccess }: { onRequestAccess?: () => void 
           onMouseEnter={(e) => ((e.target as HTMLElement).style.opacity = '0.8')}
           onMouseLeave={(e) => ((e.target as HTMLElement).style.opacity = '1')}
         >
-          Request Access
+          Start Building with Orbit
         </button>
 
-        {/* Mobile hamburger */}
-        <button
-          className="flex md:hidden"
-          onClick={() => setMenuOpen(true)}
-          style={{
-            background: 'transparent',
-            border: 'none',
-            display: 'flex',
-            flexDirection: 'column',
-            gap: 4,
-            padding: 4,
-          }}
-        >
-          <span style={{ display: 'block', width: 18, height: 1, background: '#888' }} />
-          <span style={{ display: 'block', width: 18, height: 1, background: '#888' }} />
-        </button>
       </motion.nav>
 
-      <MobileMenu open={menuOpen} onClose={() => setMenuOpen(false)} onRequestAccess={onRequestAccess} />
+      <MobileMenu />
     </>
   )
 }
+

@@ -4,23 +4,23 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { X } from 'lucide-react'
 
-interface RequestAccessModalProps {
-  open: boolean
-  onClose: () => void
-}
+import { useUI } from './providers/UIProvider'
 
-export default function RequestAccessModal({ open, onClose }: RequestAccessModalProps) {
+export default function RequestAccessModal() {
+  const { modalOpen: open, setModalOpen } = useUI()
+  const onClose = () => setModalOpen(false)
   const [email, setEmail] = useState('')
   const [submitted, setSubmitted] = useState(false)
   const [loading, setLoading] = useState(false)
 
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setLoading(true)
-    
+
     // Simulate API call
     await new Promise(resolve => setTimeout(resolve, 1500))
-    
+
     setLoading(false)
     setSubmitted(true)
   }
@@ -48,7 +48,7 @@ export default function RequestAccessModal({ open, onClose }: RequestAccessModal
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close Button */}
-            <button 
+            <button
               onClick={onClose}
               className="absolute top-4 right-4 md:top-8 md:right-8 text-white/40 hover:text-white transition-all z-50 p-2 group active:scale-95"
               aria-label="Close modal"
@@ -101,7 +101,7 @@ export default function RequestAccessModal({ open, onClose }: RequestAccessModal
                 </p>
               </div>
             ) : (
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 className="relative z-10 text-center py-4"

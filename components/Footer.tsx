@@ -13,58 +13,56 @@ const Footer = () => {
           {/* Brand + newsletter */}
           <div className="md:col-span-12 grid grid-cols-2 md:grid-cols-4 gap-10">
             {/* Products */}
-            <div className="flex flex-col gap-5">
-              <span className="text-[9px] font-bold uppercase tracking-[0.4em]" style={{ color: 'rgba(255,255,255,0.3)', fontFamily: 'var(--font-jetbrains)' }}>Platform</span>
-              <div className="flex flex-col gap-3">
+            <div className="flex flex-col gap-6">
+              <span className="text-[11px] font-bold uppercase tracking-[0.5em]" style={{ color: 'rgba(255,255,255,0.4)', fontFamily: 'var(--font-jetbrains)' }}>Platform</span>
+              <div className="flex flex-col gap-4">
                 {[
                   { l: "Orbit Builder", h: "https://orbit.forion.dev/" },
                   { l: "Spark Agents", h: "https://spark.forgje.com/" },
+                  { l: "AgentTrace", h: "/products#agenttrace" },
                   { l: "Pricing", h: "/products#pricing" },
-                  { l: "Changelog", h: "/docs#changelog" },
                 ].map(item => (
-                  <Link key={item.l} href={item.h} className="text-sm hover:text-white transition-colors tracking-tight" style={{ color: 'rgba(255,255,255,0.45)', fontFamily: 'var(--font-inconsolata)' }}>{item.l}</Link>
+                  <Link key={item.l} href={item.h} className="text-[17px] hover:text-white transition-colors tracking-tight" style={{ color: 'rgba(255,255,255,0.5)', fontFamily: 'var(--font-inconsolata)' }}>{item.l}</Link>
                 ))}
               </div>
             </div>
 
             {/* Developers */}
-            <div className="flex flex-col gap-5">
-              <span className="text-[9px] font-bold uppercase tracking-[0.4em]" style={{ color: 'rgba(255,255,255,0.3)', fontFamily: 'var(--font-jetbrains)' }}>Developers</span>
-              <div className="flex flex-col gap-3">
+            <div className="flex flex-col gap-6">
+              <span className="text-[11px] font-bold uppercase tracking-[0.5em]" style={{ color: 'rgba(255,255,255,0.4)', fontFamily: 'var(--font-jetbrains)' }}>Developers</span>
+              <div className="flex flex-col gap-4">
                 {[
                   { l: "Documentation", h: "/docs" },
                   { l: "API Reference", h: "/docs#api" },
                   { l: "GitHub", h: "https://github.com/forgje" },
                   { l: "Status", h: "https://status.forion.dev" },
                 ].map(item => (
-                  <Link key={item.l} href={item.h} className="text-sm hover:text-white transition-colors tracking-tight" style={{ color: 'rgba(255,255,255,0.45)', fontFamily: 'var(--font-inconsolata)' }}>{item.l}</Link>
+                  <Link key={item.l} href={item.h} className="text-[17px] hover:text-white transition-colors tracking-tight" style={{ color: 'rgba(255,255,255,0.5)', fontFamily: 'var(--font-inconsolata)' }}>{item.l}</Link>
                 ))}
               </div>
             </div>
 
             {/* Company */}
-            <div className="flex flex-col gap-5">
-              <span className="text-[9px] font-bold uppercase tracking-[0.4em]" style={{ color: 'rgba(255,255,255,0.3)', fontFamily: 'var(--font-jetbrains)' }}>Company</span>
-              <div className="flex flex-col gap-3">
+            <div className="flex flex-col gap-6">
+              <span className="text-[11px] font-bold uppercase tracking-[0.5em]" style={{ color: 'rgba(255,255,255,0.4)', fontFamily: 'var(--font-jetbrains)' }}>Company</span>
+              <div className="flex flex-col gap-4">
                 {[
                   { l: "About", h: "/about" },
                   { l: "Careers", h: "/about#careers" },
                   { l: "Blog", h: "/blog" },
                   { l: "Contact", h: "mailto:hello@forion.dev" },
                 ].map(item => (
-                  <Link key={item.l} href={item.h} className="text-sm hover:text-white transition-colors tracking-tight" style={{ color: 'rgba(255,255,255,0.45)', fontFamily: 'var(--font-inconsolata)' }}>{item.l}</Link>
+                  <Link key={item.l} href={item.h} className="text-[17px] hover:text-white transition-colors tracking-tight" style={{ color: 'rgba(255,255,255,0.5)', fontFamily: 'var(--font-inconsolata)' }}>{item.l}</Link>
                 ))}
               </div>
             </div>
 
             {/* Brand + Newsletter */}
-            <div className="flex flex-col gap-8">
-              <div>
-                <span style={{ fontFamily: 'var(--font-bebas-neue)', fontSize: '1.4rem', letterSpacing: '0.12em', color: '#f5f5f5' }}>
-                  FORION
-                </span>
-                <p className="mt-3 text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.35)', fontFamily: 'var(--font-inconsolata)' }}>
-                  The orchestration layer for AI teams.
+            <div className="flex flex-col gap-6">
+              <div className="flex flex-col gap-6">
+                <img src="/main-logo.svg" alt="Forion Logo" style={{ height: '42px', width: 'auto', marginBottom: '8px' }} />
+                <p className="text-[15px] leading-relaxed max-w-[280px]" style={{ color: 'rgba(255,255,255,0.4)', fontFamily: 'var(--font-inconsolata)' }}>
+                  Forion is the operating system for building AI-native applications.
                 </p>
               </div>
               <div className="flex gap-3">
@@ -78,10 +76,10 @@ const Footer = () => {
                     href={social.h}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-9 h-9 rounded-full flex items-center justify-center transition-all duration-300 hover:bg-white hover:text-black"
-                    style={{ border: '1px solid rgba(255,255,255,0.15)', color: 'rgba(255,255,255,0.4)' }}
+                    className="w-11 h-11 rounded-full flex items-center justify-center transition-all duration-300 hover:bg-white hover:text-black"
+                    style={{ border: '1px solid rgba(255,255,255,0.15)', color: 'rgba(255,255,255,0.5)' }}
                   >
-                    <social.i className="w-3.5 h-3.5" />
+                    <social.i className="w-4 h-4" />
                   </a>
                 ))}
               </div>
@@ -95,12 +93,12 @@ const Footer = () => {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-6 flex flex-col sm:flex-row justify-between items-center gap-4">
-          <div className="flex gap-8 order-2 sm:order-1">
-            <Link href="/privacy" className="text-[9px] uppercase tracking-[0.4em] hover:text-white transition-colors" style={{ color: 'rgba(255,255,255,0.18)', fontFamily: 'var(--font-jetbrains)' }}>Privacy</Link>
-            <Link href="/terms" className="text-[9px] uppercase tracking-[0.4em] hover:text-white transition-colors" style={{ color: 'rgba(255,255,255,0.18)', fontFamily: 'var(--font-jetbrains)' }}>Terms</Link>
+        <div className="mt-12 flex flex-col sm:flex-row justify-between items-center gap-6">
+          <div className="flex gap-12 order-2 sm:order-1">
+            <Link href="/privacy" className="text-[11px] uppercase tracking-[0.5em] hover:text-white transition-colors" style={{ color: 'rgba(255,255,255,0.2)', fontFamily: 'var(--font-jetbrains)' }}>Privacy</Link>
+            <Link href="/terms" className="text-[11px] uppercase tracking-[0.5em] hover:text-white transition-colors" style={{ color: 'rgba(255,255,255,0.2)', fontFamily: 'var(--font-jetbrains)' }}>Terms</Link>
           </div>
-          <span className="text-[9px] uppercase tracking-[0.3em] order-1 sm:order-2" style={{ color: 'rgba(255,255,255,0.18)', fontFamily: 'var(--font-jetbrains)' }}>© 2026 Forion Systems</span>
+          <span className="text-[11px] uppercase tracking-[0.4em] order-1 sm:order-2" style={{ color: 'rgba(255,255,255,0.2)', fontFamily: 'var(--font-jetbrains)' }}>© 2026 Forion Systems</span>
         </div>
       </div>
     </footer>

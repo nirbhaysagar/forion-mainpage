@@ -1,24 +1,21 @@
 'use client'
 
-import React, { useState } from 'react'
-import Nav from '@/components/nav/Nav'
+import { useUI } from '@/components/providers/UIProvider'
 import Footer from '@/components/Footer'
 import SmoothScroll from '@/components/SmoothScroll'
 import { motion } from 'framer-motion'
-import RequestAccessModal from '@/components/RequestAccessModal'
 import { Check } from 'lucide-react'
 
 export default function ProductsPage() {
-  const [modalOpen, setModalOpen] = useState(false)
+  const { setModalOpen } = useUI()
 
   return (
     <SmoothScroll>
-      <main style={{ background: 'transparent', position: 'relative' }}>
-        <Nav onRequestAccess={() => setModalOpen(true)} />
-        
+      <main style={{ background: 'transparent', position: 'relative', zoom: 0.9 }}>
+
         {/* Products Hero */}
         <section className="relative min-h-[70vh] flex flex-col items-center justify-center px-6 pt-32 overflow-hidden">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
@@ -41,7 +38,7 @@ export default function ProductsPage() {
         <section className="py-24 px-6 md:px-20 max-w-7xl mx-auto flex flex-col gap-32">
           {/* Orbit Card */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -54,7 +51,7 @@ export default function ProductsPage() {
                   Turn a single prompt into a fully hosted, scalable web application. Orbit handles the provisioning, the CI/CD, and the global edge deployment so you can focus on the logic.
                 </p>
               </div>
-              
+
               <ul className="flex flex-col gap-4">
                 {[
                   "Prompt-to-Product Workflow",
@@ -76,7 +73,7 @@ export default function ProductsPage() {
               </a>
             </motion.div>
 
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
@@ -89,7 +86,7 @@ export default function ProductsPage() {
 
           {/* Spark Card */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
@@ -99,7 +96,7 @@ export default function ProductsPage() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
             </motion.div>
 
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -112,7 +109,7 @@ export default function ProductsPage() {
                   The first autonomous coding agent that integrates directly into your existing codebase. Spark identifies bugs, suggests refactors, and implements complex features while you sleep.
                 </p>
               </div>
-              
+
               <ul className="flex flex-col gap-4">
                 {[
                   "Multi-Agent Orchestration",
@@ -138,63 +135,63 @@ export default function ProductsPage() {
 
         {/* Premium Pricing Section */}
         <section id="pricing" className="py-32 px-6 md:px-20 relative mt-24 flex flex-col items-center">
-           {/* Ambient background glow */}
-           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[50%] bg-purple-900/10 blur-[120px] rounded-full pointer-events-none -z-10" />
-           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/[0.02] to-transparent pointer-events-none border-y border-white/5 -z-10" />
+          {/* Ambient background glow */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[50%] bg-purple-900/10 blur-[120px] rounded-full pointer-events-none -z-10" />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/[0.02] to-transparent pointer-events-none border-y border-white/5 -z-10" />
 
-           <div className="max-w-7xl w-full mx-auto text-center relative z-10">
-              <span className="section-label mb-6 block">Infrastructure Tiers</span>
-              <h2 className="text-[clamp(3rem,6vw,5rem)] font-bold tracking-tight leading-none mb-6">
-                <span className="uppercase" style={{ fontFamily: 'var(--font-poppins)' }}>Scalable</span>{' '}
-                <span className="italic font-light normal-case text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.5)]" style={{ fontFamily: 'var(--font-cormorant)' }}>Pricing</span>
-              </h2>
-              <p className="text-white/40 mb-20 text-lg">Join the early adopter wave at developer-friendly rates.</p>
-              
-              <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8 text-left items-center">
-                 {[
-                   { name: "Personal", price: "$0", desc: "For individual tinkerers", features: ["1 Project", "Public Agents", "Community Support"], highlight: false },
-                   { name: "Pro", price: "$29", desc: "For serious builders", features: ["Unlimited Projects", "Private Agents", "High Priority API"], highlight: true },
-                   { name: "Team", price: "$99", desc: "For scaling startups", features: ["Team Collaboration", "Shared GPU Memory", "Custom Models"], highlight: false }
-                 ].map((plan, i) => (
-                   <div 
-                      key={i} 
-                      className={`relative p-8 flex flex-col gap-8 rounded-2xl backdrop-blur-xl transition-all duration-500 hover:-translate-y-2
+          <div className="max-w-7xl w-full mx-auto text-center relative z-10">
+            <span className="section-label mb-6 block">Infrastructure Tiers</span>
+            <h2 className="text-[clamp(3rem,6vw,5rem)] font-bold tracking-tight leading-none mb-6">
+              <span className="uppercase" style={{ fontFamily: 'var(--font-poppins)' }}>Scalable</span>{' '}
+              <span className="italic font-light normal-case text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.5)]" style={{ fontFamily: 'var(--font-cormorant)' }}>Pricing</span>
+            </h2>
+            <p className="text-white/40 mb-20 text-lg">Join the early adopter wave at developer-friendly rates.</p>
+
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8 text-left items-center">
+              {[
+                { name: "Personal", price: "$0", desc: "For individual tinkerers", features: ["1 Project", "Public Agents", "Community Support"], highlight: false },
+                { name: "Pro", price: "$29", desc: "For serious builders", features: ["Unlimited Projects", "Private Agents", "High Priority API"], highlight: true },
+                { name: "Team", price: "$99", desc: "For scaling startups", features: ["Team Collaboration", "Shared GPU Memory", "Custom Models"], highlight: false }
+              ].map((plan, i) => (
+                <div
+                  key={i}
+                  className={`relative p-8 flex flex-col gap-8 rounded-2xl backdrop-blur-xl transition-all duration-500 hover:-translate-y-2
                         ${plan.highlight ? 'bg-white/10 border border-white/30 shadow-[0_0_40px_rgba(255,255,255,0.1)] lg:scale-105 py-12 z-20' : 'bg-black/40 border border-white/10 hover:border-white/20 z-10'}`}
-                   >
-                      {plan.highlight && (
-                        <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 px-4 py-1 bg-white text-black text-[10px] font-bold uppercase tracking-widest rounded-full shadow-lg">
-                          Most Popular
-                        </div>
-                      )}
-                      
-                      <div>
-                        <h4 className="text-2xl font-bold uppercase tracking-wider" style={{ fontFamily: 'var(--font-bebas-neue)' }}>{plan.name}</h4>
-                        <div className="text-5xl font-light tracking-tighter mt-4 text-white drop-shadow-sm" style={{ fontFamily: 'var(--font-jetbrains)' }}>
-                          {plan.price}<span className="text-lg font-normal text-white/30 font-sans tracking-normal">/mo</span>
-                        </div>
-                        <p className="text-sm text-white/50 mt-3">{plan.desc}</p>
-                      </div>
+                >
+                  {plan.highlight && (
+                    <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 px-4 py-1 bg-white text-black text-[10px] font-bold uppercase tracking-widest rounded-full shadow-lg">
+                      Most Popular
+                    </div>
+                  )}
 
-                      <ul className="flex flex-col gap-4 border-t border-white/10 pt-8 flex-grow">
-                        {plan.features.map((f, j) => (
-                          <li key={j} className="text-sm text-white/70 flex items-center gap-3">
-                             <div className={`w-1.5 h-1.5 rounded-full ${plan.highlight ? 'bg-white shadow-[0_0_8px_rgba(255,255,255,0.8)]' : 'bg-white/20'}`} /> {f}
-                          </li>
-                        ))}
-                      </ul>
+                  <div>
+                    <h4 className="text-2xl font-bold uppercase tracking-wider" style={{ fontFamily: 'var(--font-bebas-neue)' }}>{plan.name}</h4>
+                    <div className="text-5xl font-light tracking-tighter mt-4 text-white drop-shadow-sm" style={{ fontFamily: 'var(--font-jetbrains)' }}>
+                      {plan.price}<span className="text-lg font-normal text-white/30 font-sans tracking-normal">/mo</span>
+                    </div>
+                    <p className="text-sm text-white/50 mt-3">{plan.desc}</p>
+                  </div>
 
-                      <button 
-                        onClick={() => setModalOpen(true)} 
-                        className={`mt-4 w-full py-4 rounded-lg transition-colors text-xs uppercase font-bold tracking-widest text-center
+                  <ul className="flex flex-col gap-4 border-t border-white/10 pt-8 flex-grow">
+                    {plan.features.map((f, j) => (
+                      <li key={j} className="text-sm text-white/70 flex items-center gap-3">
+                        <div className={`w-1.5 h-1.5 rounded-full ${plan.highlight ? 'bg-white shadow-[0_0_8px_rgba(255,255,255,0.8)]' : 'bg-white/20'}`} /> {f}
+                      </li>
+                    ))}
+                  </ul>
+
+                  <button
+                    onClick={() => setModalOpen(true)}
+                    className={`mt-4 w-full py-4 rounded-lg transition-colors text-xs uppercase font-bold tracking-widest text-center
                           ${plan.highlight ? 'bg-white text-black hover:bg-white/90 shadow-xl' : 'border border-white/20 hover:bg-white/10 text-white'}`}
-                        style={{ fontFamily: 'var(--font-inconsolata)' }}
-                      >
-                        Request Access
-                      </button>
-                   </div>
-                 ))}
-              </div>
-           </div>
+                    style={{ fontFamily: 'var(--font-inconsolata)' }}
+                  >
+                    Request Access
+                  </button>
+                </div>
+              ))}
+            </div>
+          </div>
         </section>
 
         {/* Documentation Peek */}
@@ -205,23 +202,19 @@ export default function ProductsPage() {
               Deep-dive into our API, SDKs, and workflow guides. Built by engineers, for engineers.
             </p>
             <div className="flex gap-4 justify-center">
-               <a href="/docs" className="px-8 py-4 bg-white/5 border border-white/10 hover:border-white/30 rounded-lg text-xs uppercase font-bold tracking-widest transition-all">
-                  Documentation Hub
-               </a>
-               <a href="/docs#api" className="px-8 py-4 bg-white/5 border border-white/10 hover:border-white/30 rounded-lg text-xs uppercase font-bold tracking-widest transition-all">
-                  API Reference
-               </a>
+              <a href="/docs" className="px-8 py-4 bg-white/5 border border-white/10 hover:border-white/30 rounded-lg text-xs uppercase font-bold tracking-widest transition-all">
+                Documentation Hub
+              </a>
+              <a href="/docs#api" className="px-8 py-4 bg-white/5 border border-white/10 hover:border-white/30 rounded-lg text-xs uppercase font-bold tracking-widest transition-all">
+                API Reference
+              </a>
             </div>
           </div>
         </section>
 
         <Footer />
-
-        <RequestAccessModal 
-          open={modalOpen} 
-          onClose={() => setModalOpen(false)} 
-        />
       </main>
     </SmoothScroll>
   )
 }
+

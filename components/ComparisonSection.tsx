@@ -4,40 +4,40 @@ import { motion } from "framer-motion";
 
 const comparisons = [
   {
-    feature: "Autonomy Level",
-    forion: "Full-stack Autonomous",
-    lovable: "UI-First Guided",
-    blackbox: "Code Completion",
+    feature: "Generation Scope",
+    forion: "Full Project Structure",
+    legacy_ui: "Single File / UI Only",
+    legacy_agents: "Snippet / File Only",
   },
   {
-    feature: "Infrastructure",
-    forion: "Direct AWS/GCP Sync",
-    lovable: "Managed Sandbox",
-    blackbox: "Local IDE Only",
+    feature: "Build Strategy",
+    forion: "Architectural Planning",
+    legacy_ui: "No Plan Before Build",
+    legacy_agents: "Deep Autocomplete",
   },
   {
-    feature: "Debugging",
-    forion: "State-aware Tracing",
-    lovable: "Browser Preview",
-    blackbox: "Console Logs",
+    feature: "Iteration Logic",
+    forion: "Surgical File Patching",
+    legacy_ui: "Regenerate Everything",
+    legacy_agents: "Manual Refactoring",
   },
   {
-    feature: "Model Flexibility",
-    forion: "Any Model (OpenRouter)",
-    lovable: "Fixed GPT-4o/Claude",
-    blackbox: "Proprietary Only",
+    feature: "Error Handling",
+    forion: "Auto-Healing Engine",
+    legacy_ui: "Manual Fix Required",
+    legacy_agents: "Fatal Exit on Error",
   },
   {
-    feature: "Time to Ship",
-    forion: "Minutes",
-    lovable: "Hours",
-    blackbox: "Days",
+    feature: "Resulting Output",
+    forion: "Deterministic Architecture",
+    legacy_ui: "Interface Prototype",
+    legacy_agents: "Mockup / Fragment",
   },
 ];
 
 const CheckIcon = () => (
-  <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5 flex-shrink-0" style={{ color: '#fff' }}>
-    <path d="M20 6L9 17L4 12" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+  <svg viewBox="0 0 24 24" fill="none" className="w-10 h-10 flex-shrink-0" style={{ color: '#fff' }}>
+    <path d="M20 6L9 17L4 12" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
   </svg>
 );
 
@@ -65,29 +65,29 @@ const ComparisonSection = () => {
           </motion.div>
         </div>
 
-        <div className="glass-card-strong overflow-hidden" style={{ borderRadius: '2rem' }}>
+        <div className="glass-card-strong overflow-hidden" style={{ borderRadius: '2rem', zoom: 0.8 }}>
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse min-w-[640px]">
               <thead>
                 <tr style={{ borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
-                  <th className="p-8 text-[10px] font-mono uppercase tracking-[0.3em]" style={{ color: 'rgba(255,255,255,0.3)' }}>Feature</th>
-                  <th className="p-8" style={{ background: 'rgba(255,255,255,0.02)' }}>
-                    <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: '#fff' }}>
-                        <span className="text-black font-black text-sm">F</span>
+                  <th className="p-12 text-[20px] font-mono uppercase tracking-[0.3em]" style={{ color: 'rgba(255,255,255,0.3)' }}>Feature</th>
+                  <th className="p-12" style={{ background: 'rgba(255,255,255,0.02)' }}>
+                    <div className="flex items-center gap-6">
+                      <div className="w-16 h-16 rounded-xl flex items-center justify-center" style={{ background: '#fff' }}>
+                        <span className="text-black font-black text-2xl">F</span>
                       </div>
-                      <span className="text-sm font-bold text-white uppercase tracking-wider">Forion</span>
+                      <span className="text-2xl font-bold text-white uppercase tracking-wider">Forion</span>
                     </div>
                   </th>
-                  <th className="p-8">
-                    <span className="text-sm font-medium" style={{ color: 'rgba(255,255,255,0.25)' }}>Lovable</span>
+                  <th className="p-12">
+                    <span className="font-medium uppercase tracking-widest" style={{ color: 'rgba(255,255,255,0.25)', fontSize: '24px' }}>Interface Builders</span>
                   </th>
-                  <th className="p-8">
-                    <span className="text-sm font-medium" style={{ color: 'rgba(255,255,255,0.25)' }}>Blackbox</span>
+                  <th className="p-12">
+                    <span className="font-medium uppercase tracking-widest" style={{ color: 'rgba(255,255,255,0.25)', fontSize: '24px' }}>Legacy Agents</span>
                   </th>
                 </tr>
               </thead>
-              <tbody className="text-sm">
+              <tbody className="text-lg">
                 {comparisons.map((row, idx) => (
                   <motion.tr
                     key={row.feature}
@@ -98,20 +98,20 @@ const ComparisonSection = () => {
                     style={{ borderBottom: '1px solid rgba(255,255,255,0.04)' }}
                     className="transition-colors hover:bg-white/[0.015]"
                   >
-                    <td className="p-8 font-medium" style={{ color: 'rgba(255,255,255,0.45)', fontFamily: 'var(--font-jetbrains)', fontSize: '0.75rem' }}>
+                    <td className="p-12 font-medium" style={{ color: 'rgba(255,255,255,0.45)', fontFamily: 'var(--font-jetbrains)', fontSize: '1.8rem' }}>
                       {row.feature}
                     </td>
-                    <td className="p-8" style={{ background: 'rgba(255,255,255,0.015)' }}>
-                      <div className="flex items-center gap-2">
+                    <td className="p-12" style={{ background: 'rgba(255,255,255,0.015)' }}>
+                      <div className="flex items-center gap-4">
                         <CheckIcon />
-                        <span className="font-semibold text-white">{row.forion}</span>
+                        <span className="font-semibold text-white text-3xl">{row.forion}</span>
                       </div>
                     </td>
-                    <td className="p-8" style={{ color: 'rgba(255,255,255,0.3)' }}>
-                      {row.lovable}
+                    <td className="p-12" style={{ color: 'rgba(255,255,255,0.3)', fontSize: '28px', lineHeight: '1.2' }}>
+                      {row.legacy_ui}
                     </td>
-                    <td className="p-8" style={{ color: 'rgba(255,255,255,0.3)' }}>
-                      {row.blackbox}
+                    <td className="p-12" style={{ color: 'rgba(255,255,255,0.3)', fontSize: '28px', lineHeight: '1.2' }}>
+                      {row.legacy_agents}
                     </td>
                   </motion.tr>
                 ))}

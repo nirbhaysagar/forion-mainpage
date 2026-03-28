@@ -3,47 +3,48 @@
 import { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 
-const integrations = [
-  // Top Left quadrant
-  { name: "OpenAI", x: -400, y: -250, label: "Models", color: "#10A37F" },
-  { name: "Anthropic", x: -250, y: -380, label: "Inference", color: "#D97757" },
-  { name: "Hugging Face", x: -550, y: -100, label: "Registry", color: "#FFD21E" },
+const features = [
+  // Primary Products
+  { name: "Orbit", x: -400, y: -220, label: "Frontend", color: "#FFFFFF", summary: "Visual AI-native frontend builder & deployment engine." },
+  { name: "Spark", x: 400, y: -220, label: "Execution", color: "#FF9900", summary: "Autonomous AI coding agents for real-world repositories." },
+  { name: "AgentTrace", x: 0, y: -380, label: "Governance", color: "#4285F4", summary: "Deterministic replay & cryptographic audit for AI agents." },
 
-  // Top Right quadrant
-  { name: "Vercel", x: 300, y: -350, label: "Deployment", color: "#FFFFFF" },
-  { name: "AWS", x: 500, y: -180, label: "Compute", color: "#FF9900" },
-
-  // Bottom Left
-  { name: "Replicate", x: -450, y: 180, label: "Scale", color: "#FFFFFF" },
-  { name: "Pinecone", x: -200, y: 350, label: "Vector DB", color: "#26D07C" },
-
-  // Bottom Right
-  { name: "Google Cloud", x: 350, y: 280, label: "Infrastructure", color: "#4285F4" },
-  { name: "GitHub", x: 550, y: 80, label: "Source", color: "#4078c0" },
+  // Core Capabilities
+  { name: "Auto-Heal", x: -480, y: 100, label: "Reliability", color: "#26D07C", summary: "Real-time error detection and self-repair infrastructure." },
+  { name: "Surgical Patch", x: 480, y: 100, label: "Efficiency", color: "#FFD21E", summary: "High-precision code modifications with zero overhead." },
+  { name: "Planner", x: 0, y: 380, label: "Reasoning", color: "#FFFFFF", summary: "Multi-step reasoning engine for complex engineering tasks." },
+  
+  // Infrastructure
+  { name: "IDE", x: -250, y: 280, label: "Environment", color: "#4078c0", summary: "Cloud development environment for AI orchestration." },
+  { name: "OS Core", x: 250, y: 280, label: "Infrastructure", color: "#D97757", summary: "Low-level substrate powering the entire Forion stack." },
 ];
 
 const getLogo = (name: string, color: string) => {
   switch (name) {
-    case "OpenAI":
-      return <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5"><path d="M22.28 7.507c-.093-2.315-1.507-3.954-3.535-4.102-1.485-.108-2.617.433-3.64 1.455-.429-.272-.947-.417-1.485-.417-.899 0-1.748.406-2.324 1.111-.576-.705-1.425-1.111-2.324-1.111-.538 0-1.056.145-1.485.417-1.023-1.022-2.155-1.563-3.64-1.455-2.028.148-3.442 1.787-3.535 4.102C.27 10.385.015 12.83 2 15s5.25 3.5 5 7h2v-3.5c.348.163.73.25 1.125.25.753 0 1.451-.308 1.956-.813.505.505 1.203.813 1.956.813.395 0 .777-.087 1.125-.25V22h2c-.25-3.5 2.75-4.83 5-7 1.985-2.17 1.73-4.615-.28-7.493zM12 11a1 1 0 1 1 0-2 1 1 0 0 1 0 2z" fill={color} /></svg>;
-    case "Anthropic":
-      return <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5"><path d="M9 3H5v18h4v-7h6v7h4V3h-4v7H9V3z" fill={color} /></svg>;
-    case "Hugging Face":
-      return <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8zm-2-11c.552 0 1 .448 1 1s-.448 1-1 1-1-.448-1-1 .448-1 1-1zm4 0c.552 0 1 .448 1 1s-.448 1-1 1-1-.448-1-1 .448-1 1-1z" fill="#FFBD33" /></svg>;
-    case "Vercel":
-      return <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5"><path d="M24 22.525H0l12-21.05 12 21.05z" fill="#ffffff" /></svg>;
-    case "AWS":
-      return <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5"><path d="M12.91 16.51c-2.43 0-4-.91-4-2.82 0-2.82 3.86-3 5.77-3.21v-.47c0-1-.31-1.63-1.61-1.63a5.55 5.55 0 0 0-2.6.76l-.42-1.72a7.6 7.6 0 0 1 3.26-.7c2.61 0 3.39 1.48 3.39 3.49V15c0 .54.08.9.23 1.25l-1.85.12a2.38 2.38 0 0 1-.27-.9z" fill="#FF9900" /></svg>;
-    case "GitHub":
-      return <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" fill="#ffffff" /></svg>;
-    case "Google Cloud":
-      return <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zM7 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 2.88-2.88 7.19-5 9.88C9.92 16.21 7 11.85 7 9z" fill="#4285F4" /></svg>;
+    case "Orbit":
+      return <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5"><circle cx="12" cy="12" r="10" stroke={color} strokeWidth="2" /><circle cx="12" cy="12" r="4" fill={color} /></svg>;
+    case "Spark":
+      return <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" fill={color} /></svg>;
+    case "AgentTrace":
+      return <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5"><path d="M12 2L2 7v10l10 5 10-5V7L12 2zM12 22v-5M12 17l8-4M12 17l-8-4" stroke={color} strokeWidth="2" /></svg>;
+    case "Auto-Heal":
+      return <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill={color} /></svg>;
+    case "Surgical Patch":
+      return <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5"><rect x="3" y="3" width="18" height="18" rx="2" stroke={color} strokeWidth="2" /><path d="M9 12h6M12 9v6" stroke={color} strokeWidth="2" /></svg>;
+    case "Planner":
+      return <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5"><path d="M3 3h18v18H3V3zM9 3v18M15 3v18M3 9h18M3 15h18" stroke={color} strokeWidth="1" /></svg>;
+    case "IDE":
+      return <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>;
+    case "OS Core":
+      return <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5"><rect x="4" y="4" width="16" height="16" rx="2" stroke={color} strokeWidth="2" /><circle cx="12" cy="12" r="3" fill={color} /></svg>;
     default:
       return <div className="w-4 h-4 rounded-sm bg-white/20 group-hover:bg-white transition-colors" />;
   }
 };
 
 const IntegrationNode = ({ node, index, scrollYProgress }: { node: any, index: number, scrollYProgress: any }) => {
+  const [isHovered, setIsHovered] = useState(false);
+  
   // Synchronized Reveal: All nodes finish appearing by 0.45 scroll progress
   const revealStart = 0.1 + (index * 0.03);
   const opacity = useTransform(scrollYProgress, [revealStart, revealStart + 0.1], [0, 1]);
@@ -59,30 +60,52 @@ const IntegrationNode = ({ node, index, scrollYProgress }: { node: any, index: n
         scale,
         translateY: yOffset
       }}
-      className="absolute z-20"
+      className="absolute z-50"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
       <motion.div
         animate={{
-          boxShadow: [
-            `0 0 20px ${node.color}00`,
-            `0 0 25px ${node.color}22`,
-            `0 0 20px ${node.color}00`
-          ]
+          boxShadow: isHovered 
+            ? [`0 0 30px ${node.color}44`, `0 0 40px ${node.color}66`, `0 0 30px ${node.color}44`]
+            : [
+              `0 0 20px ${node.color}00`,
+              `0 0 25px ${node.color}22`,
+              `0 0 20px ${node.color}00`
+            ],
+          width: isHovered ? "auto" : "180px",
+          backgroundColor: isHovered ? "rgba(0, 0, 0, 0.95)" : "rgba(255, 255, 255, 0.03)"
         }}
-        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: index * 0.2 }}
-        className={`glass-card-strong px-6 py-4 flex items-center gap-3 group backdrop-blur-2xl border-white/10 hover:border-white/40 transition-all duration-500`}
+        transition={{ 
+          layout: { duration: 0.4, ease: [0.16, 1, 0.3, 1] },
+          boxShadow: { duration: 2, repeat: Infinity, ease: "easeInOut" }
+        }}
+        className={`glass-card-strong px-5 py-3 flex items-center gap-4 group backdrop-blur-3xl border-white/10 hover:border-white/50 transition-colors duration-300 min-w-[180px] cursor-pointer`}
         style={{ '--hover-color': node.color } as any}
       >
-        <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center transition-colors group-hover:border-[var(--hover-color)]/50">
+        <div className="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center transition-all group-hover:border-[var(--hover-color)]/50 group-hover:scale-110 flex-shrink-0">
           {getLogo(node.name, node.color)}
         </div>
-        <div>
-          <span className="block text-[10px] text-white/40 uppercase tracking-[0.5em] font-mono mb-1 group-hover:text-[var(--hover-color)]/60 transition-colors">
+        <div className="flex flex-col whitespace-nowrap overflow-hidden">
+          <span className="block text-[9px] text-white/40 uppercase tracking-[0.4em] font-mono mb-0.5 group-hover:text-[var(--hover-color)]/60 transition-colors">
             {node.label}
           </span>
-          <h4 className="text-sm font-bold text-white tracking-tight group-hover:text-white transition-colors">
-            {node.name}
-          </h4>
+          <div className="flex flex-col">
+            <h4 className="text-[13px] font-bold text-white tracking-tight leading-none">
+              {node.name}
+            </h4>
+            <motion.p
+              initial={{ opacity: 0, height: 0, marginTop: 0 }}
+              animate={{ 
+                opacity: isHovered ? 0.6 : 0,
+                height: isHovered ? "auto" : 0,
+                marginTop: isHovered ? 6 : 0
+              }}
+              className="text-[11px] text-white font-mono tracking-tight leading-tight max-w-[240px] whitespace-normal"
+            >
+              {node.summary}
+            </motion.p>
+          </div>
         </div>
       </motion.div>
     </motion.div>
@@ -177,9 +200,9 @@ const EcosystemSection = () => {
       <div className="mx-auto max-w-7xl relative flex flex-col items-center">
         {/* Section Context Labels - Now in normal flow to sit above the network */}
         <div className="flex flex-col items-center text-center z-40 mb-16 md:mb-24 pointer-events-none">
-          <span className="section-label">Connectivity</span>
+          <span className="section-label">02 // THE ENGINE</span>
           <h2 className="section-heading max-w-4xl px-6">
-            We maintain a <span className="font-serif-editorial italic font-medium">robust integration</span> network.
+            One universal engine for <span className="font-serif-editorial italic font-medium opacity-50">AI-native software</span>.
           </h2>
         </div>
 
@@ -219,7 +242,7 @@ const EcosystemSection = () => {
               className="w-full h-full max-w-[1200px] max-h-[800px] overflow-visible"
             >
               <g transform="translate(600, 400)">
-                {integrations.map((node, i) => (
+                {features.map((node, i) => (
                   <Vine
                     key={`vine-${node.name}`}
                     endX={node.x}
@@ -234,7 +257,7 @@ const EcosystemSection = () => {
 
             <div className="absolute inset-0 pointer-events-auto">
               <div className="relative w-full h-full flex items-center justify-center">
-                {integrations.map((node, i) => (
+                {features.map((node, i) => (
                   <IntegrationNode
                     key={node.name}
                     node={node}
@@ -248,7 +271,7 @@ const EcosystemSection = () => {
 
           {/* Global Network Label - Positioned absolutely to avoid shifting center */}
           <p className="absolute bottom-20 left-1/2 -translate-x-1/2 text-[10px] text-white/40 font-mono tracking-[0.5em] uppercase whitespace-nowrap z-40 pointer-events-none">
-            Global AI Integration Network
+            UNIVERSAL ENGINE ARCHITECTURE
           </p>
 
           {/* Centered Spotlight Lighting */}

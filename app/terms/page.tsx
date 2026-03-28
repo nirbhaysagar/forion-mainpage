@@ -1,23 +1,21 @@
 'use client'
 
-import React, { useState } from 'react'
-import Nav from '@/components/nav/Nav'
+import React from 'react'
 import Footer from '@/components/Footer'
 import SmoothScroll from '@/components/SmoothScroll'
 import { motion } from 'framer-motion'
-import RequestAccessModal from '@/components/RequestAccessModal'
+import { useUI } from '@/components/providers/UIProvider'
 
 export default function TermsPage() {
-  const [modalOpen, setModalOpen] = useState(false)
+  const { setModalOpen } = useUI()
 
   return (
     <SmoothScroll>
       <main style={{ background: 'transparent', position: 'relative' }}>
-        <Nav onRequestAccess={() => setModalOpen(true)} />
-        
+
         {/* Terms Header */}
         <section className="relative min-h-[40vh] flex flex-col items-center justify-center px-6 pt-32 overflow-hidden border-b border-white/5">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="text-center z-10"
@@ -63,12 +61,8 @@ export default function TermsPage() {
         </section>
 
         <Footer />
-
-        <RequestAccessModal 
-          open={modalOpen} 
-          onClose={() => setModalOpen(false)} 
-        />
       </main>
     </SmoothScroll>
   )
 }
+

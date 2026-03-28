@@ -3,9 +3,9 @@
 import { motion } from "framer-motion";
 
 const stats = [
-  { value: "10k+", label: "Active Builders" },
-  { value: "2M+", label: "Lines Generated Daily" },
-  { value: "99.9%", label: "Uptime SLA" },
+  { value: "10k+", label: "Verified Teams" },
+  { value: "4B+", label: "Tokens Orchestrated" },
+  { value: "99.99%", label: "Uptime SLA" },
 ];
 
 const SocialProofSection = () => {
@@ -21,10 +21,10 @@ const SocialProofSection = () => {
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="mb-16"
         >
-          <span className="section-label">Trusted Worldwide</span>
+          <span className="section-label">Proven Infrastructure</span>
           <h2 className="section-heading mt-2">
-            Numbers that{' '}
-            <span style={{ color: 'rgba(255,255,255,0.3)', fontStyle: 'italic', fontFamily: 'var(--font-cormorant)' }}>speak for themselves</span>.
+            The foundation for{' '}
+            <span style={{ color: 'rgba(255,255,255,0.3)', fontStyle: 'italic', fontFamily: 'var(--font-cormorant)' }}>autonomous growth.</span>
           </h2>
         </motion.div>
 

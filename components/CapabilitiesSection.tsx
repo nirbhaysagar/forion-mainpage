@@ -4,46 +4,39 @@ import { motion } from "framer-motion";
 
 const features = [
   {
-    icon: "⌕",
-    title: "AI Code Search",
-    desc: "Semantic search across your entire codebase. Find complex logic in milliseconds, not minutes.",
+    icon: "✎",
+    title: "01 — Describe",
+    desc: "Tell Orbit what you want to build. A dashboard. A form. A multi-step wizard. A full product page. Be as specific or as vague as you want — Orbit will ask the right questions before building.",
     className: "col-span-12 md:col-span-4",
-    id: "01"
+    id: "STEP_01"
   },
   {
     icon: "◈",
-    title: "Context Engine",
-    desc: "128k token context window with intelligent chunking. Forion understands your codebase better than any other tool on the market.",
+    title: "02 — Plan",
+    desc: "Before writing a single line, Orbit's planning model maps out the full structure: which files to create, which components to build, what the architecture looks like. You see the plan. You approve it.",
     className: "col-span-12 md:col-span-8",
-    id: "02"
+    id: "STEP_02"
   },
   {
     icon: "⚡",
-    title: "Instant Refactoring",
-    desc: "Multi-file refactors with deterministic, auditable output. No surprises.",
+    title: "03 — Generate",
+    desc: "Orbit executes the plan, generating real React + Vite code across multiple files in structured batches. No single-file dumps. No thousand-line components. Actual architecture.",
     className: "col-span-12 md:col-span-7",
-    id: "03"
-  },
-  {
-    icon: "⊘",
-    title: "Autonomous Debug",
-    desc: "Root-cause analysis and automated patches while you focus on what matters.",
-    className: "col-span-12 md:col-span-5",
-    id: "04"
+    id: "STEP_03"
   },
   {
     icon: "◉",
-    title: "Multimodal AI",
-    desc: "Understand screenshots, wireframes, and design files directly in your IDE.",
+    title: "04 — Run",
+    desc: "Your app renders live inside the browser via WebContainer. No server. No deploy. No waiting. You see exactly what was built within seconds of generation completing.",
     className: "col-span-12 md:col-span-5",
-    id: "05"
+    id: "STEP_04"
   },
   {
-    icon: "⟳",
-    title: "Agent Workflows",
-    desc: "Chain AI agents for complex multi-step automation — test, deploy, monitor.",
-    className: "col-span-12 md:col-span-7",
-    id: "06"
+    icon: "⌕",
+    title: "05 — Iterate",
+    desc: "Describe the change. Orbit surgically patches the specific files that need updating — it doesn't regenerate the entire codebase for a button color change. Momentum stays alive.",
+    className: "col-span-12 md:col-span-12",
+    id: "STEP_05"
   },
 ];
 
@@ -70,13 +63,9 @@ const CapabilitiesSection = () => {
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
           className="mb-20 max-w-3xl"
         >
-          <span className="section-label">Core Platform</span>
+          <span className="section-label">Execution Pipeline</span>
           <h2 className="section-heading mt-4">
-            Every tool you need.
-            <br />
-            <span style={{ color: 'rgba(255,255,255,0.25)', fontStyle: 'italic', fontFamily: 'var(--font-cormorant)', fontWeight: 400 }}>
-              Nothing you don't.
-            </span>
+            How the Forion engine <span className="font-serif-editorial italic font-medium opacity-50">executes</span>.
           </h2>
         </motion.div>
 

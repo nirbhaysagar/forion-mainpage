@@ -15,6 +15,7 @@ interface ProductPanelProps {
   total: number;
   mainImage: string;
   features?: string[];
+  isFlagship?: boolean;
 }
 
 const ProductPanel = ({
@@ -25,12 +26,14 @@ const ProductPanel = ({
   index,
   mainImage,
   features,
+  isFlagship,
 }: Omit<ProductPanelProps, "progress" | "total">) => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   return (
     <motion.div
       ref={containerRef}
+      id={title.toLowerCase()}
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-100px" }}
@@ -38,7 +41,7 @@ const ProductPanel = ({
       className="relative w-full flex items-center justify-center p-0"
     >
       {/* Product Card / Panel */}
-      <div className="relative w-full glass-card-strong border-white/10 rounded-[2rem] md:rounded-[3rem] overflow-hidden flex flex-col-reverse md:flex-row items-center gap-12 p-8 md:p-20 shadow-[0_0_100px_rgba(0,0,0,0.4)]">
+      <div className="relative w-full glass-card-strong border-white/10 rounded-[2rem] md:rounded-[3rem] overflow-hidden flex flex-col-reverse md:flex-row items-center gap-12 p-8 md:p-20 shadow-[0_0_100px_rgba(0,0,0,0.4)]" style={{ zoom: 0.9 }}>
 
         {/* Cinematic Grid Backdrop */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:100px_100px] pointer-events-none" />
@@ -47,6 +50,14 @@ const ProductPanel = ({
         {/* Content Layout */}
         <div className="flex-1 flex flex-col gap-8 relative z-20">
           <div className="flex flex-col gap-2">
+            {isFlagship && (
+              <div className="flex items-center gap-2 mb-2">
+                <div className="w-1.5 h-1.5 rounded-full bg-orange-500 animate-pulse" />
+                <span className="text-[10px] uppercase tracking-[0.3em] font-mono text-orange-500/80 font-bold">
+                  Flagship Launch // 1.0
+                </span>
+              </div>
+            )}
             <span className="text-[20px] md:text-[30px] uppercase tracking-[0.2em] text-white/30 font-mono">Module // 0{index + 1}</span>
             <h2 className="text-5xl md:text-8xl font-bold text-white tracking-tighter leading-[0.9] uppercase">
               {title}

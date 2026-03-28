@@ -4,6 +4,8 @@ import { motion, AnimatePresence } from 'framer-motion'
 
 import Link from 'next/link'
 
+import { useUI } from '../providers/UIProvider'
+
 const links = [
   { label: 'Products', href: '/products' },
   { label: 'About', href: '/about' },
@@ -11,13 +13,10 @@ const links = [
   { label: 'Blog', href: '/blog' },
 ]
 
-interface MobileMenuProps {
-  open: boolean
-  onClose: () => void
-  onRequestAccess?: () => void
-}
+export default function MobileMenu() {
+  const { menuOpen: open, setMenuOpen, setModalOpen } = useUI()
+  const onClose = () => setMenuOpen(false)
 
-export default function MobileMenu({ open, onClose, onRequestAccess }: MobileMenuProps) {
   return (
     <AnimatePresence>
       {open && (
@@ -26,6 +25,7 @@ export default function MobileMenu({ open, onClose, onRequestAccess }: MobileMen
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.3 }}
+          className="md:hidden"
           style={{
             position: 'fixed',
             inset: 0,
@@ -88,14 +88,14 @@ export default function MobileMenu({ open, onClose, onRequestAccess }: MobileMen
           <motion.button
             onClick={() => {
               onClose()
-              if (onRequestAccess) onRequestAccess()
+              setModalOpen(true)
             }}
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.4 }}
             className="mt-8 px-10 py-5 bg-white text-black font-bold rounded-lg uppercase text-xs tracking-[0.3em]"
           >
-            Request Access
+            Start Building with Orbit
           </motion.button>
 
           {/* Starfield background dots */}
@@ -113,3 +113,4 @@ export default function MobileMenu({ open, onClose, onRequestAccess }: MobileMen
     </AnimatePresence>
   )
 }
+

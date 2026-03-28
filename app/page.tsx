@@ -14,24 +14,20 @@ import CTASection from '@/components/CTASection'
 import Footer from '@/components/Footer'
 import SmoothScroll from '@/components/SmoothScroll'
 
-import { useState } from 'react'
-import RequestAccessModal from '@/components/RequestAccessModal'
-import GlobalBackgroundLoader from '@/components/GlobalBackgroundLoader'
+import { useUI } from '@/components/providers/UIProvider'
 
 // Lazy-load the heavy Three.js / shader hero to avoid blocking initial paint, but reserve exactly 100vh height so the layout doesn't collapse and jump to section 2.
-const Hero = dynamic(() => import('@/components/hero/Hero'), { 
+const Hero = dynamic(() => import('@/components/hero/Hero'), {
   ssr: false,
   loading: () => <div style={{ height: '100vh', minHeight: 600, width: '100%', background: 'transparent' }} />
 })
 
 export default function Home() {
-  const [modalOpen, setModalOpen] = useState(false)
+  const { setModalOpen } = useUI()
 
   return (
     <SmoothScroll>
       <main style={{ background: 'transparent', position: 'relative' }}>
-        <Nav onRequestAccess={() => setModalOpen(true)} />
-        
         <Hero onRequestAccess={() => setModalOpen(true)} />
 
         <VoidDivider variant="minimal" />
@@ -54,12 +50,8 @@ export default function Home() {
 
         <CTASection onRequestAccess={() => setModalOpen(true)} />
         <Footer />
-        
-        <RequestAccessModal 
-          open={modalOpen} 
-          onClose={() => setModalOpen(false)} 
-        />
       </main>
     </SmoothScroll>
   )
 }
+

@@ -51,6 +51,10 @@ export const metadata: Metadata = {
   },
 }
 
+import { UIProvider } from '../components/providers/UIProvider'
+import Nav from '../components/nav/Nav'
+import RequestAccessModal from '../components/RequestAccessModal'
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -61,30 +65,38 @@ export default function RootLayout({
       lang="en"
       suppressHydrationWarning
       className={`${bebasNeue.variable} ${cormorant.variable} ${jetbrains.variable} ${poppins.variable} ${inconsolata.variable} ${playfair.variable}`}
-      style={{ background: '#000', overflowX: 'hidden', maxWidth: '100vw' }}
+      style={{ background: '#000', overflowX: 'hidden', width: '100%' }}
     >
       <head>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700;900&display=swap" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@8..144,100..1000&display=swap" />
       </head>
-      <body 
-        className="antialiased" 
-        style={{ background: 'transparent', margin: 0, overflowX: 'hidden', maxWidth: '100vw' }}
+      <body
+        className="antialiased"
+        style={{ background: 'transparent', margin: 0, overflowX: 'hidden', width: '100%' }}
         suppressHydrationWarning
       >
+        <UIProvider>
+          {/* Global path-aware background (Stars everywhere, Blackhole on Home) */}
+          <div style={{ position: 'fixed', inset: 0, zIndex: 0, background: '#000', pointerEvents: 'none' }}>
+            <GlobalBackgroundLoader />
+          </div>
 
-        {/* Global path-aware background (Stars everywhere, Blackhole on Home) */}
-        <div style={{ position: 'fixed', inset: 0, zIndex: 0, background: '#000', pointerEvents: 'none' }}>
-          <GlobalBackgroundLoader />
-        </div>
-
-        {/* Content sits on top */}
-        <div style={{ position: 'relative', zIndex: 1 }}>
+          {/* Global Nav and Modal */}
+          <Nav />
+          <RequestAccessModal />
+          
+          {/* Global Cursor - stays on top of everything */}
           <Cursor />
-          {children}
-        </div>
 
+          {/* Content sits on top */}
+          <div style={{ position: 'relative', zIndex: 1, width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+            {children}
+          </div>
+        </UIProvider>
       </body>
     </html>
   )
 }
+
+

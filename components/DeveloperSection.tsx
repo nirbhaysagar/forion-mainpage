@@ -3,22 +3,22 @@
 import { motion } from "framer-motion";
 
 const codeLines = [
-  { text: "// forion: generate auth middleware", color: "text-muted-foreground", highlight: false },
-  { text: "import { verify } from '@forion/auth';", color: "text-foreground/60", highlight: false },
+  { text: "// forion: deploy orbit agent to build dashboard", color: "text-muted-foreground", highlight: false },
+  { text: "import { Orbit } from '@forion/core';", color: "text-foreground/60", highlight: false },
   { text: "", color: "", highlight: false },
-  { text: "export async function middleware(req) {", color: "text-foreground/60", highlight: false },
-  { text: "  const token = req.headers.get('authorization');", color: "text-foreground/50", highlight: false },
-  { text: "  const session = await verify(token);", color: "text-primary/90", highlight: true },
+  { text: "const app = await Orbit.plan({", color: "text-foreground/60", highlight: false },
+  { text: "  intent: 'analytics dashboard with real-time telemetry',", color: "text-foreground/50", highlight: false },
+  { text: "  architecture: 'clean-architecture-v2',", color: "text-primary/90", highlight: true },
+  { text: "  autoHeal: true,", color: "text-primary/90", highlight: true },
+  { text: "});", color: "text-foreground/60", highlight: false },
   { text: "", color: "", highlight: false },
-  { text: "  if (!session.valid) {", color: "text-foreground/50", highlight: false },
-  { text: "    return Response.json(", color: "text-primary/80", highlight: true },
-  { text: "      { error: 'Unauthorized' }, { status: 401 }", color: "text-primary/80", highlight: true },
-  { text: "    );", color: "text-primary/80", highlight: true },
-  { text: "  }", color: "text-foreground/50", highlight: false },
+  { text: "// Surgical patch for theme update", color: "text-muted-foreground", highlight: false },
+  { text: "await app.patch({", color: "text-foreground/50", highlight: false },
+  { text: "  target: 'components/ThemeConfig.ts',", color: "text-primary/80", highlight: true },
+  { text: "  change: 'update primary color to hsl(var(--orbit-glow))'", color: "text-primary/80", highlight: true },
+  { text: "});", color: "text-foreground/50", highlight: false },
   { text: "", color: "", highlight: false },
-  { text: "  req.user = session.user;", color: "text-primary/80", highlight: true },
-  { text: "  return next(req);", color: "text-foreground/50", highlight: false },
-  { text: "}", color: "text-foreground/60", highlight: false },
+  { text: "return app.run();", color: "text-foreground/60", highlight: false },
 ];
 
 const ease = [0.16, 1, 0.3, 1] as const;
@@ -38,17 +38,17 @@ const DeveloperSection = () => {
             transition={{ duration: 0.9, ease }}
             className="lg:col-span-5 flex flex-col justify-center"
           >
-            <span className="section-label">We make system internals transparent.</span>
+            <span className="section-label">Real code. No lock-in. No magic.</span>
             <h2 className="section-heading">
-              Beyond the <br />
-              <span className="section-heading-muted">Black Box.</span>
+              Built at <br />
+              <span className="section-heading-muted">Orbital speed.</span>
             </h2>
             <div className="space-y-4 text-base md:text-lg text-muted-foreground leading-relaxed">
               <p>
-                Every generation is deterministic and auditable. Forion understands your codebase, your patterns, and your intent.
+                Everything Orbit generates is standard React + Vite. You can open it in VS Code, push it to GitHub, or deploy it to Vercel. No proprietary format. No runtime dependency.
               </p>
               <p>
-                Context-aware inference that ships production code — not suggestions. Low-latency, high-fidelity output.
+                The code Orbit writes is code you'd write. Just faster. No "upgrade to export," no magic — just production-grade architecture delivered in seconds.
               </p>
             </div>
 
@@ -121,7 +121,7 @@ const DeveloperSection = () => {
                 </div>
                 <div className="px-5 py-3 font-mono text-[11px] text-muted-foreground/60 flex items-center gap-2">
                   <span className="text-primary/70">❯</span>
-                  <span>forion generate --context-aware</span>
+                  <span>orbit plan --intent "analytics dashboard"</span>
                   <span className="h-3.5 w-px bg-primary/60 animate-pulse-glow" />
                 </div>
               </div>
