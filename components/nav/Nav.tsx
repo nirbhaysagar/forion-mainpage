@@ -102,23 +102,34 @@ export default function Nav() {
           style={{
             fontFamily: 'var(--font-inconsolata)',
             fontSize: 11,
-            letterSpacing: '0.15em',
-            textTransform: 'uppercase',
-            color: '#000',
-            background: '#f5f5f5',
-            padding: '10px 22px',
-            borderRadius: 6,
-            textDecoration: 'none',
-            fontWeight: 800,
-            border: 'none',
-            cursor: 'pointer',
-            transition: 'opacity 0.2s',
-          }}
-          onMouseEnter={(e) => ((e.target as HTMLElement).style.opacity = '0.8')}
-          onMouseLeave={(e) => ((e.target as HTMLElement).style.opacity = '1')}
-        >
-          Start Building with Orbit
-        </motion.a>
+        <motion.a
+            href="https://orbit-night-sky-main.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.4 }}
+            className="hidden lg:block uppercase"
+            style={{
+              fontFamily: 'var(--font-inconsolata)',
+              fontSize: 11,
+              letterSpacing: '0.15em',
+              textTransform: 'uppercase',
+              color: '#000',
+              background: '#f5f5f5',
+              padding: '10px 22px',
+              borderRadius: 6,
+              textDecoration: 'none',
+              fontWeight: 800,
+              border: 'none',
+              cursor: 'pointer',
+              transition: 'opacity 0.2s',
+            }}
+            onMouseEnter={(e) => ((e.target as HTMLElement).style.opacity = '0.8')}
+            onMouseLeave={(e) => ((e.target as HTMLElement).style.opacity = '1')}
+          >
+            Start Building with Orbit
+          </motion.a>
 
       </motion.nav>
 
