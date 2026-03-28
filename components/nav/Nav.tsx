@@ -35,7 +35,7 @@ export default function Nav() {
           zIndex: 200,
           display: 'flex',
           alignItems: 'center',
-          height: 'clamp(48px, 8vw, 96px)', // Responsive height
+          height: 'clamp(24px, 4vw, 40px)', // Reduced by >50% (was 96px)
         }}
         className="left-6 md:left-12"
       >
@@ -57,8 +57,8 @@ export default function Nav() {
           zIndex: 200,
           display: 'flex',
           alignItems: 'center',
-          gap: 'clamp(1rem, 5vw, 5.5rem)', // Responsive gap
-          padding: 'clamp(12px, 2vw, 16px) clamp(24px, 4vw, 48px)', // Responsive padding
+          gap: 'clamp(0.75rem, 3vw, 3rem)', 
+          padding: '6px 20px', // Aggressively reduced padding
           borderRadius: 999,
           transition: 'all 0.4s ease',
         }}
@@ -79,8 +79,8 @@ export default function Nav() {
               href={link.href}
               style={{
                 fontFamily: 'var(--font-inconsolata)',
-                fontSize: 16,
-                letterSpacing: '0.08em',
+                fontSize: 13,
+                letterSpacing: '0.05em',
                 textTransform: 'uppercase',
                 fontWeight: 500,
                 color: 'rgba(255,255,255,0.45)',
@@ -100,14 +100,14 @@ export default function Nav() {
           onClick={() => setModalOpen(true)}
           style={{
             fontFamily: 'var(--font-poppins)',
-            fontSize: 14,
-            letterSpacing: '0.08em',
+            fontSize: 12,
+            letterSpacing: '0.05em',
             color: '#000',
             background: '#f5f5f5',
-            padding: '10px 24px',
-            borderRadius: 6,
+            padding: '6px 16px', // Reduced padding
+            borderRadius: 4,
             textDecoration: 'none',
-            fontWeight: 700,
+            fontWeight: 600,
             border: 'none',
             cursor: 'pointer',
             transition: 'opacity 0.2s',
