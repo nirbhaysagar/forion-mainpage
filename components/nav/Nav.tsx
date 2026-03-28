@@ -30,14 +30,13 @@ export default function Nav() {
         href="/"
         style={{
           position: 'fixed',
-          top: 24,
-          left: 48,
+          top: 12,
+          left: 24,
           zIndex: 200,
           display: 'flex',
           alignItems: 'center',
-          height: 'clamp(24px, 4vw, 40px)', // Reduced by >50% (was 96px)
+          height: 'clamp(20px, 6vw, 32px)', 
         }}
-        className="left-6 md:left-12"
       >
         <img
           src="/main-logo.svg"
@@ -51,14 +50,14 @@ export default function Nav() {
         transition={{ delay: 0.5, duration: 0.6 }}
         style={{
           position: 'fixed',
-          top: 24,
+          top: 12,
           left: '50%',
           transform: 'translateX(-50%)',
           zIndex: 200,
           display: 'flex',
           alignItems: 'center',
-          gap: 'clamp(0.75rem, 3vw, 3rem)', 
-          padding: '6px 20px', // Aggressively reduced padding
+          gap: 'clamp(0.5rem, 2vw, 2.5rem)',
+          padding: '4px 16px', 
           borderRadius: 999,
           transition: 'all 0.4s ease',
         }}

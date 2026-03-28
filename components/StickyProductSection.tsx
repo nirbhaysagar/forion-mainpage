@@ -70,7 +70,7 @@ const StickyProductSection = () => {
         </div>
 
         {/* Product Panels - Normal Vertical Flow */}
-        <div className="flex flex-col gap-24">
+        <div className="flex flex-col gap-16">
           {products.map((product: any, i) => (
             <ProductPanel
               key={i}
