@@ -124,6 +124,7 @@ export default function Hero({ onRequestAccess }: { onRequestAccess?: () => void
 
         {/* Animated subtitle — typewriter */}
         <p
+          className="backdrop-blur-sm bg-black/20"
           style={{
             fontFamily: 'var(--font-inconsolata)',
             fontSize: 'clamp(14px, 2.2vw, 24px)',
@@ -132,7 +133,10 @@ export default function Hero({ onRequestAccess }: { onRequestAccess?: () => void
             marginTop: '0.4rem',
             letterSpacing: '0.04em',
             minHeight: '1.6em',
-            textShadow: '0 2px 10px rgba(0,0,0,0.8)'
+            textShadow: '0 2px 10px rgba(0,0,0,0.8)',
+            display: 'inline-block',
+            padding: '4px 16px',
+            borderRadius: '8px'
           }}
           aria-label="Orbit — Build real React apps. Just describe what you want."
         >
@@ -210,39 +214,7 @@ export default function Hero({ onRequestAccess }: { onRequestAccess?: () => void
         </motion.div>
       </div>
 
-      {/* Scroll indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={bhReady ? { opacity: 1 } : {}}
-        transition={{ delay: 2.2, duration: 0.6 }}
-        style={{
-          position: 'absolute',
-          bottom: 40,
-          left: '50%',
-          transform: 'translateX(-50%)',
-          fontFamily: 'var(--font-jetbrains)',
-          fontSize: 9,
-          letterSpacing: '0.15em',
-          textTransform: 'uppercase',
-          color: 'rgba(255,255,255,0.3)',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          gap: 12,
-          zIndex: 10,
-        }}
-      >
-        <span>scroll to descend</span>
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-          style={{
-            width: 1,
-            height: 48,
-            background: 'linear-gradient(to bottom, rgba(255,255,255,0.3), transparent)',
-          }}
-        />
-      </motion.div>
+
 
       {/* Bottom fade */}
       <div
