@@ -95,7 +95,7 @@ export default function Nav() {
         </div>
 
         <button
-          className="hidden lg:block"
+          className="block"
           onClick={() => setModalOpen(true)}
           style={{
             fontFamily: 'var(--font-poppins)',
@@ -116,26 +116,7 @@ export default function Nav() {
         >
           Start building with Orbit
         </button>
-
-        {/* Mobile hamburger */}
-        <button
-          className="lg:hidden flex"
-          onClick={() => setMenuOpen(true)}
-          style={{
-            background: 'transparent',
-            border: 'none',
-            display: 'flex',
-            flexDirection: 'column',
-            gap: 4,
-            padding: 4,
-          }}
-        >
-          <span style={{ display: 'block', width: 18, height: 1, background: '#888' }} />
-          <span style={{ display: 'block', width: 18, height: 1, background: '#888' }} />
-        </button>
       </motion.nav>
-
-      <MobileMenu />
     </>
   )
 }
