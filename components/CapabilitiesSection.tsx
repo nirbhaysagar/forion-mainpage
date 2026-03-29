@@ -65,7 +65,7 @@ const CapabilitiesSection = () => {
                 >
                     <span className="section-label">Execution Pipeline</span>
                     <h2 className="section-heading mt-4">
-                        How the Forion engine <span className="font-serif-editorial italic font-medium opacity-50">executes</span>.
+                        How the Forion engine <span className="italic font-medium opacity-50">executes</span>.
                     </h2>
                 </motion.div>
 
@@ -95,7 +95,7 @@ const CapabilitiesSection = () => {
                                     </span>
                                 </div>
 
-                                <h3 className="text-xl md:text-2xl font-semibold mb-3 tracking-tight text-white">
+                                <h3 className="font-compta text-xl md:text-2xl font-semibold mb-3 tracking-tight text-white">
                                     {f.title}
                                 </h3>
                             </div>

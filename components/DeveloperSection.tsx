@@ -54,16 +54,16 @@ const DeveloperSection = () => {
 
                         <div className="mt-10 flex gap-10">
                             <div>
-                                <span className="text-2xl font-semibold text-white tracking-tighter block underline underline-offset-8 decoration-white/10">42ms</span>
-                                <span className="text-[10px] text-white/40 tracking-[0.5em] uppercase font-mono mt-4 block">avg. latency</span>
+                                <span className="text-2xl font-semibold text-white tracking-tighter block underline underline-offset-8 decoration-white/10 font-compta">42ms</span>
+                                <span className="text-[10px] text-white/40 tracking-[0.5em] uppercase font-poppins mt-4 block">avg. latency</span>
                             </div>
                             <div>
-                                <span className="text-2xl font-semibold text-white tracking-tighter block underline underline-offset-8 decoration-white/10">128k</span>
-                                <span className="text-[10px] text-white/40 tracking-[0.5em] uppercase font-mono mt-4 block">context window</span>
+                                <span className="text-2xl font-semibold text-white tracking-tighter block underline underline-offset-8 decoration-white/10 font-compta">128k</span>
+                                <span className="text-[10px] text-white/40 tracking-[0.5em] uppercase font-poppins mt-4 block">context window</span>
                             </div>
                             <div>
-                                <span className="text-2xl font-semibold text-white tracking-tighter block underline underline-offset-8 decoration-white/10">99.9%</span>
-                                <span className="text-[10px] text-white/40 tracking-[0.5em] uppercase font-mono mt-4 block">accuracy</span>
+                                <span className="text-2xl font-semibold text-white tracking-tighter block underline underline-offset-8 decoration-white/10 font-compta">99.9%</span>
+                                <span className="text-[10px] text-white/40 tracking-[0.5em] uppercase font-poppins mt-4 block">accuracy</span>
                             </div>
                         </div>
                     </motion.div>

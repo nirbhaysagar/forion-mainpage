@@ -1,7 +1,7 @@
 import type { Config } from "tailwindcss";
 
 export default {
-  darkMode: ["class"],
+  darkMode: "class",
   content: ["./pages/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}", "./app/**/*.{ts,tsx}", "./src/**/*.{ts,tsx}"],
   prefix: "",
   theme: {
@@ -12,11 +12,11 @@ export default {
         "2xl": "1400px",
       },
       fontFamily: {
-        sans: ["Space Grotesk", "sans-serif"],
+        sans: ["Poppins", "sans-serif"],
         "serif-editorial": ["Instrument Serif", "serif"],
+        "compta": ["Compta", "sans-serif"],
+        bebas: ["Bebas Neue", "sans-serif"],
       },
-    },
-    extend: {
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

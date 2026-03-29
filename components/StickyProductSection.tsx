@@ -36,21 +36,6 @@ const products = [
     ],
   },
   {
-    title: "AgentTrace",
-    description: "AgentTrace is a deterministic replay engine for AI agents. It records every decision, state transition, and model call with cryptographic integrity, providing absolute proof of agent behavior for enterprise governance.",
-    cta: "Record Every Decision",
-    href: "#",
-    mainImage: "/about_workstation.png",
-    isUpcoming: true,
-    features: [
-      "Deterministic Replay",
-      "HMAC-SHA256 Signed Traces",
-      "Hermetic Sandboxing",
-      "Cryptographic Proof",
-      "Enterprise Compliance"
-    ],
-  },
-  {
     title: "Forion IDE",
     description: "The AI-native development environment we built from the ground up. Write code alongside context-aware agents, trace every decision, and deploy seamlessly within the Forion ecosystem.",
     cta: "Download IDE",

@@ -55,7 +55,7 @@ const ProductPanel = ({
             {isFlagship && (
               <div className="flex items-center gap-2 mb-2">
                 <div className="w-1.5 h-1.5 rounded-full bg-orange-500 animate-pulse" />
-                <span className="text-[10px] uppercase tracking-[0.3em] font-mono text-orange-500/80 font-bold">
+                <span className="text-[10px] uppercase tracking-[0.3em] font-poppins text-orange-500/80 font-bold">
                   Flagship Launch // 1.0
                 </span>
               </div>
@@ -63,13 +63,13 @@ const ProductPanel = ({
             {isUpcoming && (
               <div className="flex items-center gap-2 mb-2">
                 <div className="w-1.5 h-1.5 rounded-full bg-cyan-500 animate-pulse" />
-                <span className="text-[10px] uppercase tracking-[0.3em] font-mono text-cyan-500/80 font-bold">
+                <span className="text-[10px] uppercase tracking-[0.3em] font-poppins text-cyan-500/80 font-bold">
                   Coming Soon
                 </span>
               </div>
             )}
-            <span className="text-[14px] md:text-[20px] uppercase tracking-[0.2em] text-white/30 font-mono">Module // 0{index + 1}</span>
-            <h2 className="text-3xl md:text-6xl font-bold text-white tracking-tighter leading-[0.9] uppercase">
+            <span className="text-[14px] md:text-[20px] uppercase tracking-[0.2em] text-white/30 font-poppins">Module // 0{index + 1}</span>
+            <h2 className="font-compta text-3xl md:text-6xl font-bold text-white tracking-tighter leading-[0.9] uppercase">
               {title}
             </h2>
           </div>
@@ -81,7 +81,7 @@ const ProductPanel = ({
           {features && (
             <ul className="flex flex-col gap-3 mt-2">
               {features.map((feature, i) => (
-                <li key={i} className="flex items-center gap-3 text-sm md:text-base text-white/60 font-mono tracking-tight">
+                <li key={i} className="flex items-center gap-3 text-sm md:text-base text-white/60 tracking-tight">
                   <div className="w-1.5 h-1.5 rounded-full bg-white/20" />
                   {feature}
                 </li>
@@ -97,7 +97,7 @@ const ProductPanel = ({
               className="group relative w-fit mt-4"
             >
               <div className="absolute inset-0 bg-white blur-md opacity-0 group-hover:opacity-20 transition-opacity" />
-              <div className="relative px-10 py-4 rounded-full bg-white text-black font-bold uppercase text-[10px] tracking-[0.3em] hover:bg-neutral-100 transition-all">
+              <div className="font-compta relative px-10 py-4 rounded-full bg-white text-black font-bold uppercase text-[10px] tracking-[0.3em] hover:bg-neutral-100 transition-all">
                 {cta}
               </div>
             </a>

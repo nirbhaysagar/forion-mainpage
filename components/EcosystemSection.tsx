@@ -5,18 +5,17 @@ import { motion, useScroll, useTransform } from "framer-motion";
 
 const features = [
   // Primary Products
-  { name: "Orbit", x: -320, y: -176, label: "Frontend", color: "#FFFFFF", summary: "Transforms prompts into production-ready web applications rendered live without boilerplate." },
-  { name: "Spark", x: 320, y: -176, label: "Execution", color: "#FF9900", summary: "Autonomous coding engine that integrates natively to review and execute across your codebase." },
-  { name: "AgentTrace", x: 0, y: -304, label: "Governance", color: "#4285F4", summary: "Deterministic engine providing cryptographic proof of every agent-driven execution and state." },
+  { name: "Orbit", x: -400, y: -200, label: "Frontend", color: "#FFFFFF", summary: "Transforms prompts into production-ready web applications rendered live without boilerplate." },
+  { name: "Spark", x: 400, y: -200, label: "Execution", color: "#FF9900", summary: "Autonomous coding engine that integrates natively to review and execute across your codebase." },
 
   // Core Capabilities
-  { name: "Auto-Heal", x: -384, y: 80, label: "Reliability", color: "#26D07C", summary: "Self-correcting build loops that dynamically diagnose and resolve complex compilation errors." },
-  { name: "Surgical Patch", x: 384, y: 80, label: "Efficiency", color: "#FFD21E", summary: "Context-aware differential logic that only alters necessary code lines, preserving momentum." },
-  { name: "Planner", x: 0, y: 304, label: "Reasoning", color: "#FFFFFF", summary: "Generates robust architectural maps before execution to ensure large-scale codebase integrity." },
+  { name: "Auto-Heal", x: -480, y: 90, label: "Reliability", color: "#26D07C", summary: "Self-correcting build loops that dynamically diagnose and resolve complex compilation errors." },
+  { name: "Surgical Patch", x: 480, y: 90, label: "Efficiency", color: "#FFD21E", summary: "Context-aware differential logic that only alters necessary code lines, preserving momentum." },
+  { name: "Planner", x: 0, y: -300, label: "Reasoning", color: "#FFFFFF", summary: "Generates robust architectural maps before execution to ensure large-scale codebase integrity." },
 
   // Infrastructure
-  { name: "IDE", x: -200, y: 224, label: "Environment", color: "#4078c0", summary: "A highly unified development workspace engineered for seamless agent-human collaboration." },
-  { name: "OS Core", x: 200, y: 224, label: "Infrastructure", color: "#D97757", summary: "The underlying infrastructure and compute platform powering all Forion applications globally." },
+  { name: "IDE", x: -270, y: 290, label: "Environment", color: "#4078c0", summary: "A highly unified development workspace engineered for seamless agent-human collaboration." },
+  { name: "OS Core", x: 270, y: 290, label: "Infrastructure", color: "#D97757", summary: "The underlying infrastructure and compute platform powering all Forion applications globally." },
 ];
 
 const getLogo = (name: string, color: string) => {
@@ -25,8 +24,7 @@ const getLogo = (name: string, color: string) => {
       return <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5"><circle cx="12" cy="12" r="10" stroke={color} strokeWidth="2" /><circle cx="12" cy="12" r="4" fill={color} /></svg>;
     case "Spark":
       return <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" fill={color} /></svg>;
-    case "AgentTrace":
-      return <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5"><path d="M12 2L2 7v10l10 5 10-5V7L12 2zM12 22v-5M12 17l8-4M12 17l-8-4" stroke={color} strokeWidth="2" /></svg>;
+
     case "Auto-Heal":
       return <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill={color} /></svg>;
     case "Surgical Patch":
@@ -52,56 +50,67 @@ const IntegrationNode = ({ node, index, scrollYProgress }: { node: any, index: n
   return (
     <motion.div
       style={{
-        x: node.x,
-        y: node.y,
+        left: `calc(50% + ${(node.x / 1200) * 100}%)`,
+        top: `calc(50% + ${(node.y / 1000) * 100}%)`,
         opacity,
         scale,
-        translateY: yOffset
+        y: yOffset
       }}
       className="absolute z-20"
     >
+      <div className="-translate-x-1/2 -translate-y-1/2 flex items-center justify-center">
       <motion.div
         animate={{
           boxShadow: [
-            `0 0 20px ${node.color}00`,
-            `0 0 25px ${node.color}22`,
-            `0 0 20px ${node.color}00`
+            `0 0 15px ${node.color}33`,
+            `0 0 30px ${node.color}66`,
+            `0 0 15px ${node.color}33`
+          ],
+          borderColor: [
+            `${node.color}40`,
+            `${node.color}80`,
+            `${node.color}40`
           ]
         }}
         transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: index * 0.2 }}
-        className={`glass-card-strong px-5 py-3 flex items-center gap-2 group backdrop-blur-2xl border-white/10 hover:border-white/40 transition-all duration-500`}
-        style={{ '--hover-color': node.color } as any}
+        className={`glass-card-strong px-5 py-3 flex items-center gap-2 group backdrop-blur-2xl border transition-all duration-500 w-fit max-w-[200px] hover:max-w-[350px] overflow-hidden`}
+        style={{ '--hover-color': node.color, border: `1px solid ${node.color}40` } as any}
       >
         <div className="w-6 h-6 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center transition-colors group-hover:border-[var(--hover-color)]/50 shrink-0">
           {getLogo(node.name, node.color)}
         </div>
-        <div className="flex flex-col">
-          <span className="block text-[8px] text-white/40 uppercase tracking-[0.5em] font-mono mb-0.5 group-hover:text-[var(--hover-color)]/60 transition-colors">
+        <div className="flex flex-col min-w-0">
+          <span className="block text-[8px] text-white/40 uppercase tracking-[0.5em] font-poppins mb-0.5 group-hover:text-[var(--hover-color)]/60 transition-colors whitespace-nowrap">
             {node.label}
           </span>
-          <h4 className="text-[12px] font-bold text-white tracking-tight group-hover:text-white transition-colors">
+          <h4 className="text-[12px] font-bold text-white tracking-tight group-hover:text-white transition-colors whitespace-nowrap">
             {node.name}
           </h4>
-          <div className="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-[grid-template-rows] duration-300 ease-out">
+          <div className="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-[grid-template-rows] duration-500 ease-in-out">
             <div className="overflow-hidden">
-              <p className="text-[10px] text-white/50 pt-2 pb-1 max-w-[220px] leading-snug opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-50">
+              <p className="text-[10px] text-white/50 pt-2 pb-1 max-w-[220px] leading-snug opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 font-poppins">
                 {node.summary}
               </p>
             </div>
           </div>
         </div>
       </motion.div>
+      </div>
     </motion.div>
   );
 };
 
 const Vine = ({ endX, endY, index, scrollYProgress, color }: { endX: number, endY: number, index: number, scrollYProgress: any, color: string }) => {
-  const cp1x = endX * 0.2;
+  const cp1x = endX === 0 ? 30 : endX * 0.2;
   const cp1y = endY * 0.8;
-  const cp2x = endX * 0.6;
+  const cp2x = endX === 0 ? -30 : endX * 0.6;
   const cp2y = endY * 0.2;
 
-  const path = `M 0 0 C ${cp1x} ${cp1y}, ${cp2x} ${cp2y}, ${endX} ${endY}`;
+  // Slightly overshoot to ensure the line enters the card behind its glass background
+  const targetX = endX * 1.02;
+  const targetY = endY * 1.02;
+
+  const path = `M 0 0 C ${cp1x} ${cp1y}, ${cp2x} ${cp2y}, ${targetX} ${targetY}`;
 
   // Synchronized Connection: All vines finish drawing by 0.4 scroll progress
   const pathLength = useTransform(scrollYProgress, [0.05, 0.2 + (index * 0.02)], [0, 1]);
@@ -114,9 +123,9 @@ const Vine = ({ endX, endY, index, scrollYProgress, color }: { endX: number, end
         d={path}
         fill="transparent"
         stroke="white"
-        strokeWidth="1"
+        strokeWidth="1.5"
         strokeLinecap="round"
-        style={{ pathLength, opacity }}
+        style={{ pathLength, opacity: 0.3 }}
       />
       {/* Glow Path */}
       <motion.path
@@ -133,17 +142,19 @@ const Vine = ({ endX, endY, index, scrollYProgress, color }: { endX: number, end
         d={path}
         fill="transparent"
         stroke={color}
-        strokeWidth="2"
+        strokeWidth="1.5"
         strokeLinecap="round"
-        initial={{ pathLength: 0.1, pathOffset: 0 }}
-        animate={{ pathOffset: 1 }}
+        initial={{ pathLength: 0.15, pathOffset: 0 }}
+        animate={{ pathOffset: [0, 1] }}
         transition={{
-          duration: 3 + Math.random() * 2,
+          duration: 3 + (index % 3) * 0.5,
           repeat: Infinity,
           ease: "linear",
-          delay: index * 0.5
+          delay: index * 0.3
         }}
-        style={{ opacity: useTransform(opacity, (o: number) => o * 0.8) }}
+        style={{ 
+          opacity: useTransform(opacity, (o: number) => o > 0.05 ? 0.6 : 0)
+        }}
       />
     </g>
   );
@@ -201,15 +212,18 @@ const EcosystemSection = () => {
                 className="flex items-center justify-center group pointer-events-auto"
               >
                 {/* Volumetric Glow Hub */}
-                <div className="relative glass-card-strong px-12 py-10 flex flex-col items-center justify-center border-white/40 bg-black/95 backdrop-blur-3xl 
-                            shadow-[0_0_100px_rgba(255,255,255,0.1),_0_0_200px_rgba(255,255,255,0.05),_inset_0_0_50px_rgba(255,255,255,0.03)]
-                            transition-all duration-1000 group-hover:border-white/60">
+                <div className="relative px-12 py-10 flex flex-col items-center justify-center border border-white/20 bg-transparent rounded-3xl overflow-hidden
+                            shadow-[0_0_80px_rgba(255,255,255,0.03),_inset_0_0_30px_rgba(255,255,255,0.02)]
+                            transition-all duration-1000 group-hover:border-white/40">
                   {/* Internal Light Source */}
                   <div className="absolute inset-0 bg-gradient-to-tr from-white/[0.03] via-transparent to-white/[0.08] pointer-events-none" />
 
-                  <h2 className="text-[3.2rem] sm:text-[4rem] md:text-[5.5rem] font-black text-white tracking-[0.05em] uppercase leading-none glow-text-strong">
+                  <h2 className="font-compta text-[3.2rem] sm:text-[4rem] md:text-[5.5rem] font-black text-white tracking-[0.05em] leading-none glow-text-strong">
                     Forion
                   </h2>
+                  <p className="mt-4 text-[14px] sm:text-[17px] text-white/40 font-mono tracking-[0.5em] uppercase whitespace-nowrap pointer-events-none relative z-10 bg-black/40 backdrop-blur-lg px-4 py-1.5 rounded-full">
+                    UNIVERSAL ENGINE ARCHITECTURE
+                  </p>
                 </div>
               </motion.div>
             </div>
@@ -220,26 +234,28 @@ const EcosystemSection = () => {
             style={{ scale }}
             className="absolute inset-0 pointer-events-none flex items-center justify-center z-10"
           >
-            <svg
-              viewBox="0 0 1200 800"
-              className="w-full h-full max-w-[960px] max-h-[640px] overflow-visible"
-            >
-              <g transform="translate(600, 400)">
-                {features.map((node, i) => (
-                  <Vine
-                    key={`vine-${node.name}`}
-                    endX={node.x}
-                    endY={node.y}
-                    index={i}
-                    scrollYProgress={scrollYProgress}
-                    color={node.color}
-                  />
-                ))}
-              </g>
-            </svg>
+            {/* Coordinate Sync Container: Ensures SVG units match Div transforms */}
+            <div className="relative w-full max-w-[1200px] aspect-[1.2/1] flex items-center justify-center">
+              <svg
+                viewBox="0 0 1200 1000"
+                preserveAspectRatio="none"
+                className="absolute inset-0 w-full h-full overflow-visible"
+              >
+                <g transform="translate(600, 500)">
+                  {features.map((node, i) => (
+                    <Vine
+                      key={`vine-${node.name}`}
+                      endX={node.x}
+                      endY={node.y}
+                      index={i}
+                      scrollYProgress={scrollYProgress}
+                      color={node.color}
+                    />
+                  ))}
+                </g>
+              </svg>
 
-            <div className="absolute inset-0 pointer-events-auto">
-              <div className="relative w-full h-full flex items-center justify-center">
+              <div className="absolute inset-0 pointer-events-auto">
                 {features.map((node, i) => (
                   <IntegrationNode
                     key={node.name}
@@ -252,10 +268,6 @@ const EcosystemSection = () => {
             </div>
           </motion.div>
 
-          {/* Global Network Label - Positioned absolutely to avoid shifting center */}
-          <p className="absolute bottom-20 left-1/2 -translate-x-1/2 text-[10px] text-white/40 font-mono tracking-[0.5em] uppercase whitespace-nowrap z-40 pointer-events-none">
-            UNIVERSAL ENGINE ARCHITECTURE
-          </p>
 
           {/* Centered Spotlight Lighting */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-white/[0.03] rounded-full blur-[200px] pointer-events-none z-0" />

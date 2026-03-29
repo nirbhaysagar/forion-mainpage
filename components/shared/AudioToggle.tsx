@@ -64,7 +64,7 @@ export default function AudioToggle() {
         position: 'fixed',
         bottom: 32,
         left: 32,
-        fontFamily: 'var(--font-mono)',
+        fontFamily: 'var(--font-poppins)',
         fontSize: 10,
         letterSpacing: '0.12em',
         textTransform: 'uppercase',

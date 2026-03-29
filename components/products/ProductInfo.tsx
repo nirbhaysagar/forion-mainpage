@@ -44,7 +44,7 @@ export default function ProductInfo({ product, config, inView }: ProductInfoProp
         />
         <p
           style={{
-            fontFamily: 'var(--font-mono)',
+            fontFamily: 'var(--font-poppins)',
             fontSize: 10,
             letterSpacing: '0.2em',
             textTransform: 'uppercase',
@@ -58,7 +58,7 @@ export default function ProductInfo({ product, config, inView }: ProductInfoProp
 
       <h3
         style={{
-          fontFamily: 'var(--font-display)',
+          fontFamily: 'var(--font-compta)',
           fontSize: 'clamp(52px, 7vw, 90px)',
           lineHeight: 0.9,
           letterSpacing: '0.03em',
@@ -72,7 +72,7 @@ export default function ProductInfo({ product, config, inView }: ProductInfoProp
 
       <p
         style={{
-          fontFamily: 'var(--font-serif)',
+          fontFamily: 'var(--font-poppins)',
           fontSize: 'clamp(15px, 1.6vw, 19px)',
           fontStyle: 'italic',
           color: `rgba(${Math.min(r + 80, 255)},${Math.min(g + 80, 255)},${Math.min(b + 80, 255)},0.7)`,
@@ -84,7 +84,7 @@ export default function ProductInfo({ product, config, inView }: ProductInfoProp
 
       <p
         style={{
-          fontFamily: 'Arial, sans-serif',
+          fontFamily: 'var(--font-poppins)',
           fontSize: 14,
           lineHeight: 1.7,
           color: '#555',
@@ -109,7 +109,7 @@ export default function ProductInfo({ product, config, inView }: ProductInfoProp
               color: `rgba(${r},${g},${b},0.8)`,
             }}
             style={{
-              fontFamily: 'var(--font-mono)',
+              fontFamily: 'var(--font-poppins)',
               fontSize: 9,
               letterSpacing: '0.12em',
               textTransform: 'uppercase',
@@ -131,7 +131,7 @@ export default function ProductInfo({ product, config, inView }: ProductInfoProp
         whileHover={{ x: 6, color: '#f5f5f5' }}
         whileTap={{ scale: 0.97 }}
         style={{
-          fontFamily: 'var(--font-mono)',
+          fontFamily: 'var(--font-poppins)',
           fontSize: 10,
           letterSpacing: '0.12em',
           textTransform: 'uppercase',

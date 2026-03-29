@@ -34,7 +34,7 @@ export default function SectionCounter() {
         position: 'fixed',
         bottom: 32,
         right: 32,
-        fontFamily: 'var(--font-mono)',
+        fontFamily: 'var(--font-poppins)',
         fontSize: 11,
         letterSpacing: '0.1em',
         color: '#444',

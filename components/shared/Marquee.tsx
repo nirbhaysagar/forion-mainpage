@@ -37,7 +37,7 @@ export default function Marquee() {
           <span
             key={i}
             style={{
-              fontFamily: 'var(--font-mono)',
+              fontFamily: 'var(--font-poppins)',
               fontSize: 11,
               letterSpacing: '0.15em',
               textTransform: 'uppercase',

@@ -21,8 +21,8 @@ export default function TermsPage() {
             className="text-center z-10"
           >
             <span className="section-label mb-6 block">Service Agreement</span>
-            <h1 className="text-[clamp(3rem,8vw,5.5rem)] font-bold tracking-tight leading-[0.85] uppercase mb-8" style={{ fontFamily: 'var(--font-bebas-neue)' }}>
-              Terms <span className="opacity-30 italic" style={{ fontFamily: 'var(--font-cormorant)' }}>and Conditions</span>
+            <h1 className="text-[clamp(3rem,8vw,5.5rem)] font-bold tracking-tight leading-[0.85] uppercase mb-8 font-compta">
+              Terms <span className="opacity-30 italic">and Conditions</span>
             </h1>
             <p className="max-w-xl mx-auto text-sm text-white/40 uppercase tracking-[0.2em] font-mono">
               Effective Date: March 20, 2026

@@ -93,7 +93,7 @@ export default function DocsPage() {
                   >
                      <div className="mb-12">
                         <span className="text-amber-400 font-mono text-[10px] uppercase tracking-[0.4em] mb-4 block">Documentation Hub</span>
-                        <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6">{activeTab}</h1>
+                        <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6 font-compta">{activeTab}</h1>
                         <p className="text-xl text-white/50 leading-relaxed font-light">
                            Everything you need to orchestrate high-performance AI agents. From initial SDK setup to advanced global edge deployments.
                         </p>
@@ -104,7 +104,7 @@ export default function DocsPage() {
                         <section className="bg-white/2 rounded-2xl border border-white/5 p-8 lg:p-12 overflow-hidden relative">
                            <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 blur-[100px] rounded-full pointer-events-none" />
 
-                           <h3 className="text-2xl font-bold mb-6 flex items-center gap-3">
+                           <h3 className="text-2xl font-bold mb-6 flex items-center gap-3 font-compta">
                               <Terminal size={20} className="text-white/60" />
                               Quickstart
                            </h3>

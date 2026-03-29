@@ -18,13 +18,13 @@ const CTASection = ({ onRequestAccess }: { onRequestAccess?: () => void }) => {
         >
           <span className="section-label mb-8 block">Get Started</span>
 
-          <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-[-0.04em] leading-[0.95] mb-6 text-white text-center">
-            Ship in <span className="font-serif-editorial italic font-medium opacity-50">hours</span>,
+          <h2 className="font-compta text-4xl md:text-6xl lg:text-7xl font-bold tracking-[-0.04em] leading-[0.95] mb-6 text-white text-center">
+            Ship in <span className="italic font-medium opacity-50">hours</span>,
             <br />
             not weeks.
           </h2>
 
-          <p className="text-lg mb-12 max-w-lg mx-auto leading-relaxed text-center" style={{ color: 'rgba(255,255,255,0.4)' }}>
+          <p className="font-poppins text-lg mb-12 max-w-lg mx-auto leading-relaxed text-center" style={{ color: 'rgba(255,255,255,0.4)' }}>
             Join AI-native teams building real software on the Forion stack. From idea to working app in seconds. No scaffold. No boilerplate. No wasted momentum.
           </p>
 
@@ -32,11 +32,11 @@ const CTASection = ({ onRequestAccess }: { onRequestAccess?: () => void }) => {
             <button
               onClick={onRequestAccess}
               className="px-10 py-5 bg-white text-black font-bold rounded-lg text-[16px] tracking-widest hover:opacity-90 transition-all hover:scale-[1.02] active:scale-[0.98]"
-              style={{ fontFamily: 'var(--font-poppins)' }}
+              style={{ fontFamily: 'var(--font-compta)' }}
             >
               Start building with Orbit
             </button>
-            <a href="#products" className="px-10 py-5 border border-white/20 text-white font-bold rounded-lg text-[15px] tracking-widest hover:bg-white/5 transition-colors" style={{ fontFamily: 'var(--font-poppins)' }}>
+            <a href="#products" className="px-10 py-5 border border-white/20 text-white font-bold rounded-lg text-[15px] tracking-widest hover:bg-white/5 transition-colors" style={{ fontFamily: 'var(--font-compta)' }}>
               Explore the stack
             </a>
           </div>

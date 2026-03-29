@@ -55,11 +55,11 @@ const ComparisonSection = () => {
                         <span className="section-label">Why teams switch</span>
                         <h2 className="section-heading max-w-3xl">
                             The infrastructure gap{' '}
-                            <span style={{ fontStyle: 'italic', fontFamily: 'var(--font-cormorant)', fontWeight: 400, color: 'rgba(255,255,255,0.9)' }}>
+                            <span className="italic font-normal text-white/90">
                                 is real.
                             </span>
                         </h2>
-                        <p style={{ color: 'rgba(255,255,255,0.35)', fontFamily: 'var(--font-jetbrains)', fontSize: '0.75rem', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
+                        <p className="text-[0.75rem] tracking-[0.1em] uppercase text-white/35">
                             Here's how Forion compares to other tools.
                         </p>
                     </motion.div>
@@ -70,20 +70,20 @@ const ComparisonSection = () => {
                         <table className="w-full text-left border-collapse min-w-[640px]">
                             <thead>
                                 <tr style={{ borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
-                                    <th className="p-8 text-[16px] font-mono uppercase tracking-[0.3em]" style={{ color: 'rgba(255,255,255,0.3)' }}>Feature</th>
+                                    <th className="p-8 text-[16px] uppercase tracking-[0.3em] text-white/30">Feature</th>
                                     <th className="p-8" style={{ background: 'rgba(255,255,255,0.02)' }}>
                                         <div className="flex items-center gap-4">
                                             <div className="w-12 h-12 rounded-xl flex items-center justify-center" style={{ background: '#fff' }}>
                                                 <span className="text-black font-black text-xl">F</span>
                                             </div>
-                                            <span className="text-xl font-bold text-white uppercase tracking-wider">Forion</span>
+                                            <span className="text-xl font-bold text-white uppercase tracking-wider font-compta">Forion</span>
                                         </div>
                                     </th>
                                     <th className="p-8">
-                                        <span className="font-medium uppercase tracking-widest" style={{ color: 'rgba(255,255,255,0.25)', fontSize: '18px' }}>Interface Builders</span>
+                                        <span className="font-medium uppercase tracking-widest text-white/25 text-[18px]">Interface Builders</span>
                                     </th>
                                     <th className="p-8">
-                                        <span className="font-medium uppercase tracking-widest" style={{ color: 'rgba(255,255,255,0.25)', fontSize: '18px' }}>Legacy Agents</span>
+                                        <span className="font-medium uppercase tracking-widest text-white/25 text-[18px]">Legacy Agents</span>
                                     </th>
                                 </tr>
                             </thead>
@@ -98,7 +98,7 @@ const ComparisonSection = () => {
                                         style={{ borderBottom: '1px solid rgba(255,255,255,0.04)' }}
                                         className="transition-colors hover:bg-white/[0.015]"
                                     >
-                                        <td className="p-8 font-medium" style={{ color: 'rgba(255,255,255,0.45)', fontFamily: 'var(--font-jetbrains)', fontSize: '1.4rem' }}>
+                                        <td className="p-8 font-medium text-white/45 text-[1.2rem]">
                                             {row.feature}
                                         </td>
                                         <td className="p-8" style={{ background: 'rgba(255,255,255,0.015)' }}>
@@ -107,10 +107,10 @@ const ComparisonSection = () => {
                                                 <span className="font-semibold text-white text-2xl">{row.forion}</span>
                                             </div>
                                         </td>
-                                        <td className="p-8" style={{ color: 'rgba(255,255,255,0.3)', fontSize: '22px', lineHeight: '1.2' }}>
+                                        <td className="p-8 text-white/30 text-[20px] leading-tight">
                                             {row.legacy_ui}
                                         </td>
-                                        <td className="p-8" style={{ color: 'rgba(255,255,255,0.3)', fontSize: '22px', lineHeight: '1.2' }}>
+                                        <td className="p-8 text-white/30 text-[20px] leading-tight">
                                             {row.legacy_agents}
                                         </td>
                                     </motion.tr>

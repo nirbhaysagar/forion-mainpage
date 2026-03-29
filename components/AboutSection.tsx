@@ -28,10 +28,10 @@ const AboutSection = () => {
           className="relative z-10 flex flex-col gap-2 pointer-events-none"
         >
           <span className="section-label">01 // THE UNIVERSAL ENGINE</span>
-          <h2 className="text-[clamp(3.5rem,8vw,7rem)] font-bold leading-none tracking-tight" style={{ fontFamily: 'var(--font-poppins)' }}>
-            Software building <span className="italic font-light text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.5)]" style={{ fontFamily: 'var(--font-playfair)', fontSize: '1.2em' }}>software</span>.
+          <h2 className="text-[clamp(3.5rem,8vw,7rem)] font-bold leading-none tracking-tight font-compta">
+            Software building <span className="italic font-light text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.5)]">software</span>.
             <br />
-            <span style={{ color: 'rgba(255,255,255,0.25)', fontWeight: 400 }}>
+            <span className="text-white/25 font-normal">
               The Universal Agent Ecosystem.
             </span>
           </h2>
@@ -58,10 +58,10 @@ const AboutSection = () => {
           transition={{ delay: 0.4, duration: 1 }}
           className="relative z-10 mt-32 md:mt-40 max-w-xl"
         >
-          <p className="text-xl md:text-2xl leading-relaxed" style={{ color: 'rgba(255,255,255,0.6)', fontFamily: 'var(--font-inconsolata)' }}>
+          <p className="text-xl md:text-2xl leading-relaxed text-white/60">
             Forion is the operating system for AI-native development.
           </p>
-          <p className="mt-6 text-base md:text-lg leading-relaxed" style={{ color: 'rgba(255,255,255,0.45)' }}>
+          <p className="mt-6 text-base md:text-lg leading-relaxed text-white/45">
             Today, building with AI means stitching together prompts, APIs, and tools that were never designed to work as a system. The result? Fragile workflows, scattered logic, and constant rewrites.
           </p>
         </motion.div>
@@ -75,9 +75,9 @@ const AboutSection = () => {
           viewport={{ once: true }}
           transition={{ duration: 1 }}
         >
-          <h3 className="section-heading max-w-4xl" style={{ fontFamily: 'var(--font-inconsolata)' }}>
+          <h3 className="section-heading max-w-4xl">
             Forion changes that. A {' '}
-            <span style={{ fontFamily: 'var(--font-cormorant)', fontStyle: 'italic', fontWeight: 400, color: 'rgba(255,255,255,0.9)' }}>
+            <span className="italic font-normal text-white/90">
               unified system
             </span>
             {' '}where you can:
@@ -118,10 +118,10 @@ const AboutSection = () => {
           viewport={{ once: true }}
           transition={{ duration: 1 }}
         >
-          <h4 className="text-3xl md:text-5xl font-light leading-tight" style={{ color: 'rgba(255,255,255,0.85)' }}>
+          <h4 className="text-3xl md:text-5xl font-light leading-tight text-white/85">
             The OS for AI-native development.
             <br />
-            <span style={{ fontFamily: 'var(--font-inconsolata)', fontWeight: 300 }}>
+            <span className="font-light">
               Build, run, and evolve AI systems — in one place.
             </span>
           </h4>

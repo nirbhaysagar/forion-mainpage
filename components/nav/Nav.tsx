@@ -8,6 +8,7 @@ import Link from 'next/link'
 
 const links = [
   { label: 'Products', href: '/products' },
+  { label: 'Pricing', href: '/pricing' },
   { label: 'About', href: '/about' },
   { label: 'Docs', href: '/docs' },
   { label: 'Blog', href: '/blog' },
@@ -77,7 +78,7 @@ export default function Nav() {
               key={link.label}
               href={link.href}
               style={{
-                fontFamily: 'var(--font-inconsolata)',
+                fontFamily: 'var(--font-poppins)',
                 fontSize: 13,
                 letterSpacing: '0.05em',
                 textTransform: 'uppercase',
@@ -98,7 +99,7 @@ export default function Nav() {
           className="block"
           onClick={() => setModalOpen(true)}
           style={{
-            fontFamily: 'var(--font-poppins)',
+            fontFamily: 'var(--font-compta)',
             fontSize: 12,
             letterSpacing: '0.05em',
             color: '#000',

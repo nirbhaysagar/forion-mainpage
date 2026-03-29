@@ -114,7 +114,7 @@ export default function Hero({ onRequestAccess }: { onRequestAccess?: () => void
         <h1
           className="text-[clamp(4.5rem,15vw,16rem)] font-bold tracking-[0.05em] leading-[0.85] mb-6 relative z-20 text-white uppercase"
           style={{
-            fontFamily: 'var(--font-poppins)',
+            fontFamily: 'var(--font-compta)',
             textShadow: '0 0 60px rgba(255,200,80,0.2), 0 2px 8px rgba(0,0,0,0.9)',
             margin: 'clamp(1rem, 4vw, 2rem) 0 1.5rem 0'
           }}
@@ -126,7 +126,7 @@ export default function Hero({ onRequestAccess }: { onRequestAccess?: () => void
         <p
           className="backdrop-blur-sm bg-black/20"
           style={{
-            fontFamily: 'var(--font-inconsolata)',
+            fontFamily: 'var(--font-poppins)',
             fontSize: 'clamp(14px, 2.2vw, 24px)',
             color: 'rgba(255,255,255,0.9)',
             fontWeight: 500,
@@ -194,7 +194,7 @@ export default function Hero({ onRequestAccess }: { onRequestAccess?: () => void
             whileHover={{ scale: 1.02, boxShadow: '0 0 40px rgba(255,255,255,0.15)' }}
             whileTap={{ scale: 0.98 }}
             style={{
-              fontFamily: 'var(--font-poppins)',
+              fontFamily: 'var(--font-compta)',
               fontSize: 16,
               letterSpacing: '0.1em',
               color: '#000',

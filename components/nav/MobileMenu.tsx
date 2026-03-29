@@ -8,6 +8,7 @@ import { useUI } from '../providers/UIProvider'
 
 const links = [
   { label: 'Products', href: '/products' },
+  { label: 'Pricing', href: '/pricing' },
   { label: 'About', href: '/about' },
   { label: 'Docs', href: '/docs' },
   { label: 'Blog', href: '/blog' },

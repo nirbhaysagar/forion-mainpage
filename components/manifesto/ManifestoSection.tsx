@@ -37,7 +37,7 @@ export default function ManifestoSection() {
       {/* Headline with glitch */}
       <h2
         style={{
-          fontFamily: 'var(--font-display)',
+          fontFamily: 'var(--font-compta)',
           fontSize: 'clamp(48px, 8vw, 120px)',
           lineHeight: 0.92,
           letterSpacing: '0.02em',
@@ -78,7 +78,7 @@ export default function ManifestoSection() {
       >
         <p
           style={{
-            fontFamily: 'var(--font-serif)',
+            fontFamily: 'var(--font-poppins)',
             fontSize: 'clamp(16px, 1.8vw, 22px)',
             fontStyle: 'italic',
             color: '#555',
@@ -92,7 +92,7 @@ export default function ManifestoSection() {
         </p>
         <p
           style={{
-            fontFamily: 'var(--font-serif)',
+            fontFamily: 'var(--font-poppins)',
             fontSize: 'clamp(14px, 1.6vw, 18px)',
             fontStyle: 'italic',
             color: '#3a3a3a',
