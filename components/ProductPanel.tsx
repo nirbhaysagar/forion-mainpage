@@ -16,6 +16,7 @@ interface ProductPanelProps {
   mainImage: string;
   features?: string[];
   isFlagship?: boolean;
+  isUpcoming?: boolean;
 }
 
 const ProductPanel = ({
@@ -27,6 +28,7 @@ const ProductPanel = ({
   mainImage,
   features,
   isFlagship,
+  isUpcoming,
 }: Omit<ProductPanelProps, "progress" | "total">) => {
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -58,6 +60,14 @@ const ProductPanel = ({
                 </span>
               </div>
             )}
+            {isUpcoming && (
+              <div className="flex items-center gap-2 mb-2">
+                <div className="w-1.5 h-1.5 rounded-full bg-cyan-500 animate-pulse" />
+                <span className="text-[10px] uppercase tracking-[0.3em] font-mono text-cyan-500/80 font-bold">
+                  Coming Soon
+                </span>
+              </div>
+            )}
             <span className="text-[14px] md:text-[20px] uppercase tracking-[0.2em] text-white/30 font-mono">Module // 0{index + 1}</span>
             <h2 className="text-3xl md:text-6xl font-bold text-white tracking-tighter leading-[0.9] uppercase">
               {title}
@@ -79,17 +89,19 @@ const ProductPanel = ({
             </ul>
           )}
 
-          <a
-            href={href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group relative w-fit mt-4"
-          >
-            <div className="absolute inset-0 bg-white blur-md opacity-0 group-hover:opacity-20 transition-opacity" />
-            <div className="relative px-10 py-4 rounded-full bg-white text-black font-bold uppercase text-[10px] tracking-[0.3em] hover:bg-neutral-100 transition-all">
-              {cta}
-            </div>
-          </a>
+          {!isUpcoming && (
+            <a
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative w-fit mt-4"
+            >
+              <div className="absolute inset-0 bg-white blur-md opacity-0 group-hover:opacity-20 transition-opacity" />
+              <div className="relative px-10 py-4 rounded-full bg-white text-black font-bold uppercase text-[10px] tracking-[0.3em] hover:bg-neutral-100 transition-all">
+                {cta}
+              </div>
+            </a>
+          )}
         </div>
 
         {/* Visual / Demo Area */}

@@ -5,18 +5,18 @@ import { motion, useScroll, useTransform } from "framer-motion";
 
 const features = [
   // Primary Products
-  { name: "Orbit", x: -320, y: -176, label: "Frontend", color: "#FFFFFF" },
-  { name: "Spark", x: 320, y: -176, label: "Execution", color: "#FF9900" },
-  { name: "AgentTrace", x: 0, y: -304, label: "Governance", color: "#4285F4" },
+  { name: "Orbit", x: -320, y: -176, label: "Frontend", color: "#FFFFFF", summary: "Transforms prompts into production-ready web applications rendered live without boilerplate." },
+  { name: "Spark", x: 320, y: -176, label: "Execution", color: "#FF9900", summary: "Autonomous coding engine that integrates natively to review and execute across your codebase." },
+  { name: "AgentTrace", x: 0, y: -304, label: "Governance", color: "#4285F4", summary: "Deterministic engine providing cryptographic proof of every agent-driven execution and state." },
 
   // Core Capabilities
-  { name: "Auto-Heal", x: -384, y: 80, label: "Reliability", color: "#26D07C" },
-  { name: "Surgical Patch", x: 384, y: 80, label: "Efficiency", color: "#FFD21E" },
-  { name: "Planner", x: 0, y: 304, label: "Reasoning", color: "#FFFFFF" },
+  { name: "Auto-Heal", x: -384, y: 80, label: "Reliability", color: "#26D07C", summary: "Self-correcting build loops that dynamically diagnose and resolve complex compilation errors." },
+  { name: "Surgical Patch", x: 384, y: 80, label: "Efficiency", color: "#FFD21E", summary: "Context-aware differential logic that only alters necessary code lines, preserving momentum." },
+  { name: "Planner", x: 0, y: 304, label: "Reasoning", color: "#FFFFFF", summary: "Generates robust architectural maps before execution to ensure large-scale codebase integrity." },
 
   // Infrastructure
-  { name: "IDE", x: -200, y: 224, label: "Environment", color: "#4078c0" },
-  { name: "OS Core", x: 200, y: 224, label: "Infrastructure", color: "#D97757" },
+  { name: "IDE", x: -200, y: 224, label: "Environment", color: "#4078c0", summary: "A highly unified development workspace engineered for seamless agent-human collaboration." },
+  { name: "OS Core", x: 200, y: 224, label: "Infrastructure", color: "#D97757", summary: "The underlying infrastructure and compute platform powering all Forion applications globally." },
 ];
 
 const getLogo = (name: string, color: string) => {
@@ -72,16 +72,23 @@ const IntegrationNode = ({ node, index, scrollYProgress }: { node: any, index: n
         className={`glass-card-strong px-5 py-3 flex items-center gap-2 group backdrop-blur-2xl border-white/10 hover:border-white/40 transition-all duration-500`}
         style={{ '--hover-color': node.color } as any}
       >
-        <div className="w-6 h-6 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center transition-colors group-hover:border-[var(--hover-color)]/50">
+        <div className="w-6 h-6 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center transition-colors group-hover:border-[var(--hover-color)]/50 shrink-0">
           {getLogo(node.name, node.color)}
         </div>
-        <div>
+        <div className="flex flex-col">
           <span className="block text-[8px] text-white/40 uppercase tracking-[0.5em] font-mono mb-0.5 group-hover:text-[var(--hover-color)]/60 transition-colors">
             {node.label}
           </span>
           <h4 className="text-[12px] font-bold text-white tracking-tight group-hover:text-white transition-colors">
             {node.name}
           </h4>
+          <div className="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-[grid-template-rows] duration-300 ease-out">
+            <div className="overflow-hidden">
+              <p className="text-[10px] text-white/50 pt-2 pb-1 max-w-[220px] leading-snug opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-50">
+                {node.summary}
+              </p>
+            </div>
+          </div>
         </div>
       </motion.div>
     </motion.div>

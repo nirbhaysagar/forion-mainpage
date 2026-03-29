@@ -103,7 +103,10 @@ export default function ProductsPage() {
               className="order-1 lg:order-2 flex flex-col gap-8"
             >
               <div>
-                <span className="text-amber-400 font-mono text-[10px] uppercase tracking-[0.4em] mb-4 block">Autonomous Intelligence</span>
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="text-amber-400 font-mono text-[10px] uppercase tracking-[0.4em] block">Autonomous Intelligence</span>
+                  <span className="px-2 py-0.5 rounded-full bg-amber-500/20 border border-amber-500/30 text-amber-300 text-[9px] uppercase tracking-widest font-bold">Coming Soon</span>
+                </div>
                 <h2 className="text-5xl font-bold tracking-tighter mb-6">Spark</h2>
                 <p className="text-lg text-white/50 leading-relaxed">
                   The first autonomous coding agent that integrates directly into your existing codebase. Spark identifies bugs, suggests refactors, and implements complex features while you sleep.
@@ -125,10 +128,6 @@ export default function ProductsPage() {
                   </li>
                 ))}
               </ul>
-
-              <a href="https://spark.forgje.com/" target="_blank" rel="noopener noreferrer" className="w-fit px-8 py-4 bg-white text-black font-bold rounded-lg uppercase text-[11px] tracking-widest hover:opacity-90 transition-opacity">
-                Launch Spark
-              </a>
             </motion.div>
           </div>
         </section>

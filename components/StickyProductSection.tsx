@@ -26,6 +26,7 @@ const products = [
     cta: "Connect your Repo",
     href: "https://spark.forgje.com/",
     mainImage: "/WhatsApp Image 2026-03-20 at 22.47.49.jpeg",
+    isUpcoming: true,
     features: [
       "Full Repository Context",
       "Automated PRs & Branches",
@@ -40,12 +41,28 @@ const products = [
     cta: "Record Every Decision",
     href: "#",
     mainImage: "/about_workstation.png",
+    isUpcoming: true,
     features: [
       "Deterministic Replay",
       "HMAC-SHA256 Signed Traces",
       "Hermetic Sandboxing",
       "Cryptographic Proof",
       "Enterprise Compliance"
+    ],
+  },
+  {
+    title: "Forion IDE",
+    description: "The AI-native development environment we built from the ground up. Write code alongside context-aware agents, trace every decision, and deploy seamlessly within the Forion ecosystem.",
+    cta: "Download IDE",
+    href: "#",
+    mainImage: "/about_workstation.png",
+    isUpcoming: true,
+    features: [
+      "Agent-Native Interface",
+      "Context-Aware Code Completion",
+      "Integrated Execution Traces",
+      "Hermetic Sandboxing",
+      "Multi-Agent Collaboration"
     ],
   },
 ];
@@ -82,6 +99,7 @@ const StickyProductSection = () => {
               index={i}
               mainImage={product.mainImage}
               isFlagship={product.isFlagship}
+              isUpcoming={product.isUpcoming}
             />
           ))}
         </div>

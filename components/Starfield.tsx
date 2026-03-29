@@ -34,10 +34,10 @@ const Starfield = ({ count = 5000 }) => {
   return (
     <points ref={points} geometry={geometry}>
       <pointsMaterial
-        size={0.04}
+        size={0.02}
         vertexColors
         transparent
-        opacity={0.75}
+        opacity={0.3}
         sizeAttenuation
       />
     </points>

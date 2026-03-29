@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 
 const stats = [
-    { value: "10k+", label: "Verified Teams" },
+    { value: "10k+", label: "Production Systems" },
     { value: "4B+", label: "Tokens Orchestrated" },
     { value: "99.99%", label: "Uptime SLA" },
 ];
@@ -21,10 +21,10 @@ const SocialProofSection = () => {
                     transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                     className="mb-16"
                 >
-                    <span className="section-label">Proven Infrastructure</span>
+                    <span className="section-label">Production Infrastructure</span>
                     <h2 className="section-heading mt-2">
-                        The foundation for{' '}
-                        <span style={{ color: 'rgba(255,255,255,0.3)', fontStyle: 'italic', fontFamily: 'var(--font-cormorant)' }}>autonomous growth.</span>
+                        Build AI systems.{' '}
+                        <span style={{ color: 'rgba(255,255,255,0.3)', fontStyle: 'italic', fontFamily: 'var(--font-cormorant)' }}>Not glue code.</span>
                     </h2>
                 </motion.div>
 
@@ -38,7 +38,7 @@ const SocialProofSection = () => {
                             transition={{ delay: i * 0.12, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
                             className="text-center"
                         >
-                            <span className="block text-5xl md:text-6xl font-bold tracking-tighter text-white glow-text-strong" style={{ fontFamily: 'var(--font-bebas-neue)' }}>
+                            <span className="block text-5xl md:text-6xl font-bold tracking-tight text-white glow-text-strong" style={{ fontFamily: 'var(--font-poppins)' }}>
                                 {stat.value}
                             </span>
                             <span className="mt-3 block text-[10px] uppercase tracking-[0.4em]" style={{ color: 'rgba(255,255,255,0.3)', fontFamily: 'var(--font-jetbrains)' }}>

@@ -35,7 +35,7 @@ export default function Nav() {
           zIndex: 200,
           display: 'flex',
           alignItems: 'center',
-          height: 'clamp(20px, 6vw, 32px)', 
+          height: 'clamp(60px, 18vw, 96px)', 
         }}
       >
         <img
