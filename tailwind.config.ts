@@ -15,6 +15,8 @@ export default {
         sans: ["Poppins", "sans-serif"],
         "serif-editorial": ["Instrument Serif", "serif"],
         "compta": ["Compta", "sans-serif"],
+        "google-sans": ["'Google Sans'", "sans-serif"],
+        "google-sans-flex": ["'Google Sans Flex'", "sans-serif"],
         bebas: ["Bebas Neue", "sans-serif"],
       },
       colors: {

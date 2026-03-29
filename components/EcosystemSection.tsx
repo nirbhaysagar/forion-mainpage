@@ -218,7 +218,7 @@ const EcosystemSection = () => {
                   {/* Internal Light Source */}
                   <div className="absolute inset-0 bg-gradient-to-tr from-white/[0.03] via-transparent to-white/[0.08] pointer-events-none" />
 
-                  <h2 className="font-compta text-[3.2rem] sm:text-[4rem] md:text-[5.5rem] font-black text-white tracking-[0.05em] leading-none glow-text-strong">
+                  <h2 className="font-google-sans text-[3.2rem] sm:text-[4rem] md:text-[5.5rem] font-black text-white tracking-[0.05em] leading-none glow-text-strong">
                     Forion
                   </h2>
                   <p className="mt-4 text-[14px] sm:text-[17px] text-white/40 font-mono tracking-[0.5em] uppercase whitespace-nowrap pointer-events-none relative z-10 bg-black/40 backdrop-blur-lg px-4 py-1.5 rounded-full">

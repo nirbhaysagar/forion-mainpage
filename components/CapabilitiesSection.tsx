@@ -95,7 +95,7 @@ const CapabilitiesSection = () => {
                                     </span>
                                 </div>
 
-                                <h3 className="font-compta text-xl md:text-2xl font-semibold mb-3 tracking-tight text-white">
+                                <h3 className="font-google-sans text-xl md:text-2xl font-semibold mb-3 tracking-tight text-white">
                                     {f.title}
                                 </h3>
                             </div>

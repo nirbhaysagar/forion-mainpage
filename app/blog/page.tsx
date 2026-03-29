@@ -52,7 +52,7 @@ export default function BlogPage() {
             className="text-center z-10"
           >
             <span className="section-label mb-6 block">The Collective Logic</span>
-            <h1 className="text-[clamp(3.5rem,10vw,8rem)] font-bold tracking-tight leading-[0.85] uppercase mb-8 font-compta">
+            <h1 className="text-[clamp(3.5rem,10vw,8rem)] font-bold tracking-tight leading-[0.85] uppercase mb-8 font-google-sans">
               Thinking <span className="opacity-30 italic">Out Loud</span>
             </h1>
             <p className="max-w-2xl mx-auto text-lg md:text-xl text-white/50 leading-relaxed font-light">

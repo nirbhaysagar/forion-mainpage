@@ -18,7 +18,7 @@ const CTASection = ({ onRequestAccess }: { onRequestAccess?: () => void }) => {
         >
           <span className="section-label mb-8 block">Get Started</span>
 
-          <h2 className="font-compta text-4xl md:text-6xl lg:text-7xl font-bold tracking-[-0.04em] leading-[0.95] mb-6 text-white text-center">
+          <h2 className="font-google-sans text-4xl md:text-6xl lg:text-7xl font-bold tracking-[-0.04em] leading-[0.95] mb-6 text-white text-center">
             Ship in <span className="italic font-medium opacity-50">hours</span>,
             <br />
             not weeks.
@@ -32,11 +32,11 @@ const CTASection = ({ onRequestAccess }: { onRequestAccess?: () => void }) => {
             <button
               onClick={onRequestAccess}
               className="px-10 py-5 bg-white text-black font-bold rounded-lg text-[16px] tracking-widest hover:opacity-90 transition-all hover:scale-[1.02] active:scale-[0.98]"
-              style={{ fontFamily: 'var(--font-compta)' }}
+              style={{ fontFamily: 'var(--font-google-sans)' }}
             >
               Start building with Orbit
             </button>
-            <a href="#products" className="px-10 py-5 border border-white/20 text-white font-bold rounded-lg text-[15px] tracking-widest hover:bg-white/5 transition-colors" style={{ fontFamily: 'var(--font-compta)' }}>
+            <a href="#products" className="px-10 py-5 border border-white/20 text-white font-bold rounded-lg text-[15px] tracking-widest hover:bg-white/5 transition-colors" style={{ fontFamily: 'var(--font-google-sans)' }}>
               Explore the stack
             </a>
           </div>

@@ -22,8 +22,8 @@ export default function ProductsPage() {
             className="text-center z-10"
           >
             <span className="section-label mb-6 block">Our Ecosystem</span>
-            <h1 className="text-[clamp(3.5rem,8vw,7rem)] font-bold tracking-tight leading-[1.1] mb-8 font-compta">
-              The <span className="italic font-light text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.5)]">Forion</span> Ecosystem
+            <h1 className="text-[clamp(3.5rem,8vw,7rem)] font-bold tracking-tight leading-[1.1] mb-8 font-google-sans">
+              The Forion <span className="italic font-light text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.5)]">Ecosystem</span>
             </h1>
             <p className="max-w-2xl mx-auto text-xl md:text-3xl text-white/80 leading-relaxed font-light">
               Architect The Impossible.
@@ -46,7 +46,7 @@ export default function ProductsPage() {
             >
               <div>
                 <span className="text-purple-400 font-mono text-[10px] uppercase tracking-[0.4em] mb-4 block">Deployment Engine</span>
-                <h2 className="text-5xl font-bold tracking-tighter mb-6">Orbit</h2>
+                <h2 className="text-5xl font-bold tracking-tighter mb-6 font-google-sans">Orbit</h2>
                 <p className="text-lg text-white/50 leading-relaxed">
                   Turn a single prompt into a fully hosted, scalable web application. Orbit handles the provisioning, the CI/CD, and the global edge deployment so you can focus on the logic.
                 </p>
@@ -107,7 +107,7 @@ export default function ProductsPage() {
                   <span className="text-amber-400 font-mono text-[10px] uppercase tracking-[0.4em] block">Autonomous Intelligence</span>
                   <span className="px-2 py-0.5 rounded-full bg-amber-500/20 border border-amber-500/30 text-amber-300 text-[9px] uppercase tracking-widest font-bold">Coming Soon</span>
                 </div>
-                <h2 className="text-5xl font-bold tracking-tighter mb-6">Spark</h2>
+                <h2 className="text-5xl font-bold tracking-tighter mb-6 font-google-sans">Spark</h2>
                 <p className="text-lg text-white/50 leading-relaxed">
                   The first autonomous coding agent that integrates directly into your existing codebase. Spark identifies bugs, suggests refactors, and implements complex features while you sleep.
                 </p>
@@ -128,6 +128,58 @@ export default function ProductsPage() {
                   </li>
                 ))}
               </ul>
+            </motion.div>
+          </div>
+
+          {/* IDE Card */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="flex flex-col gap-8"
+            >
+              <div>
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="text-cyan-400 font-mono text-[10px] uppercase tracking-[0.4em] block">Integrated Environment</span>
+                  <span className="px-2 py-0.5 rounded-full bg-cyan-500/20 border border-cyan-500/30 text-cyan-300 text-[9px] uppercase tracking-widest font-bold">Coming Soon</span>
+                </div>
+                <h2 className="text-5xl font-bold tracking-tighter mb-6 font-google-sans">Forion IDE</h2>
+                <p className="text-lg text-white/50 leading-relaxed">
+                  The AI-native development environment we built from the ground up. Write code alongside context-aware agents, trace every decision, and deploy seamlessly within the Forion ecosystem.
+                </p>
+              </div>
+
+              <ul className="flex flex-col gap-4">
+                {[
+                  "Agent-Native Interface",
+                  "Context-Aware Code Completion",
+                  "Integrated Execution Traces",
+                  "Hermetic Sandboxing",
+                  "Multi-Agent Collaboration"
+                ].map((feature, i) => (
+                  <li key={i} className="flex items-center gap-3 text-sm text-white/70">
+                    <div className="w-5 h-5 rounded-full bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center flex-shrink-0">
+                      <Check size={12} className="text-cyan-400" />
+                    </div>
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+
+              <button disabled className="w-fit px-8 py-4 bg-white/5 border border-white/10 text-white/30 font-bold rounded-lg uppercase text-[11px] tracking-widest cursor-not-allowed">
+                Coming Soon
+              </button>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              className="relative group rounded-3xl overflow-hidden border border-cyan-500/20 shadow-2xl shadow-cyan-500/5 aspect-video"
+            >
+              <img src="/about_workstation.png" alt="Forion IDE UI" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
             </motion.div>
           </div>
         </section>

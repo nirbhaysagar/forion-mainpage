@@ -38,7 +38,7 @@ const SocialProofSection = () => {
                             transition={{ delay: i * 0.12, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
                             className="text-center"
                         >
-                            <span className="block text-5xl md:text-6xl font-bold tracking-tight text-white glow-text-strong" style={{ fontFamily: 'var(--font-compta)' }}>
+                            <span className="block text-5xl md:text-6xl font-bold tracking-tight text-white glow-text-strong" style={{ fontFamily: 'var(--font-google-sans)' }}>
                                 {stat.value}
                             </span>
                             <span className="mt-3 block text-[10px] uppercase tracking-[0.4em]" style={{ color: 'rgba(255,255,255,0.3)', fontFamily: 'var(--font-poppins)' }}>

@@ -37,7 +37,7 @@ export default function ManifestoSection() {
       {/* Headline with glitch */}
       <h2
         style={{
-          fontFamily: 'var(--font-compta)',
+          fontFamily: 'var(--font-google-sans)',
           fontSize: 'clamp(48px, 8vw, 120px)',
           lineHeight: 0.92,
           letterSpacing: '0.02em',

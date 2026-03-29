@@ -28,7 +28,7 @@ const AboutSection = () => {
           className="relative z-10 flex flex-col gap-2 pointer-events-none"
         >
           <span className="section-label">01 // THE UNIVERSAL ENGINE</span>
-          <h2 className="text-[clamp(3.5rem,8vw,7rem)] font-bold leading-none tracking-tight font-compta">
+          <h2 className="text-[clamp(3.5rem,8vw,7rem)] font-bold leading-none tracking-tight font-google-sans">
             Software building <span className="italic font-light text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.5)]">software</span>.
             <br />
             <span className="text-white/25 font-normal">

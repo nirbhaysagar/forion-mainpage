@@ -23,7 +23,7 @@ export default function AboutPage() {
             className="text-center z-10"
           >
             <span className="section-label mb-6 block">Our Story</span>
-            <h1 className="text-[clamp(3.5rem,10vw,8rem)] font-bold tracking-tight leading-[1.1] mb-8 font-compta">
+            <h1 className="text-[clamp(3.5rem,10vw,8rem)] font-bold tracking-tight leading-[1.1] mb-8 font-google-sans">
               Built For <span className="italic font-light text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.5)]">Builders</span><br />
               <span className="text-white/20 font-normal">Who Move Fast.</span>
             </h1>
@@ -57,7 +57,7 @@ export default function AboutPage() {
         <section className="py-32 px-6 md:px-20 max-w-7xl mx-auto flex flex-col lg:flex-row gap-24 items-center">
           <div className="flex-[1] flex flex-col gap-8">
             <span className="text-amber-400 font-mono text-[10px] uppercase tracking-[0.4em] block">The Vision</span>
-            <h2 className="text-4xl md:text-6xl font-bold tracking-tighter leading-[1.1] mb-6 font-compta">
+            <h2 className="text-4xl md:text-6xl font-bold tracking-tighter leading-[1.1] mb-6 font-google-sans">
               Software At<br />
               <span className="italic font-light text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.5)]">Orbital Speed</span>
             </h2>
@@ -96,7 +96,7 @@ export default function AboutPage() {
         {/* Collective Logic / Careers */}
         <section id="careers" className="py-48 px-6 md:px-20 text-center relative overflow-hidden bg-white/2 border-y border-white/5">
           <div className="relative z-10 max-w-3xl mx-auto">
-            <h2 className="text-5xl font-bold tracking-tight mb-8 font-compta">Join the Collective Logic.</h2>
+            <h2 className="text-5xl font-bold tracking-tight mb-8 font-google-sans">Join the Collective Logic.</h2>
             <p className="text-xl text-white/50 mb-12 font-light leading-relaxed">
               We're looking for architects, designers, and thinkers who want to redefine how the world builds software. Remote-first, mission-driven.
             </p>

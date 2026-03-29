@@ -18,7 +18,15 @@ const Footer = () => {
                   { l: "Spark Agents", h: "https://spark.forgje.com/" },
                   { l: "Pricing", h: "/pricing" },
                 ].map(item => (
-                  <Link key={item.l} href={item.h} className="text-sm hover:text-white transition-colors tracking-tight text-white/45">{item.l}</Link>
+                  <Link 
+                    key={item.l} 
+                    href={item.h}
+                    target={item.h.startsWith('http') || item.h.startsWith('mailto') ? "_blank" : undefined}
+                    rel={item.h.startsWith('http') ? "noopener noreferrer" : undefined}
+                    className="text-sm hover:text-white transition-colors tracking-tight text-white/45"
+                  >
+                    {item.l}
+                  </Link>
                 ))}
               </div>
             </div>
@@ -33,7 +41,15 @@ const Footer = () => {
                   { l: "GitHub", h: "https://github.com/forgje" },
                   { l: "Status", h: "https://status.forion.dev" },
                 ].map(item => (
-                  <Link key={item.l} href={item.h} className="text-sm hover:text-white transition-colors tracking-tight text-white/45">{item.l}</Link>
+                  <Link 
+                    key={item.l} 
+                    href={item.h}
+                    target={item.h.startsWith('http') || item.h.startsWith('mailto') ? "_blank" : undefined}
+                    rel={item.h.startsWith('http') ? "noopener noreferrer" : undefined}
+                    className="text-sm hover:text-white transition-colors tracking-tight text-white/45"
+                  >
+                    {item.l}
+                  </Link>
                 ))}
               </div>
             </div>
@@ -48,7 +64,15 @@ const Footer = () => {
                   { l: "Blog", h: "/blog" },
                   { l: "Contact", h: "mailto:hello@forion.dev" },
                 ].map(item => (
-                  <Link key={item.l} href={item.h} className="text-sm hover:text-white transition-colors tracking-tight text-white/45">{item.l}</Link>
+                  <Link 
+                    key={item.l} 
+                    href={item.h}
+                    target={item.h.startsWith('http') || item.h.startsWith('mailto') ? "_blank" : undefined}
+                    rel={item.h.startsWith('http') ? "noopener noreferrer" : undefined}
+                    className="text-sm hover:text-white transition-colors tracking-tight text-white/45"
+                  >
+                    {item.l}
+                  </Link>
                 ))}
               </div>
             </div>
@@ -83,7 +107,7 @@ const Footer = () => {
         </div>
 
         {/* Typographic signature */}
-        <div className="font-compta footer-brand-text select-none pointer-events-none" aria-hidden="true">
+        <div className="font-google-sans footer-brand-text select-none pointer-events-none" aria-hidden="true">
           forion
         </div>
 

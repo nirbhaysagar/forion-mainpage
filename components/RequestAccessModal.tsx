@@ -60,7 +60,7 @@ export default function RequestAccessModal() {
 
             {!submitted ? (
               <div className="relative z-10">
-                <h3 className="text-3xl font-bold tracking-tighter uppercase mb-2" style={{ fontFamily: 'var(--font-compta)' }}>
+                <h3 className="text-3xl font-bold tracking-tighter uppercase mb-2" style={{ fontFamily: 'var(--font-google-sans)' }}>
                   Join the Waitlist
                 </h3>
                 <p className="text-sm text-white/50 mb-8 leading-relaxed">
@@ -84,7 +84,7 @@ export default function RequestAccessModal() {
                     type="submit"
                     disabled={loading}
                     className="group relative w-full h-12 rounded-lg bg-white text-black font-bold uppercase text-[11px] tracking-[0.2em] overflow-hidden transition-all active:scale-[0.98] disabled:opacity-50"
-                    style={{ fontFamily: 'var(--font-compta)' }}
+                    style={{ fontFamily: 'var(--font-google-sans)' }}
                   >
                     {loading ? (
                       <span className="flex items-center justify-center gap-2">
@@ -110,7 +110,7 @@ export default function RequestAccessModal() {
                 <div className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-6 border border-white/20">
                   <span className="text-2xl">✓</span>
                 </div>
-                <h3 className="text-3xl font-bold tracking-tighter uppercase mb-2" style={{ fontFamily: 'var(--font-compta)' }}>
+                <h3 className="text-3xl font-bold tracking-tighter uppercase mb-2" style={{ fontFamily: 'var(--font-google-sans)' }}>
                   You're in the queue
                 </h3>
                 <p className="text-sm text-white/50 mb-8 leading-relaxed">

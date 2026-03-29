@@ -58,7 +58,7 @@ export default function ProductInfo({ product, config, inView }: ProductInfoProp
 
       <h3
         style={{
-          fontFamily: 'var(--font-compta)',
+          fontFamily: 'var(--font-google-sans)',
           fontSize: 'clamp(52px, 7vw, 90px)',
           lineHeight: 0.9,
           letterSpacing: '0.03em',

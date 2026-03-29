@@ -20,7 +20,7 @@ export default function PrivacyPage() {
             className="text-center z-10"
           >
             <span className="section-label mb-6 block">Legal / Integrity</span>
-            <h1 className="text-[clamp(3rem,8vw,5.5rem)] font-bold tracking-tight leading-[0.85] uppercase mb-8 font-compta">
+            <h1 className="text-[clamp(3rem,8vw,5.5rem)] font-bold tracking-tight leading-[0.85] uppercase mb-8 font-google-sans">
               Privacy <span className="opacity-30 italic">Policy</span>
             </h1>
             <p className="max-w-xl mx-auto text-sm text-white/40 uppercase tracking-[0.2em] font-mono">

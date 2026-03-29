@@ -76,7 +76,7 @@ const ComparisonSection = () => {
                                             <div className="w-12 h-12 rounded-xl flex items-center justify-center" style={{ background: '#fff' }}>
                                                 <span className="text-black font-black text-xl">F</span>
                                             </div>
-                                            <span className="text-xl font-bold text-white uppercase tracking-wider font-compta">Forion</span>
+                                            <span className="text-xl font-bold text-white uppercase tracking-wider font-google-sans">Forion</span>
                                         </div>
                                     </th>
                                     <th className="p-8">

@@ -58,7 +58,7 @@ export default function Nav() {
           display: 'flex',
           alignItems: 'center',
           gap: 'clamp(0.5rem, 2vw, 2.5rem)',
-          padding: '4px 16px', 
+          padding: '7px 20px', 
           borderRadius: 999,
           transition: 'all 0.4s ease',
         }}
@@ -99,7 +99,7 @@ export default function Nav() {
           className="block"
           onClick={() => setModalOpen(true)}
           style={{
-            fontFamily: 'var(--font-compta)',
+            fontFamily: 'var(--font-google-sans)',
             fontSize: 12,
             letterSpacing: '0.05em',
             color: '#000',
