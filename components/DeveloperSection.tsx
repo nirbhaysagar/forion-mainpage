@@ -52,7 +52,7 @@ const DeveloperSection = () => {
                             </p>
                         </div>
 
-                        <div className="mt-10 flex gap-10">
+                        <div className="mt-10 flex flex-wrap md:flex-nowrap gap-6 md:gap-10">
                             <div>
                                 <span className="text-2xl font-semibold text-white tracking-tighter block underline underline-offset-8 decoration-white/10 font-google-sans">42ms</span>
                                 <span className="text-[10px] text-white/40 tracking-[0.5em] uppercase font-poppins mt-4 block">avg. latency</span>

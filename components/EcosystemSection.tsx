@@ -200,10 +200,10 @@ const EcosystemSection = () => {
           </h2>
         </div>
 
-        <div className="relative w-full min-h-[400px] md:min-h-[700px] flex items-center justify-center">
+        <div className="relative w-full md:min-h-[700px] flex flex-col md:flex-row items-center justify-center">
 
           {/* Central Hub Area */}
-          <div className="relative z-30 w-full h-full flex items-center justify-center pointer-events-none">
+          <div className="relative z-30 w-full py-12 md:py-0 md:h-full flex items-center justify-center pointer-events-none">
             <div className="flex flex-col items-center text-center">
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
@@ -212,16 +212,16 @@ const EcosystemSection = () => {
                 className="flex items-center justify-center group pointer-events-auto"
               >
                 {/* Volumetric Glow Hub */}
-                <div className="relative px-12 py-10 flex flex-col items-center justify-center border border-white/20 bg-transparent rounded-3xl overflow-hidden
+                <div className="relative px-6 py-6 md:px-12 md:py-10 flex flex-col items-center justify-center border border-white/20 bg-transparent rounded-2xl md:rounded-3xl overflow-hidden
                             shadow-[0_0_80px_rgba(255,255,255,0.03),_inset_0_0_30px_rgba(255,255,255,0.02)]
-                            transition-all duration-1000 group-hover:border-white/40">
+                            transition-all duration-1000 group-hover:border-white/40 max-w-[90vw]">
                   {/* Internal Light Source */}
                   <div className="absolute inset-0 bg-gradient-to-tr from-white/[0.03] via-transparent to-white/[0.08] pointer-events-none" />
 
-                  <h2 className="font-google-sans text-[3.2rem] sm:text-[4rem] md:text-[5.5rem] font-black text-white tracking-[0.05em] leading-none glow-text-strong">
+                  <h2 className="font-google-sans text-5xl sm:text-[4rem] md:text-[5.5rem] font-black text-white tracking-[0.05em] leading-none glow-text-strong">
                     Forion
                   </h2>
-                  <p className="mt-4 text-[14px] sm:text-[17px] text-white/40 font-mono tracking-[0.5em] uppercase whitespace-nowrap pointer-events-none relative z-10 bg-black/40 backdrop-blur-lg px-4 py-1.5 rounded-full">
+                  <p className="mt-4 text-[9px] sm:text-[12px] md:text-[17px] text-white/40 font-mono tracking-[0.2em] md:tracking-[0.5em] uppercase whitespace-nowrap pointer-events-none relative z-10 bg-black/40 backdrop-blur-lg px-4 py-1.5 rounded-full overflow-hidden text-ellipsis max-w-full">
                     UNIVERSAL ENGINE ARCHITECTURE
                   </p>
                 </div>
@@ -229,10 +229,10 @@ const EcosystemSection = () => {
             </div>
           </div>
 
-          {/* The Web Layer (Behind Hub) */}
+          {/* The Web Layer (Behind Hub) - Hidden on Mobile */}
           <motion.div
             style={{ scale }}
-            className="absolute inset-0 pointer-events-none flex items-center justify-center z-10"
+            className="hidden md:flex absolute inset-0 pointer-events-none items-center justify-center z-10"
           >
             {/* Coordinate Sync Container: Ensures SVG units match Div transforms */}
             <div className="relative w-full max-w-[1200px] aspect-[1.2/1] flex items-center justify-center">
@@ -268,6 +268,35 @@ const EcosystemSection = () => {
             </div>
           </motion.div>
 
+          {/* Mobile Card Stack Layout */}
+          <div className="md:hidden flex flex-col gap-4 w-full px-4 relative z-20 pointer-events-auto pb-12">
+            {features.map((node, i) => (
+              <motion.div
+                key={node.name}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                style={{ '--hover-color': node.color, border: `1px solid ${node.color}40`, boxShadow: `0 0 15px ${node.color}11` } as any}
+                className="glass-card-strong px-5 py-4 flex gap-4 backdrop-blur-2xl transition-all duration-500 rounded-[1.25rem] w-full"
+              >
+                <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0">
+                  {getLogo(node.name, node.color)}
+                </div>
+                <div className="flex flex-col flex-1">
+                  <span className="text-[9px] text-[var(--hover-color)]/80 uppercase tracking-[0.4em] font-poppins mb-1 font-semibold">
+                    {node.label}
+                  </span>
+                  <h4 className="text-sm font-bold text-white tracking-tight mb-2">
+                    {node.name}
+                  </h4>
+                  <p className="text-[11px] text-white/50 leading-relaxed font-poppins">
+                    {node.summary}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
 
           {/* Centered Spotlight Lighting */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-white/[0.03] rounded-full blur-[200px] pointer-events-none z-0" />

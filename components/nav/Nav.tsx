@@ -55,22 +55,18 @@ export default function Nav() {
           left: '50%',
           transform: 'translateX(-50%)',
           zIndex: 200,
-          display: 'flex',
-          alignItems: 'center',
           gap: 'clamp(0.5rem, 2vw, 2.5rem)',
           padding: '7px 20px', 
           borderRadius: 999,
           transition: 'all 0.4s ease',
         }}
-        className={`
+        className={`hidden lg:flex items-center
           ${scrolled
             ? 'bg-black/70 backdrop-blur-xl border border-white/10'
             : 'md:bg-black/40 md:backdrop-blur-md md:border md:border-white/10 bg-black/20 backdrop-blur-sm border border-white/5'
           }
         `}
       >
-
-
         {/* Desktop links */}
         <div className="hidden lg:flex" style={{ gap: '3.5rem' }}>
           {links.map((link) => (
@@ -96,7 +92,7 @@ export default function Nav() {
         </div>
 
         <button
-          className="block"
+          className="hidden lg:block"
           onClick={() => setModalOpen(true)}
           style={{
             fontFamily: 'var(--font-google-sans)',
@@ -118,6 +114,29 @@ export default function Nav() {
           Start building with Orbit
         </button>
       </motion.nav>
+
+      <button
+        className="block lg:hidden p-2 text-white/70 hover:text-white transition-colors"
+        onClick={() => setMenuOpen(true)}
+        aria-label="Open menu"
+        style={{ 
+          position: 'fixed',
+          top: 24,
+          right: 24,
+          zIndex: 200,
+          background: 'transparent', 
+          border: 'none', 
+          cursor: 'pointer' 
+        }}
+      >
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <line x1="4" x2="20" y1="12" y2="12" />
+          <line x1="4" x2="20" y1="6" y2="6" />
+          <line x1="4" x2="20" y1="18" y2="18" />
+        </svg>
+      </button>
+      
+      <MobileMenu />
     </>
   )
 }

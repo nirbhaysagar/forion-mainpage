@@ -1,17 +1,25 @@
 'use client'
 
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { X } from 'lucide-react'
+import { X, CheckCircle2 } from 'lucide-react'
 
 import { useUI } from './providers/UIProvider'
 
 export default function RequestAccessModal() {
-  const { modalOpen: open, setModalOpen } = useUI()
+  const { modalOpen: open, setModalOpen, selectedProduct, setSelectedProduct } = useUI()
   const onClose = () => setModalOpen(false)
   const [email, setEmail] = useState('')
   const [submitted, setSubmitted] = useState(false)
   const [loading, setLoading] = useState(false)
+  const [localProduct, setLocalProduct] = useState<'Forion IDE' | 'Spark Engine'>('Forion IDE')
+
+  // Sync selectedProduct from UI provider the modal opens
+  React.useEffect(() => {
+    if (selectedProduct === 'Spark Engine' || selectedProduct === 'Forion IDE') {
+      setLocalProduct(selectedProduct as 'Forion IDE' | 'Spark Engine');
+    }
+  }, [selectedProduct, open])
 
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -68,7 +76,29 @@ export default function RequestAccessModal() {
                 </p>
 
                 <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-                  <div className="flex flex-col gap-1.5">
+                  {/* Product Selection */}
+                  <div className="flex flex-col gap-2 mt-2">
+                    <label className="text-[10px] uppercase tracking-[0.2em] text-white/30 font-poppins ml-1">Select Product</label>
+                    <div className="flex gap-3">
+                      {(['Forion IDE', 'Spark Engine'] as const).map((prod) => (
+                        <button
+                          key={prod}
+                          type="button"
+                          onClick={() => setLocalProduct(prod)}
+                          className={`flex-1 py-3 px-4 rounded-lg flex items-center justify-between transition-all border ${
+                            localProduct === prod
+                              ? 'bg-white/10 border-white/30 text-white'
+                              : 'bg-white/5 border-white/5 text-white/50 hover:bg-white/10'
+                          }`}
+                        >
+                          <span className="text-sm font-poppins">{prod}</span>
+                          {localProduct === prod && <CheckCircle2 className="w-4 h-4 text-white" />}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="flex flex-col gap-1.5 mt-2">
                     <label className="text-[10px] uppercase tracking-[0.2em] text-white/30 font-poppins ml-1">Work Email</label>
                     <input
                       type="email"

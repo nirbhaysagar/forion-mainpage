@@ -67,23 +67,23 @@ const ComparisonSection = () => {
 
                 <div className="glass-card-strong overflow-hidden" style={{ borderRadius: '2rem' }}>
                     <div className="overflow-x-auto">
-                        <table className="w-full text-left border-collapse min-w-[640px]">
+                        <table className="w-full text-left border-collapse min-w-[500px] md:min-w-[640px]">
                             <thead>
                                 <tr style={{ borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
-                                    <th className="p-8 text-[16px] uppercase tracking-[0.3em] text-white/30">Feature</th>
-                                    <th className="p-8" style={{ background: 'rgba(255,255,255,0.02)' }}>
-                                        <div className="flex items-center gap-4">
-                                            <div className="w-12 h-12 rounded-xl flex items-center justify-center" style={{ background: '#fff' }}>
-                                                <span className="text-black font-black text-xl">F</span>
+                                    <th className="p-4 md:p-8 text-xs md:text-[16px] uppercase tracking-[0.3em] text-white/30">Feature</th>
+                                    <th className="p-4 md:p-8" style={{ background: 'rgba(255,255,255,0.02)' }}>
+                                        <div className="flex items-center gap-3 md:gap-4">
+                                            <div className="w-8 h-8 md:w-12 md:h-12 rounded-lg md:rounded-xl flex items-center justify-center" style={{ background: '#fff' }}>
+                                                <span className="text-black font-black text-sm md:text-xl">F</span>
                                             </div>
-                                            <span className="text-xl font-bold text-white uppercase tracking-wider font-google-sans">Forion</span>
+                                            <span className="text-sm md:text-xl font-bold text-white uppercase tracking-wider font-google-sans">Forion</span>
                                         </div>
                                     </th>
-                                    <th className="p-8">
-                                        <span className="font-medium uppercase tracking-widest text-white/25 text-[18px]">Interface Builders</span>
+                                    <th className="p-4 md:p-8">
+                                        <span className="font-medium uppercase tracking-widest text-white/25 text-xs md:text-[18px]">Interface Builders</span>
                                     </th>
-                                    <th className="p-8">
-                                        <span className="font-medium uppercase tracking-widest text-white/25 text-[18px]">Legacy Agents</span>
+                                    <th className="p-4 md:p-8">
+                                        <span className="font-medium uppercase tracking-widest text-white/25 text-xs md:text-[18px]">Legacy Agents</span>
                                     </th>
                                 </tr>
                             </thead>
@@ -98,19 +98,19 @@ const ComparisonSection = () => {
                                         style={{ borderBottom: '1px solid rgba(255,255,255,0.04)' }}
                                         className="transition-colors hover:bg-white/[0.015]"
                                     >
-                                        <td className="p-8 font-medium text-white/45 text-[1.2rem]">
+                                        <td className="p-4 md:p-8 font-medium text-white/45 text-sm md:text-[1.2rem]">
                                             {row.feature}
                                         </td>
-                                        <td className="p-8" style={{ background: 'rgba(255,255,255,0.015)' }}>
-                                            <div className="flex items-center gap-4">
+                                        <td className="p-4 md:p-8" style={{ background: 'rgba(255,255,255,0.015)' }}>
+                                            <div className="flex items-center gap-2 md:gap-4">
                                                 <CheckIcon />
-                                                <span className="font-semibold text-white text-2xl">{row.forion}</span>
+                                                <span className="font-semibold text-white text-base md:text-2xl">{row.forion}</span>
                                             </div>
                                         </td>
-                                        <td className="p-8 text-white/30 text-[20px] leading-tight">
+                                        <td className="p-4 md:p-8 text-white/30 text-sm md:text-[20px] leading-tight">
                                             {row.legacy_ui}
                                         </td>
-                                        <td className="p-8 text-white/30 text-[20px] leading-tight">
+                                        <td className="p-4 md:p-8 text-white/30 text-sm md:text-[20px] leading-tight">
                                             {row.legacy_agents}
                                         </td>
                                     </motion.tr>

@@ -28,7 +28,7 @@ const SocialProofSection = () => {
                     </h2>
                 </motion.div>
 
-                <div className="grid grid-cols-3 gap-12">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
                     {stats.map((stat, i) => (
                         <motion.div
                             key={stat.label}

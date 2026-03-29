@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useTransform } from "framer-motion";
+import { useUI } from "./providers/UIProvider";
 // import OrbitDemo from "./OrbitDemo";
 // import IDEDemo from "./IDEDemo";
 
@@ -31,6 +32,7 @@ const ProductPanel = ({
   isUpcoming,
 }: Omit<ProductPanelProps, "progress" | "total">) => {
   const containerRef = useRef<HTMLDivElement>(null);
+  const { setModalOpen, setSelectedProduct } = useUI();
 
   return (
     <motion.div
@@ -89,18 +91,35 @@ const ProductPanel = ({
             </ul>
           )}
 
-          {!isUpcoming && (
-            <a
-              href={href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative w-fit mt-4"
-            >
-              <div className="absolute inset-0 bg-white blur-md opacity-0 group-hover:opacity-20 transition-opacity" />
-              <div className="font-google-sans relative px-10 py-4 rounded-full bg-white text-black font-bold uppercase text-[10px] tracking-[0.3em] hover:bg-neutral-100 transition-all">
-                {cta}
-              </div>
-            </a>
+          {cta && (
+            cta === "Join Waitlist" ? (
+              <button
+                onClick={(e) => {
+                  e.preventDefault();
+                  setSelectedProduct(title === "Spark" ? "Spark Engine" : "Forion IDE");
+                  setModalOpen(true);
+                }}
+                className="group relative w-full sm:w-fit mt-4 flex items-center justify-center block"
+                style={{ padding: 0, border: 'none', background: 'transparent' }}
+              >
+                <div className="absolute inset-0 bg-white blur-md opacity-0 group-hover:opacity-20 transition-opacity rounded-full pointer-events-none" />
+                <div className="font-google-sans relative w-full px-10 py-4 rounded-full bg-white text-black font-bold uppercase text-[10px] tracking-[0.3em] hover:bg-neutral-100 transition-all cursor-pointer text-center">
+                  {cta}
+                </div>
+              </button>
+            ) : (
+              <a
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative w-full sm:w-fit mt-4 flex items-center justify-center"
+              >
+                <div className="absolute inset-0 bg-white blur-md opacity-0 group-hover:opacity-20 transition-opacity rounded-full pointer-events-none" />
+                <div className="font-google-sans relative w-full px-10 py-4 rounded-full bg-white text-black font-bold uppercase text-[10px] tracking-[0.3em] hover:bg-neutral-100 transition-all text-center">
+                  {cta}
+                </div>
+              </a>
+            )
           )}
         </div>
 

@@ -55,8 +55,9 @@ export default function Hero({ onRequestAccess }: { onRequestAccess?: () => void
           width: '100%',
           maxWidth: '1400px',
           margin: '0 auto',
-          padding: '0 2rem'
+          padding: '0 1rem', // Reduced padding on mobile
         }}
+        className="md:px-8" // Restore padding on larger screens
       >
         {/* Dark scrim behind text for legibility */}
         <div
@@ -195,19 +196,13 @@ export default function Hero({ onRequestAccess }: { onRequestAccess?: () => void
             whileTap={{ scale: 0.98 }}
             style={{
               fontFamily: 'var(--font-google-sans)',
-              fontSize: 16,
               letterSpacing: '0.1em',
               color: '#000',
               background: '#fff',
-              padding: '22px 52px',
               textDecoration: 'none',
-              borderRadius: 8,
-              display: 'inline-block',
-              fontWeight: 700,
-              cursor: 'pointer',
-              border: 'none',
               transition: 'box-shadow 0.3s ease'
             }}
+            className="px-8 py-4 text-sm md:text-base md:px-[52px] md:py-[22px] rounded-lg inline-block font-bold cursor-pointer border-none"
           >
             Start building with Orbit
           </motion.button>

@@ -23,7 +23,7 @@ const products = [
   {
     title: "Spark",
     description: "Spark lets you run AI agents directly inside your GitHub repositories. Not toy agents on sandboxed fake codebases — real agents, on your real code, doing real work with full repository understanding.",
-    cta: "Connect your Repo",
+    cta: "Join Waitlist",
     href: "https://spark.forgje.com/",
     mainImage: "/WhatsApp Image 2026-03-20 at 22.47.49.jpeg",
     isUpcoming: true,
@@ -38,7 +38,7 @@ const products = [
   {
     title: "Forion IDE",
     description: "The AI-native development environment we built from the ground up. Write code alongside context-aware agents, trace every decision, and deploy seamlessly within the Forion ecosystem.",
-    cta: "Download IDE",
+    cta: "Join Waitlist",
     href: "#",
     mainImage: "/about_workstation.png",
     isUpcoming: true,
