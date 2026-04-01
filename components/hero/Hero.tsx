@@ -64,42 +64,7 @@ export default function Hero({ onRequestAccess }: { onRequestAccess?: () => void
           style={{ transform: 'scale(1.5)' }}
         />
 
-        {/* Technical Sidebar - Filling the left-hand space */}
-        <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          animate={bhReady ? { opacity: 1, x: 0 } : {}}
-          transition={{ delay: 1.8, duration: 1 }}
-          style={{
-            position: 'absolute',
-            left: '2rem',
-            top: '50%',
-            transform: 'translateY(-50%)',
-            flexDirection: 'column',
-            gap: '2.5rem',
-            textAlign: 'left',
-            zIndex: 20,
-            pointerEvents: 'none',
-          }}
-          className="hidden lg:flex"
-        >
-          <div className="flex flex-col gap-1">
-            <span style={{ fontFamily: 'var(--font-jetbrains)', fontSize: 9, color: 'rgba(255,180,80,0.4)', letterSpacing: '0.2em' }}>SYSTEM // VER</span>
-            <span style={{ fontFamily: 'var(--font-jetbrains)', fontSize: 11, color: 'rgba(255,255,255,0.3)', letterSpacing: '0.1em' }}>FORION_OS_2.4.0</span>
-          </div>
-          <div className="flex flex-col gap-1">
-            <span style={{ fontFamily: 'var(--font-jetbrains)', fontSize: 9, color: 'rgba(255,180,80,0.4)', letterSpacing: '0.2em' }}>STATUS // NET</span>
-            <span style={{ fontFamily: 'var(--font-jetbrains)', fontSize: 11, color: 'rgba(255,255,255,0.3)', letterSpacing: '0.1em' }}>DEEP_SPACE_NOMINAL</span>
-          </div>
-          <div className="flex flex-col gap-1">
-            <span style={{ fontFamily: 'var(--font-jetbrains)', fontSize: 9, color: 'rgba(255,180,80,0.4)', letterSpacing: '0.2em' }}>LATENCY // MS</span>
-            <div className="flex items-center gap-3">
-              <span style={{ fontFamily: 'var(--font-jetbrains)', fontSize: 11, color: 'rgba(255,255,255,0.3)', letterSpacing: '0.1em' }}>42ms</span>
-              <div className="flex gap-1">
-                {[1, 2, 3, 4].map(i => <div key={i} className={`w-1 h-3 ${i < 4 ? 'bg-orange-500/20' : 'bg-orange-500/40 animate-pulse'}`} />)}
-              </div>
-            </div>
-          </div>
-        </motion.div>
+
 
         <div className="mb-0 flex justify-center">
           <div className="px-4 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-md flex items-center gap-3">

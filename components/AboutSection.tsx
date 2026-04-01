@@ -3,6 +3,8 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 
+import Image from "next/image";
+
 const VISION_IMAGE = "/about_workstation.png";
 const HERO_IMAGE = "/about_hero.png";
 
@@ -43,10 +45,11 @@ const AboutSection = () => {
           className="relative md:absolute md:-right-12 md:top-48 w-full md:w-[48%] aspect-[16/9] z-0 opacity-60 pointer-events-none mt-8 md:mt-0"
         >
           <div className="relative w-full h-full rounded-2xl overflow-hidden glass-panel">
-            <img
+            <Image
               src={HERO_IMAGE}
               alt="Forion Infrastructure"
-              className="w-full h-full object-cover grayscale"
+              fill
+              className="object-cover grayscale"
             />
             <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, transparent, rgba(0,0,0,0.6))' }} />
           </div>
@@ -100,6 +103,7 @@ const AboutSection = () => {
               muted
               loop
               playsInline
+              preload="none"
               className="w-full h-full object-cover brightness-75 transition-all duration-1000 group-hover:brightness-90"
             />
             <div className="absolute inset-0 transition-colors duration-700" style={{ background: 'rgba(0,0,0,0.35)' }} />
@@ -126,8 +130,8 @@ const AboutSection = () => {
       </div>
 
       {/* Ambient glows */}
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full -z-10" style={{ background: 'rgba(255,255,255,0.02)', filter: 'blur(120px)' }} />
-      <div className="absolute bottom-1/3 left-0 w-[500px] h-[500px] rounded-full -z-10" style={{ background: 'rgba(255,255,255,0.015)', filter: 'blur(100px)' }} />
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full -z-10 blur-[64px] md:blur-[120px]" style={{ background: 'rgba(255,255,255,0.02)' }} />
+      <div className="absolute bottom-1/3 left-0 w-[500px] h-[500px] rounded-full -z-10 blur-[64px] md:blur-[100px]" style={{ background: 'rgba(255,255,255,0.015)' }} />
     </section>
   );
 };

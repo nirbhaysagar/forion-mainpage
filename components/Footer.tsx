@@ -2,6 +2,7 @@
 
 import { Instagram, Twitter, Mail } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 const Footer = () => {
   return (
@@ -13,7 +14,7 @@ const Footer = () => {
             {/* Brand + Newsletter */}
             <div className="flex flex-col gap-8 lg:w-[40%] text-left">
               <div>
-                <img src="/main-logo.svg" alt="Forion Logo" style={{ height: '32px', width: 'auto', marginBottom: '12px' }} />
+                <Image src="/main-logo.svg" alt="Forion Logo" width={120} height={32} style={{ height: '32px', width: 'auto', marginBottom: '12px' }} unoptimized />
                 <p className="mt-4 text-sm leading-relaxed max-w-[280px] text-white/40">
                   Forion is the operating system for building AI-native applications.
                 </p>

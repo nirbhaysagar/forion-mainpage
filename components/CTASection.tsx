@@ -7,7 +7,7 @@ const CTASection = ({ onRequestAccess }: { onRequestAccess?: () => void }) => {
     <section id="cta" className="relative pt-10 pb-0 md:py-20 px-6 overflow-hidden">
       {/* Background effects */}
       <div className="absolute inset-0 bg-nebula-strong opacity-20" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full blur-[120px]" style={{ background: 'rgba(255,255,255,0.025)' }} />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full blur-[64px] md:blur-[120px]" style={{ background: 'rgba(255,255,255,0.025)' }} />
 
       <div className="relative z-10 mx-auto max-w-3xl text-center">
         <motion.div

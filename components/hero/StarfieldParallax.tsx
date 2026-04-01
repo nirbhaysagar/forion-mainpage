@@ -90,9 +90,7 @@ export default function StarfieldParallax() {
             const x = ((star.x + offsetX) % W + W) % W
             const y = ((star.y + offsetY) % H + H) % H
             ctx.globalAlpha = star.opacity
-            ctx.beginPath() // Optimization: stay within layer loop
-            ctx.arc(x, y, star.r, 0, Math.PI * 2)
-            ctx.fill()
+            ctx.fillRect(x - star.r, y - star.r, star.r * 2, star.r * 2)
           })
       }
 

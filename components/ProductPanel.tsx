@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { motion, useTransform } from "framer-motion";
 import { useUI } from "./providers/UIProvider";
+import Image from "next/image";
 // import OrbitDemo from "./OrbitDemo";
 // import IDEDemo from "./IDEDemo";
 
@@ -126,7 +127,7 @@ const ProductPanel = ({
         {/* Visual / Demo Area */}
         <div className={`flex-[1.2] w-full relative group h-[220px] md:h-auto md:aspect-[16/10]
                         ${title === "Forion IDE" ? "md:scale-110" : "scale-[0.98]"}`}>
-          <div className={`w-full h-full rounded-[2rem] border overflow-hidden shadow-2xl transition-all duration-700 
+          <div className={`w-full h-full relative rounded-[2rem] border overflow-hidden shadow-2xl transition-all duration-700 
                           ${title === "Orbit"
               ? "bg-black/90 border-purple-500/25 shadow-[0_0_60px_rgba(139,92,246,0.12)]"
               : "bg-neutral-900/50 border-white/10 hover:border-white/20"}`}>
@@ -138,13 +139,15 @@ const ProductPanel = ({
                 muted
                 loop
                 playsInline
+                preload="none"
                 className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-all duration-700"
               />
             ) : (
-              <img
+              <Image
                 src={mainImage}
                 alt={title}
-                className="w-full h-full object-cover object-top opacity-90 group-hover:opacity-100 transition-all duration-700"
+                fill
+                className="object-cover object-top opacity-90 group-hover:opacity-100 transition-all duration-700"
               />
             )}
           </div>
