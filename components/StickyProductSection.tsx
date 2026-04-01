@@ -55,7 +55,7 @@ const products = [
 const StickyProductSection = () => {
   return (
     <section id="products" className="py-12 md:py-16 px-6 bg-transparent">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-[1080px] mx-auto">
         {/* Section Header */}
         <div className="mb-16 px-6 md:px-0">
           <div className="flex flex-col gap-4">

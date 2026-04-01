@@ -45,14 +45,14 @@ const ProductPanel = ({
       className="relative w-full flex items-center justify-center p-0"
     >
       {/* Product Card / Panel */}
-      <div className="relative w-full glass-card-strong border-white/10 rounded-xl md:rounded-2xl overflow-hidden flex flex-col-reverse md:flex-row items-center gap-8 p-5 md:p-12 shadow-[0_0_100px_rgba(0,0,0,0.4)]">
+      <div className="relative w-full glass-card-strong border-white/10 rounded-xl md:rounded-[1.3rem] overflow-hidden flex flex-col-reverse md:flex-row items-center gap-6 p-5 md:p-10 shadow-[0_0_100px_rgba(0,0,0,0.4)]">
 
         {/* Cinematic Grid Backdrop */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:100px_100px] pointer-events-none" />
         <div className="absolute inset-0 bg-radial-at-c from-white/[0.015] to-transparent pointer-events-none" />
 
         {/* Content Layout */}
-        <div className="flex-1 flex flex-col gap-8 relative z-20">
+        <div className="flex-1 flex flex-col gap-5 md:gap-7 relative z-20">
           <div className="flex flex-col gap-2">
             {isFlagship && (
               <div className="flex items-center gap-2 mb-2">
@@ -70,20 +70,20 @@ const ProductPanel = ({
                 </span>
               </div>
             )}
-            <span className="text-[14px] md:text-[20px] uppercase tracking-[0.2em] text-white/30 font-poppins">Module // 0{index + 1}</span>
-            <h2 className="font-google-sans text-3xl md:text-6xl font-bold text-white tracking-tighter leading-[0.9] uppercase">
+            <span className="text-[12px] md:text-[15px] uppercase tracking-[0.2em] text-white/30 font-poppins">Module // 0{index + 1}</span>
+            <h2 className="font-google-sans text-3xl md:text-[3.25rem] font-bold text-white tracking-tighter leading-[0.9] uppercase">
               {title}
             </h2>
           </div>
 
-          <p className="text-sm md:text-base text-white/40 max-w-md leading-relaxed">
+          <p className="text-sm md:text-[15px] text-white/40 max-w-[400px] leading-relaxed">
             {description}
           </p>
 
           {features && (
-            <ul className="flex flex-col gap-3 mt-2">
+            <ul className="flex flex-col gap-2 mt-2">
               {features.map((feature, i) => (
-                <li key={i} className="flex items-center gap-3 text-sm md:text-base text-white/60 tracking-tight">
+                <li key={i} className="flex items-center gap-3 text-[13px] md:text-[14px] text-white/60 tracking-tight">
                   <div className="w-1.5 h-1.5 rounded-full bg-white/20" />
                   {feature}
                 </li>
@@ -103,7 +103,7 @@ const ProductPanel = ({
                 style={{ padding: 0, border: 'none', background: 'transparent' }}
               >
                 <div className="absolute inset-0 bg-white blur-md opacity-0 group-hover:opacity-20 transition-opacity rounded-full pointer-events-none" />
-                <div className="font-google-sans relative w-full px-10 py-4 rounded-full bg-white text-black font-bold uppercase text-[10px] tracking-[0.3em] hover:bg-neutral-100 transition-all cursor-pointer text-center">
+                <div className="font-google-sans relative w-full px-8 py-3 rounded-full bg-white text-black font-bold uppercase text-[9px] tracking-[0.3em] hover:bg-neutral-100 transition-all cursor-pointer text-center">
                   {cta}
                 </div>
               </button>
@@ -115,7 +115,7 @@ const ProductPanel = ({
                 className="group relative w-full sm:w-fit mt-4 flex items-center justify-center"
               >
                 <div className="absolute inset-0 bg-white blur-md opacity-0 group-hover:opacity-20 transition-opacity rounded-full pointer-events-none" />
-                <div className="font-google-sans relative w-full px-10 py-4 rounded-full bg-white text-black font-bold uppercase text-[10px] tracking-[0.3em] hover:bg-neutral-100 transition-all text-center">
+                <div className="font-google-sans relative w-full px-8 py-3 rounded-full bg-white text-black font-bold uppercase text-[9px] tracking-[0.3em] hover:bg-neutral-100 transition-all text-center">
                   {cta}
                 </div>
               </a>
@@ -124,8 +124,8 @@ const ProductPanel = ({
         </div>
 
         {/* Visual / Demo Area */}
-        <div className={`flex-[1.2] w-full relative group h-[270px] md:h-auto md:aspect-video
-                        ${title === "Forion IDE" ? "md:scale-110" : ""}`}>
+        <div className={`flex-[1.2] w-full relative group h-[220px] md:h-auto md:aspect-[16/10]
+                        ${title === "Forion IDE" ? "md:scale-110" : "scale-[0.98]"}`}>
           <div className={`w-full h-full rounded-[2rem] border overflow-hidden shadow-2xl transition-all duration-700 
                           ${title === "Orbit"
               ? "bg-black/90 border-purple-500/25 shadow-[0_0_60px_rgba(139,92,246,0.12)]"

@@ -90,7 +90,7 @@ export default function PricingPage() {
           >
             <span className="text-[8px] uppercase tracking-[0.6em] text-white/30 mb-4 block font-poppins font-bold">Transparent Ecosystem</span>
             <h1 className="text-[clamp(2.5rem,8vw,6rem)] font-bold tracking-tight leading-[0.8] font-google-sans text-white">
-              Plans &<br />
+              Plans &{' '}
               <span className="text-white/20">Pricing</span>
             </h1>
           </motion.div>

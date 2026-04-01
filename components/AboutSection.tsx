@@ -25,7 +25,7 @@ const AboutSection = () => {
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-          className="relative z-10 flex flex-col gap-2 pointer-events-none"
+          className="relative z-10 flex flex-col gap-2 pointer-events-none md:max-w-[55%] lg:max-w-[50%]"
         >
           <span className="section-label">01 // THE UNIVERSAL ENGINE</span>
           <h2 className="text-[clamp(3.5rem,8vw,7rem)] font-bold leading-none tracking-tight font-google-sans">
@@ -62,7 +62,7 @@ const AboutSection = () => {
             Forion is the operating system for AI-native development.
           </p>
           <p className="mt-6 text-base md:text-lg leading-relaxed text-white/45">
-            Today, building with AI means stitching together prompts, APIs, and tools that were never designed to work as a system. The result? Fragile workflows, scattered logic, and constant rewrites.
+            Stop stitching together fragile scripts and scattered APIs. Build with pure momentum.
           </p>
         </motion.div>
       </div>
@@ -85,15 +85,12 @@ const AboutSection = () => {
         </motion.div>
 
         <div className="mt-16 flex flex-col gap-16">
-          <div className="text-base md:text-lg leading-relaxed max-w-xl flex flex-col gap-6" style={{ color: 'rgba(255,255,255,0.45)' }}>
-            <ul className="flex flex-col gap-3">
-              <li className="flex items-start gap-4">• Build AI applications visually with Orbit</li>
-              <li className="flex items-start gap-4">• Run intelligent agents directly inside your GitHub repositories with Spark</li>
-              <li className="flex items-start gap-4">• Move from idea to working system without losing structure</li>
+          <div className="text-base md:text-lg leading-relaxed max-w-xl flex flex-col gap-6" style={{ color: 'rgba(255,255,255,0.6)' }}>
+            <ul className="flex flex-col gap-4 font-medium">
+              <li className="flex items-start gap-4"><span className="text-white/30">—</span> Design visually with Orbit</li>
+              <li className="flex items-start gap-4"><span className="text-white/30">—</span> Execute natively with Spark</li>
+              <li className="flex items-start gap-4"><span className="text-white/30">—</span> Ship without the glue code</li>
             </ul>
-            <p>
-              No glue code. No fragmented workflows. Just a system designed for how AI software should be built.
-            </p>
           </div>
 
           <div className="relative w-full aspect-video rounded-2xl overflow-hidden border group" style={{ borderColor: 'rgba(255,255,255,0.06)' }}>
