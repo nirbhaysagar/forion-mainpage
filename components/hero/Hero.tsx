@@ -4,6 +4,7 @@ import dynamic from 'next/dynamic'
 import { useState } from 'react'
 import { motion, type Variants } from 'framer-motion'
 import StarfieldParallax from './StarfieldParallax'
+import TechConstellation from './TechConstellation'
 
 const InterstellarBlackHole = dynamic(() => import('./InterstellarBlackHole'), { ssr: false })
 
@@ -64,13 +65,14 @@ export default function Hero({ onRequestAccess }: { onRequestAccess?: () => void
           style={{ transform: 'scale(1.5)' }}
         />
 
-
+        {/* Tech Stack Network Topology */}
+        {bhReady && <TechConstellation />}
 
         <div className="mb-0 flex justify-center">
           <div className="px-4 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-md flex items-center gap-3">
             <div className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
             <span style={{ fontFamily: 'var(--font-jetbrains)', fontSize: 10, color: 'rgba(255,255,255,0.6)', letterSpacing: '0.2em', textTransform: 'uppercase' }}>
-              Orbit // Product_01_Launch
+              Orbit // Coming Soon
             </span>
           </div>
         </div>
