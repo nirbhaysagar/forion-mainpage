@@ -99,9 +99,10 @@ export default function PricingPage() {
         </section>
 
         {/* Pricing Table Section */}
-        <section className="py-12 px-6 md:px-20 relative max-w-7xl mx-auto">
-          {/* Top Row: Two Vertical Cards */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 items-stretch mb-5">
+        <section className="py-12 px-6 md:px-20 relative">
+          <div className="max-w-7xl mx-auto">
+            {/* Top Row: Two Vertical Cards */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 items-stretch mb-5">
             {plans.slice(0, 2).map((plan, i) => (
               <motion.div
                 key={plan.name}
@@ -276,6 +277,7 @@ export default function PricingPage() {
               </div>
             </div>
           </motion.div>
+          </div>
         </section>
 
         {/* FAQ Section */}

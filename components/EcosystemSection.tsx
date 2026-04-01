@@ -186,7 +186,7 @@ const EcosystemSection = () => {
   }, []);
 
   return (
-    <section ref={containerRef} className="relative pt-12 pb-20 px-6 overflow-hidden bg-transparent">
+    <section ref={containerRef} className="relative pt-12 pb-12 px-6 overflow-hidden bg-transparent">
       {/* Texture Layer */}
       <div className="absolute inset-0 bg-dot-grid opacity-[0.1] pointer-events-none" />
       <div className="absolute inset-0 bg-radial-at-c from-white/[0.03] via-transparent to-transparent pointer-events-none" />

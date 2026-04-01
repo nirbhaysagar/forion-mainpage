@@ -36,7 +36,7 @@ const DeveloperSection = () => {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.9, ease }}
-                        className="lg:col-span-5 flex flex-col justify-center"
+                        className="lg:col-span-6 flex flex-col justify-center lg:pr-10"
                     >
                         <span className="section-label">Real code. No lock-in. No magic.</span>
                         <h2 className="section-heading">
@@ -74,7 +74,7 @@ const DeveloperSection = () => {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.9, ease }}
-                        className="lg:col-span-7"
+                        className="lg:col-span-6"
                     >
                         <div className="rounded-xl border border-foreground/[0.06] bg-[hsl(240_25%_3%)] shadow-2xl overflow-hidden">
                             {/* Window chrome */}
