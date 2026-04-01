@@ -56,7 +56,7 @@ const AboutSection = () => {
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.4, duration: 1 }}
-          className="relative z-10 mt-32 md:mt-40 max-w-xl"
+          className="relative z-10 mt-10 md:mt-40 max-w-xl"
         >
           <p className="text-xl md:text-2xl leading-relaxed text-white/60">
             Forion is the operating system for AI-native development.

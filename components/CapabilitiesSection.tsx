@@ -52,7 +52,7 @@ const item = {
 
 const CapabilitiesSection = () => {
     return (
-        <section className="relative min-h-screen text-white px-6 md:px-20 py-10 md:py-24 overflow-hidden">
+        <section className="relative min-h-screen text-white px-6 md:px-20 pt-4 pb-12 md:pt-24 md:pb-24 overflow-hidden">
             <div className="absolute inset-0 bg-dot-grid opacity-[0.04] pointer-events-none" />
 
             <div className="mx-auto max-w-7xl relative">
@@ -61,7 +61,7 @@ const CapabilitiesSection = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                    className="mb-20 max-w-3xl"
+                    className="mb-8 md:mb-20 max-w-3xl"
                 >
                     <span className="section-label">Execution Pipeline</span>
                     <h2 className="section-heading mt-4">

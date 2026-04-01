@@ -27,11 +27,10 @@ export default function Hero({ onRequestAccess }: { onRequestAccess?: () => void
   return (
     <section
       id="hero"
+      className="min-h-[60vh] md:h-screen md:min-h-[600px]"
       style={{
         position: 'relative',
         width: '100%',
-        height: '100vh',
-        minHeight: 600,
         background: '#000',
         overflow: 'hidden',
         display: 'flex',

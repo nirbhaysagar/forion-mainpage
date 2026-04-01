@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 const CTASection = ({ onRequestAccess }: { onRequestAccess?: () => void }) => {
   return (
-    <section id="cta" className="relative py-10 md:py-20 px-6 overflow-hidden">
+    <section id="cta" className="relative pt-10 pb-0 md:py-20 px-6 overflow-hidden">
       {/* Background effects */}
       <div className="absolute inset-0 bg-nebula-strong opacity-20" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full blur-[120px]" style={{ background: 'rgba(255,255,255,0.025)' }} />
