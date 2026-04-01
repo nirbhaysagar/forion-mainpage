@@ -52,7 +52,7 @@ const item = {
 
 const CapabilitiesSection = () => {
     return (
-        <section className="relative min-h-screen text-white px-6 md:px-20 py-24 overflow-hidden">
+        <section className="relative min-h-screen text-white px-6 md:px-20 py-10 md:py-24 overflow-hidden">
             <div className="absolute inset-0 bg-dot-grid opacity-[0.04] pointer-events-none" />
 
             <div className="mx-auto max-w-7xl relative">

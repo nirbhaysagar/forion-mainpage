@@ -43,7 +43,7 @@ const CheckIcon = () => (
 
 const ComparisonSection = () => {
     return (
-        <section className="relative pt-12 pb-16 px-6 overflow-hidden">
+        <section className="relative pt-8 md:pt-12 pb-10 md:pb-16 px-6 overflow-hidden">
             <div className="mx-auto max-w-5xl relative z-10">
                 <div className="text-center mb-12">
                     <motion.div

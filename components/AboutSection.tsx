@@ -17,7 +17,7 @@ const AboutSection = () => {
   const opacity = useTransform(scrollYProgress, [0, 0.15, 0.85, 1], [0, 1, 1, 0]);
 
   return (
-    <section ref={containerRef} id="about" className="relative min-h-[80vh] text-white px-6 md:px-20 py-12 md:py-16 overflow-hidden">
+    <section ref={containerRef} id="about" className="relative min-h-[80vh] text-white px-6 md:px-20 py-8 md:py-16 overflow-hidden">
 
       {/* Top editorial heading */}
       <div className="relative mb-12 max-w-[1400px] mx-auto">

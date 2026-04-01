@@ -10,7 +10,7 @@ const stats = [
 
 const SocialProofSection = () => {
     return (
-        <section className="relative py-12 md:py-16 px-6">
+        <section className="relative py-8 md:py-16 px-6">
             <div className="absolute top-0 left-0 right-0 h-px" style={{ background: 'linear-gradient(to right, transparent, rgba(255,255,255,0.06), transparent)' }} />
 
             <div className="mx-auto max-w-5xl text-center">

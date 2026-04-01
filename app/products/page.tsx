@@ -14,7 +14,7 @@ export default function ProductsPage() {
       <main style={{ background: 'transparent', position: 'relative' }}>
 
         {/* Products Hero */}
-        <section className="relative min-h-[70vh] flex flex-col items-center justify-center px-6 pt-32 overflow-hidden">
+        <section className="relative min-h-[50vh] md:min-h-[70vh] flex flex-col items-center justify-center px-6 pt-24 md:pt-32 overflow-hidden">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -35,7 +35,7 @@ export default function ProductsPage() {
         </section>
 
         {/* Product Cards Section */}
-        <section className="py-24 px-6 md:px-20 max-w-7xl mx-auto flex flex-col gap-32">
+        <section className="py-8 md:py-24 px-6 md:px-20 max-w-7xl mx-auto flex flex-col gap-16 md:gap-32">
           {/* Orbit Card */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <motion.div
@@ -187,7 +187,7 @@ export default function ProductsPage() {
 
 
         {/* Documentation Peek */}
-        <section className="py-32 px-6 md:px-20 text-center">
+        <section className="py-16 md:py-32 px-6 md:px-20 text-center">
           <div className="max-w-2xl mx-auto">
             <h2 className="text-4xl font-bold tracking-tight mb-6">Need the docs?</h2>
             <p className="text-white/50 mb-10 leading-relaxed font-light">
