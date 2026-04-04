@@ -29,7 +29,7 @@ const DeveloperSection = () => {
             <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-foreground/[0.06] to-transparent" />
 
             <div className="mx-auto max-w-7xl">
-                <div className="grid gap-12 lg:gap-32 lg:grid-cols-12 items-center">
+                <div className="grid gap-8 lg:gap-12 lg:grid-cols-12 items-center">
                     {/* Left - Copy */}
                     <motion.div
                         initial={{ opacity: 0, x: -40 }}
@@ -74,9 +74,9 @@ const DeveloperSection = () => {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.9, ease }}
-                        className="lg:col-span-6"
+                        className="lg:col-span-6 w-full min-w-0"
                     >
-                        <div className="rounded-xl border border-foreground/[0.06] bg-[hsl(240_25%_3%)] shadow-2xl overflow-hidden">
+                        <div className="w-full rounded-xl border border-foreground/[0.06] bg-[hsl(240_25%_3%)] shadow-2xl overflow-hidden">
                             {/* Window chrome */}
                             <div className="flex items-center gap-2 px-4 py-3 border-b border-foreground/[0.04] bg-surface/30">
                                 <div className="flex gap-1.5">

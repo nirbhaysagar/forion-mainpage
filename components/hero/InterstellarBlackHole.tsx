@@ -214,7 +214,7 @@ function BlackHoleMesh({ onReady }: { onReady: () => void }) {
     uZoom: { value: 0 },
     uResolution: { value: new THREE.Vector2(size.width, size.height) },
     uMouse: { value: new THREE.Vector2(0, 0) },
-    uQuality: { value: isMobile ? 45.0 : 75.0 }, // Aggressive step reduction
+    uQuality: { value: isMobile ? 38.0 : 75.0 }, // Optimization: Carefully tuned for mobile
   })
 
   useEffect(() => {
@@ -265,7 +265,8 @@ interface InterstellarBlackHoleProps {
 }
 
 export default function InterstellarBlackHole({ onReady = () => { } }: InterstellarBlackHoleProps) {
-  // PERFORMANCE FIX: Lock DPR to 1 to halve fragment shader workload on high-res displays
+  // PERFORMANCE FIX: Halved the pixel load for mobile by dropping DPR to 0.75.
+  // This keeps the visuals identical but is 훨씬 (much) easier on the GPU.
   return (
     <Canvas
       camera={{ position: [0, 0, 1], fov: 90 }}
@@ -275,9 +276,11 @@ export default function InterstellarBlackHole({ onReady = () => { } }: Interstel
         alpha: false,
         powerPreference: 'high-performance'
       }}
-      dpr={1}
+      // Use 0.75 DPR on mobile, 1.0 on desktop.
+      dpr={typeof window !== 'undefined' && window.innerWidth < 768 ? 0.75 : 1}
     >
       <BlackHoleMesh onReady={onReady} />
     </Canvas>
   )
 }
+
